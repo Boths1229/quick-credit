@@ -1,0 +1,47 @@
+.grid-parent {
+    display: grid;
+    grid-template-areas: 
+        "header header"
+        "nav content"
+        "nav footer";
+    grid-template-columns:
+        minmax(300px,1fr)
+        4fr;
+    grid-template-rows: 
+        1fr
+        4fr
+        1fr;
+    height: 100vh;
+    width: 100vw;
+    margin:0  auto ;
+}
+
+.grid-parent > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+header {
+        grid-area: header;
+        background-color: gray;
+        border: 1px solid black;
+}
+
+aside {
+        grid-area: nav;
+        background-color: blue;
+        border: 1px solid black;
+}
+section {
+     grid-area: content;
+     background-color: rebeccapurple;
+    border: 1px solid black;
+}
+
+footer {
+        grid-area: footer;
+        background-color: aqua;
+        border: 1px solid black;
+}

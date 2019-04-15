@@ -4,12 +4,12 @@
  	<meta charset = "utf-8">
  	<meta name = "viewport" content = "width=device-width initial-scale=1.0">
  	<meta name = "author" content = "Chukwuma Emmanuel">
- 	<title>Quick Credit | Sign In</title>
+ 	<title>Quick Credit | Sign Up</title>
  	<link rel="stylesheet" type="text/css" href="quick.css">
  	<script type="text/javascript" src = "quick.js" defer></script>	
  </head>
  <body>
- 	<form>
+ 	<form action="./signin.html" method="get">
  		<h1>Please fill out this form</h1>
  		First Name: <input type ="text" name="firstname"><br>
  		Last Name: <input type ="text" name="lastname"><br>
@@ -28,7 +28,11 @@
  		<input type ="radio" name="gender">Male<br>
  		<input type ="radio" name="gender">Female<br>
  		<input type ="radio" name="gender">Other<br>
- 		<input type="submit" value="Register!">
+ 		<br>
+ 		<input type="checkbox" required>  I accept all terms $ conditions<br>
+ 		<input type="checkbox" required>  I accept your privacy policy.<br>
+ 		 <p>I have read, understand and accept all the terms and conditions $ privacy for Quick credit</p><br>
+ 		<a href ="signin.html"><input type="submit" value="Register!"></a>
  		<input type="reset">
  	</form>
  </body>
