@@ -4,7 +4,7 @@
  	<meta charset = "utf-8">
  	<meta name = "viewport" content = "width=device-width initial-scale=1.0">
  	<meta name = "author" content = "Chukwuma Emmanuel">
- 	<title>Quick Credit | Administrator</title>
+ 	<title>Quick Credit | Approve/Reject</title>
  	<link rel="stylesheet" type="text/css" href="quick.css">
  	<script type="text/javascript" src = "quick.js" defer></script>	
  </head>
@@ -38,12 +38,18 @@
  		</div>
  	</aside>
  	<section>
- 		<div class="">
- 			<p>Get a loan with from us in minutes!!</p>
- 			<p>You can get up to #3,000,000</p>
- 			<p>start your loan application here</p>
- 			<a href="signup.html">APPLY!!</a>
+ 		<div class="app_rej">
+ 			All verified loans: <br>
+ 			<select class="loans">
+ 				<option disabled selected>Applied loans IDs</option>
+ 			</select>
+ 			<button class="#">Display</button>
  		</div>
+ 		<div class="forms"></div>
+ 		<br>
+ 		Comment: <p></p> <br>
+ 		<br>
+ 		<button id="approved">APPROVED</button>  <button id="reject">REJECT</button>
  	</section>
  	<footer>
  		<p>Quick credit</p>

@@ -9,31 +9,75 @@
  	<script type="text/javascript" src = "quick.js" defer></script>	
  </head>
  <body>
- 	<form>
+ 	<div class="grid-parent">
+ 	<header>
+ 		<div class = "entity">
+ 			<div class = "upper">
+ 				<h1>Quick Credit</h1>
+ 			</div>
+ 			<nav>
+ 				<div class = "menu">
+ 					<ul>
+ 						<li><a href="index.html">Contact us</a></li>
+ 						<li><a href="#">FAGs</a></li>
+ 						<li class="identity">Your ID:</li>
+ 						<li><a href="#">Log out</a></li>
+ 					</ul>
+ 				</div>
+ 			</nav>
+ 		</div>
+ 	</header>
+ 	<aside>
+ 		<div class="">
+ 			<ul>
+ 				<li><a href="index.html">Home</a></li>
+ 				<li><a href="#">About Us</a></li>
+ 				<li><a href="#">products</a></li>
+ 				<li><a href="applyloan.html">Apply for a loan</a></li>
+ 				<li><a href="userpay.html">View loan repayment history</a></li>
+ 			</ul>
+ 		</div>
+ 	</aside>
+ 	<section>
+ 		<form>
  		<h1>Fill out the application form</h1>
  		Name: <br> 
  		<input type="text" name="name" placeholder="your fullname"><br>
  		Address: <br>
- 		<input type="text" name="address">
+ 		<input type="text" name="address"><br>
  		Any previous loan with Us? <br>
  		<select>
- 			<option value="yes">yes</option>
- 			<option value="No"></option>
+ 			<option value="yes">Yes</option>
+ 			<option value="No">No</option>
  		</select><br>
  		If yes in the above question,have you completed the payment?<br>
  		<input type="checkbox"> Yes<br>
  		<input type="checkbox"> No<br>
  		Loan Amount: <br>
- 		<input type="text" name="laon amount" placeholder="enter the amount">
+ 		<input type="text" name="laon amount" placeholder="enter the amount you want"><br>
  		Loan duration: <br>
- 		<input type="text" name="laon duration">
+ 		<input type="text" name="laon duration"><br>
  		Employment status: <br>
  		<input type="radio" name="employed">Employed <br>
  		<input type="radio" name="selfemployed">Self Employed <br>
  		<input type="radio" name="unemployed">Unemployed <br>
  		Name of Organisation: <br>
  		<input type="text" name="organisation"><br>
-
+ 		Address of Organisation: <br>
+ 		<input type="text" name="office address" placeholder="your office address">
+        Bank details: <br>
+        <input type="text" name="account name" placeholder="your account name"><br>
+        <input type="text" name="bank name" placeholder="your bank"><br>
+        <input type="text" name="account number" placeholder="account number"><br>
+        <br>
+        <input type="checkbox" required>  I have read and accepted all your terms and conditions<br>
+        <br>
+        <input type="submit" value="APPLY!!">
  	</form>
+ 	</section>
+ 	<footer>
+ 		<p>Quick credit</p>
+ 	</footer>
+ 	</div>
  </body>
 </html>
