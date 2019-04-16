@@ -31,7 +31,7 @@ header {
 
 aside {
         grid-area: nav;
-        background-color: blue;
+        background-color: orange;
         border: 1px solid black;
 }
 section {
