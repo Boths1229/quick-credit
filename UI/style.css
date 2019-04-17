@@ -1,0 +1,39 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	background: url(https://as2.ftcdn.net/jpg/01/91/58/83/500_F_191588315_EszVGA7RNKeT94rTF9hW2m1nE67MxN31.jpg);
+	background-repeat: no-repeat;
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+}
+
+.main {
+	display: flex;
+	border: 1px solid pink;
+}
+
+.entity{
+	padding: 20px;
+}
+.menu {
+	text-align: left;
+	font-size: 20px;
+	padding: 10px;
+	
+}
+	
+
+
+ul {
+	list-style-type: none;
+	display: flex;
+	justify-content- flex-end;
+
+}
+
+li a {
+text-decoration: none;
+float: right;
+
+}	
