@@ -9,17 +9,23 @@ body {
 }
 
 .main {
-	display: flex;
+	display: block;
 	border: 1px solid pink;
+	position: top;
 }
 
 .entity{
 	padding: 20px;
+	float: left;
+	font-family: fantasy;
+	font-size: 20px;
 }
 .menu {
-	text-align: left;
+	margin-right: auto;
 	font-size: 20px;
 	padding: 10px;
+	float: right;
+
 	
 }
 	
@@ -28,12 +34,25 @@ body {
 ul {
 	list-style-type: none;
 	display: flex;
-	justify-content- flex-end;
+	padding: 10px;
+	margin-right: 10px;
 
 }
 
 li a {
 text-decoration: none;
-float: right;
+padding: 10px;
+text-align: left;
+font-size: 20px;
+font-family: sans-serif;
+text-transform: capitalize;
 
+}
+
+.view {
+	text-align: center;
+	font-size: 30px;
+	font-weight: 2em;
+	text-decoration: none;
+	margin-top: 200px;
 }	
