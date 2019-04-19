@@ -6,53 +6,82 @@ body {
 	height: 100%;
 	background-size: cover;
 	background-position: center;
+	font-size: 20px;
+	font-family: Arial;
+	}
+header {
+	background: #35424a;
+	color: #ffffff;
+	padding-top: 25px;
+	min-height: 70px;
+	border-bottom: pink 1px solid;
+}
+header a {
+	color: #ffffff;
+	text-decoration: none;
+	text-transform: capitalize;
+	font-size: 16px;
+  
+}
+header ul {
+	padding: 0;
+	margin-top: 0;
 }
 
-.main {
-	display: block;
-	border: 1px solid pink;
-	position: top;
-}
-
-.entity{
-	padding: 20px;
+header li {
 	float: left;
-	font-family: fantasy;
-	font-size: 20px;
+	display: inline;
+	padding: 0 20px;
+	
 }
-.menu {
-	margin-right: auto;
-	font-size: 20px;
-	padding: 10px;
+header a: hover {
+	cursor: pointer;
+	color: red;
+}
+header .entity {
+	float: left;
+}
+header .entity h1 {
+	margin: 10px;
+	font-weight: bolder;
+}
+header nav {
 	float: right;
-
-	
+	margin-top: 10px;
 }
-	
-
-
-ul {
-	list-style-type: none;
-	display: flex;
-	padding: 10px;
-	margin-right: 10px;
-
-}
-
-li a {
-text-decoration: none;
-padding: 10px;
-text-align: left;
-font-size: 20px;
-font-family: sans-serif;
-text-transform: capitalize;
-
-}
-
 .view {
 	text-align: center;
 	font-size: 30px;
 	font-weight: 2em;
 	text-decoration: none;
-	margin-top: 200px;
-}	
+	margin-top: 100px;
+}
+@keyframes slidein {
+  from {
+    margin-top: 100%;
+    width: 100%;
+  }
+
+  to {
+    margin-top: 0%;
+    width: 100%;
+  }
+}
+.view p {
+	overflow: hidden;
+	line-height: 1.6;
+  animation-duration: 5s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+}
+.signin {
+	text-align: center;
+	margin-top: 100px;
+	padding: 10px;
+	margin: 10px;
+	font-family: Arial;
+}
+.signup {
+	text-align: center;
+}
+

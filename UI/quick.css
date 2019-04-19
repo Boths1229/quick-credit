@@ -1,6 +1,3 @@
-.main {
-    background: url(https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
-}
 
 .grid-parent {
     display: grid;
@@ -35,12 +32,12 @@ header {
 
 aside {
         grid-area: nav;
-        background-color: orange;
+        background-color:  #35424a;
         border: 1px solid black;
 }
 section {
      grid-area: content;
-     background-color: rebeccapurple;
+     background-color: 
     border: 1px solid black;
 }
 
@@ -48,4 +45,27 @@ footer {
         grid-area: footer;
         background-color: aqua;
         border: 1px solid black;
+}
+header .entity {
+    display: flex;
+    background: #35424a;
+    color: #ffffff;
+    width: 100%;
+    padding: 0 20px;
+    justify-content: space-between;
+}
+ .menu ul {
+    display: flex;
+    margin: 20px;
+    padding: 30px;
+    margin-right: auto; 
+    width: 100%;
+}
+ul li {
+    list-style-type: none;
+    margin: 10px;    
+}
+li a {
+    color: #ffffff;
+    text-decoration: none;
 }

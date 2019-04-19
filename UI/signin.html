@@ -5,16 +5,26 @@
  	<meta name = "viewport" content = "width=device-width initial-scale=1.0">
  	<meta name = "author" content = "Chukwuma Emmanuel">
  	<title>Quick Credit | Sign In</title>
- 	<link rel="stylesheet" type="text/css" href="style.css">
  	<script type="text/javascript" src = "quick.js" defer></script>	
+ 	<link rel="stylesheet" type="text/css" href="style.css">
  </head>
  <body>
- 	<form action="./Admin.html" method="get" class="view">
- 	<h1>Welcome</h1>
- 	Email: <input type="email" name="email" required><br>
- 	Password: <input type="password" name="password" min="6"><br>
- 	<p class="forgot"><a href="#">Forgot Password?</a></p>
- 	<button class="btn">Sign in</button>
- </form>
+ 	<form class="signin" action="./user.html" method="get">
+    <p class="clearfix">
+        <label for="login">Username</label>
+        <input type="text" name="login" id="login" placeholder="Username">
+    </p>
+    <p class="clearfix">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="Password"> 
+    </p>
+    <p class="clearfix">
+        <input type="checkbox" name="remember" id="remember">
+        <label for="remember">Remember me</label>
+    </p>
+    <p class="clearfix">
+        <input type="submit" name="submit" value="Sign in">
+    </p>       
+</form>?
  </body>
 </html>
