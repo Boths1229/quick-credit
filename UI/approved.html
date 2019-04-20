@@ -39,17 +39,24 @@
  	</aside>
  	<section>
  		<div class="app_rej">
- 			All verified loans: <br>
- 			<select class="loans">
- 				<option disabled selected>Applied loans IDs</option>
- 			</select>
- 			<button class="#">Display</button>
- 		</div>
- 		<div class="forms"></div>
- 		<br>
- 		Comment: <p></p> <br>
- 		<br>
- 		<button id="approved">APPROVED</button>  <button id="reject">REJECT</button>
+ 			<table>
+ 				<tr>
+ 					<th>Name</th>
+ 					<th>User ID</th>
+ 					<th>Amount</th>
+ 					<th>Verified</th>
+ 					<th>Loan Duration</th>
+ 				</tr>
+ 				<tr>
+ 					<td><input type="text" placeholder="name" id="name"></td>
+ 					<td><input type="text" placeholder="userid" id="userid"></td>
+ 					<td><input type="text" placeholder="amount" id="amount"></td>
+ 					<td><input type="text" placeholder="verified" id="verified" value="YES"></td>
+ 					<td><input type="text" placeholder="loan duration" id="duration"></td>
+ 					<td><input type="submit" value="APPROVE"></td>
+ 					<td><input type="submit" value="REJECT"></td>
+ 				</tr>
+ 			</table>
  	</section>
  	<footer>
  		<p>Quick credit</p>
