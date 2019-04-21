@@ -1,14 +1,30 @@
 body {
 	margin: 0px;
 	padding: 0px;
+	font-size: 20px;
+	font-family: Arial;
+}
+
+img {
+	width: 100%;
+	height: 100%;
+	border: 0;
+	object-fit: cover;
+}
+
+.background-image {
+	margin: 0px;
+	padding: 0px;
 	background: url(https://as2.ftcdn.net/jpg/01/91/58/83/500_F_191588315_EszVGA7RNKeT94rTF9hW2m1nE67MxN31.jpg);
+	position: fixed;
+    z-index: -999;
+	width: 100%;
 	background-repeat: no-repeat;
 	height: 100%;
 	background-size: cover;
 	background-position: center;
-	font-size: 20px;
-	font-family: Arial;
-	}
+}
+
 header {
 	background: #35424a;
 	color: #ffffff;
@@ -16,13 +32,14 @@ header {
 	min-height: 70px;
 	border-bottom: pink 1px solid;
 }
+
 header a {
 	color: #ffffff;
 	text-decoration: none;
 	text-transform: capitalize;
 	font-size: 16px;
-  
 }
+
 header ul {
 	padding: 0;
 	margin-top: 0;
@@ -32,31 +49,102 @@ header li {
 	float: left;
 	display: inline;
 	padding: 0 20px;
-	
 }
+
 header a: hover {
 	cursor: pointer;
 	color: red;
 }
+
 header .entity {
 	float: left;
 }
+
 header .entity h1 {
 	margin: 10px;
 	font-weight: bolder;
 }
+
 header nav {
 	float: right;
 	margin-top: 10px;
 }
+
+.right .drop1, .right .drop2, .right .drop3, .right .drop4,
+.left .drop1, .left .drop2, .left .drop3, .left .drop4
+{
+	opacity: 0;
+	position: relative;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	animation-iteration-count: forwards;
+}
+
+.right .drop1, .right .drop2, .right .drop3, .right .drop4
+{
+	animation-name: slide-right-animation;
+}
+
+.left .drop1, .left .drop2, .left .drop3, .left .drop4
+{
+	animation-name: slide-left-animation;
+}
+
+.right .drop2, .left .drop2 {
+	animation-delay: 1s;
+}
+
+.right .drop3, .left .drop3 {
+	animation-delay: 2s;
+}
+
+.right .drop4, .left .drop4 {
+	animation-delay: 3s;
+}
+
+@keyframes slide-right-animation {
+	0% { right: -40%; opacity: 0 }
+	10% { right: -20%; opacity: 0.2}
+	50% { right: -5%; opacity: 1}
+	100% { right: 0; opacity: 1}
+}
+
+@keyframes slide-left-animation {
+	0% { left: -40%; opacity: 0 }
+	10% { left: -20%; opacity: 0.2}
+	50% { left: -5%; opacity: 1}
+	100% { left: 0; opacity: 1}
+}
+
+.card-height {
+	height: 300px;
+}
+
 .view {
+	background: rgba(217, 219, 224, 0.5);
 	text-align: center;
-	font-size: 30px;
+	font-size: 20px;
 	font-weight: 2em;
 	text-decoration: none;
-	margin-top: 100px;
+    padding-left: 2rem;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
-@keyframes slidein {
+
+.text {
+	padding: 10px 0;
+    color: rgb(143, 149, 163);
+}
+
+/*.view p {
+	overflow: hidden;
+	line-height: 1.6;
+  animation-duration: 5s;
+  animation-name: slidein;
+  animation-iteration-count: forward;
+}*/
+
+/*@keyframes slidein {
   from {
     margin-top: 100%;
     width: 100%;
@@ -66,14 +154,8 @@ header nav {
     margin-top: 0%;
     width: 100%;
   }
-}
-.view p {
-	overflow: hidden;
-	line-height: 1.6;
-  animation-duration: 5s;
-  animation-name: slidein;
-  animation-iteration-count: infinite;
-}
+}*/
+
 .signin {
 	text-align: center;
 	margin-top: 100px;
@@ -81,6 +163,7 @@ header nav {
 	margin: 10px;
 	font-family: Arial;
 }
+
 .signup {
 	text-align: center;
 	font-family: Arial;

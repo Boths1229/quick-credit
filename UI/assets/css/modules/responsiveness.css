@@ -1,0 +1,7 @@
+p, div, img, main, aside, li, ul
+{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	text-indent: none;
+}
