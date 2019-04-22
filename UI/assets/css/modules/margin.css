@@ -1,6 +1,37 @@
+/* padding auto section */
+
+.ml-auto {
+	margin-left: auto!important;
+}
+
+.mr-auto {
+	margin-right: auto!important;
+}
+
+.mx-auto {
+	margin-left: auto!important;
+	margin-right: auto!important;
+}
+
+.my-auto {
+	margin-top: auto!important;
+	margin-bottom: auto!important;
+}
+
 /* margin 0 section */
+
 .m-0 {
 	margin: 0!important;
+}
+
+.mx-0 {
+	margin-left: 0!important;
+	margin-right: 0!important;
+}
+
+.my-0 {
+	margin-top: 0!important;
+	margin-bottom: 0!important;
 }
 
 .mt-0 {
@@ -20,6 +51,17 @@
 }
 
 /* margin .25 rem section */
+
+.mx-1 {
+	margin-left: .25rem!important;
+	margin-right: .25rem!important;
+}
+
+.my-1 {
+	margin-top: .25rem!important;
+	margin-bottom: .25rem!important;
+}
+
 .m-1 {
     margin: .25rem!important;
 }
@@ -41,6 +83,16 @@
 }
 
 /* margin .5 rem: second section */
+
+.mx-2 {
+	margin-left: .5rem!important;
+	margin-right: .5rem!important;
+}
+
+.my-2 {
+	margin-top: .5rem!important;
+	margin-bottom: .5rem!important;
+}
 
 .m-2 {
     margin: .5rem!important;
@@ -64,6 +116,16 @@
 
 /* margin 1 rem: third section */
 
+.mx-3 {
+	margin-left: 1rem!important;
+	margin-right: 1rem!important;
+}
+
+.my-3 {
+	margin-top: 1rem!important;
+	margin-bottom: 1rem!important;
+}
+
 .m-3 {
     margin: 1rem!important;
 }
@@ -86,6 +148,16 @@
 
 /* margin 1.5rem: fourth secton */
 
+.mx-4 {
+	margin-left: 1.5rem!important;
+	margin-right: 1.5rem!important;
+}
+
+.my-4 {
+	margin-top: 1.5rem!important;
+	margin-bottom: 1.5rem!important;
+}
+
 .m-4 {
     margin: 1.5rem!important;
 }
@@ -107,6 +179,16 @@
 }
 
 /* margin 3 rem: last section */
+
+.mx-5 {
+	margin-left: 3rem!important;
+	margin-right: 3rem!important;
+}
+
+.my-5 {
+	margin-top: 3rem!important;
+	margin-bottom: 3rem!important;
+}
 
 .m-5 {
     margin: 3rem!important;

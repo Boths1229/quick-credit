@@ -28,9 +28,7 @@ img {
 header {
 	background: #35424a;
 	color: #ffffff;
-	padding-top: 25px;
 	min-height: 70px;
-	border-bottom: pink 1px solid;
 }
 
 header a {
@@ -38,36 +36,6 @@ header a {
 	text-decoration: none;
 	text-transform: capitalize;
 	font-size: 16px;
-}
-
-header ul {
-	padding: 0;
-	margin-top: 0;
-}
-
-header li {
-	float: left;
-	display: inline;
-	padding: 0 20px;
-}
-
-header a: hover {
-	cursor: pointer;
-	color: red;
-}
-
-header .entity {
-	float: left;
-}
-
-header .entity h1 {
-	margin: 10px;
-	font-weight: bolder;
-}
-
-header nav {
-	float: right;
-	margin-top: 10px;
 }
 
 .right .drop1, .right .drop2, .right .drop3, .right .drop4,
@@ -125,15 +93,37 @@ header nav {
 	text-align: center;
 	font-size: 20px;
 	font-weight: 2em;
-	text-decoration: none;
-    padding-left: 2rem;
     box-sizing: border-box;
     overflow-x: hidden;
+}
+
+@media (max-width: 576px) {
+	.view {
+		padding-top: 20px;
+		padding-bottom: 20px
+	}
 }
 
 .text {
 	padding: 10px 0;
     color: rgb(143, 149, 163);
+}
+
+@media screen and (max-width: 767px) {
+	.text {
+		padding: 10px 0;
+    	color: rgb(143, 149, 163);
+    	font-size: 14px;
+    	font-weight: 500;
+    	text-transform: uppercase;
+    	letter-spacing: 0.6px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.card-height {
+		height: auto!important;
+	}
 }
 
 /*.view p {
@@ -165,7 +155,6 @@ header nav {
 }
 
 .signup {
-	text-align: center;
 	font-family: Arial;
 }
 
