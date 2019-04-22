@@ -10,6 +10,17 @@
  	<script type="text/javascript" src = "quick.js" defer></script>	
  </head>
  <body>
+ 	<div class="background-image"></div>
+ 	<header class="container-fluid position-sticky top0">
+		<nav class="navbar container d-flex">
+		  	<h1 class="brand-name">Quick Credit</h1>
+			<ul>
+				<li class="d-inline-flex">
+					<a class="nav-item mr-0" href="signin.html">sign in</a>
+				</li>
+			</ul>
+		</nav>
+ 	</header>
  	<div class="container">
  		<div class="card col-md-6 p-3 mx-auto my-5">
  			<form action="./signin.html" method="get" class="signup">
@@ -38,7 +49,7 @@
 		 			<label for="mobile">Mobile:</label>
 		 			<input type="text" name="mobile" id="mobile" placeholder="phone number">
 		 		</div>
-		 		<div class="form-group d-column">
+		 		<div class="form-group d-column"> 
 		 			<label for="birthdate">Birthdate:</label>
 		 			<input type ="date" name="birthdate" id="birthdate">
 		 		</div>
@@ -55,26 +66,37 @@
 		 		</div>
 		 		<div class="form-group">
 		 			<label for="nationality">Gender:</label><br>
-		 			<input type ="radio" name="gender">Male<br>
-		 			<input type ="radio" name="gender">Female<br>
-		 			<input type ="radio" name="gender">Other<br>
+		 			<div class="form-group mt-2">
+		 				<input class="radio-input mr-3" type ="radio" name="gender">
+		 				<span class="vertical-top">Male</span>
+		 			</div>
+		 			<div class="form-group mt-2">
+		 				<input class="radio-input mr-3" type ="radio" name="gender">
+		 				<span class="vertical-top">Female</span>
+		 			</div>
+		 			<div class="form-group mt-2">
+		 				<input class="radio-input mr-3" type ="radio" name="gender">
+		 				<span class="vertical-top">Other</span>
+		 			</div>
 		 		</div>
 		 		<div class="form-group">
 		 			<label for="nationality">
-		 				<input type="checkbox" required>
-		 				I accept all terms $ conditions<br>
+		 				<input class="checkbox-input mr-3" type="checkbox" required>
+		 				<span class="vertical-top terms">I accept all terms and conditions</span>
 		 			</label>
+		 			<br>
 		 			<label for="nationality">
-		 				<input type="checkbox" required>
-		 				I accept your privacy policy.
+		 				<input class="checkbox-input mr-3" type="checkbox" required>
+		 				<span class="terms">I accept your privacy policy.</span>
 		 			</label>
 		 		</div>
-		 		 <p>I have read, understand and accept all the terms and conditions $ privacy for Quick credit</p><br>
-		 		<button type="submit">Register!</button>
-		 		<button type="reset">Reset</button>
+		 		 <p class="terms">I have read, understand and accept all the <span class="text-dark">terms, conditions</span> and <span class=text-dark>privacy</span> for Quick credit</p><br>
+		 		 <div>
+		 			<button class="button mx-1" type="submit">Register!</button>
+		 			<button class="button mx-1" type="reset">Reset</button>
+		 		 </div>
 		 	</form>
  		</div>
  	</div>
- 	
  </body>
 </html>

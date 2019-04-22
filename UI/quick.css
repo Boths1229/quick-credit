@@ -80,3 +80,9 @@ li a {
     height: 100%;
     font-size: 20px;
 }
+
+table, th, td { 
+    border: 1px solid black; 
+    border-collapse: collapse;
+    width: 100%; 
+}  

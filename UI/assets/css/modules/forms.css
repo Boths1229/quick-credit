@@ -20,3 +20,43 @@ input {
 	line-height: 30px;
 	padding-left: 5px;
 }
+
+select {
+	font-size: 20px;
+	line-height: 30px;
+	height: 30px
+}
+
+.radio-input, .checkbox-input {
+  width: 20px;
+  height: 20px;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  position: relative;
+  -webkit-box-flex: 0;
+  flex-grow: 0;
+  flex-shrink: 0;
+  -webkit-appearance: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #8F95A3;
+  border-image: initial;
+  outline: none;
+}
+
+.radio-input {
+  border-radius: 50%;
+}
+
+.checkbox-input {
+	border-radius: 0%
+}
+
+.checkbox-input:checked,
+.radio-input:checked {
+  background-color: #fff;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #35424a;
+  border-image: initial;
+}
