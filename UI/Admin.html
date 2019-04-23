@@ -6,48 +6,55 @@
  	<meta name = "author" content = "Chukwuma Emmanuel">
  	<title>Quick Credit | Administrator</title>
  	<link rel="stylesheet" type="text/css" href="quick.css">
+ 	<link rel="stylesheet" type="text/css" href="style.css">
+ 	<link rel="stylesheet" type="text/css" href="./assets/css/modules.css">
  	<script type="text/javascript" src = "quick.js" defer></script>	
  </head>
  <body>
- 	<div class="grid-parent">
- 	<header>
- 		<div class = "entity">
- 			<div class = "upper">
- 				<h1>Quick Credit</h1>
- 			</div>
- 			<nav>
- 				<div class = "menu">
- 					<ul>
- 						<li><a href="index.html">Log out</a></li>
- 					</ul>
- 				</div>
- 			</nav>
- 		</div>
+ 	<div class="box">
+ 		<header class="container-fluid row-box container-header">
+		<nav class="navbar container d-flex">
+		  	<h1 class="brand-name">Quick Credit</h1>
+			<ul class="md-dropdown-none">
+				<li class="d-inline-flex">
+					<a class="nav-item mr-0" href="index.html">Log out</a>
+				</li>
+			</ul>
+			<div id="icon" onclick="userMenuToggler(this)" class="toggler-icon fa-menu md-toggle-none">
+		 		<div></div>
+		 		<div></div>
+		 		<div></div>
+		 	</div>
+		</nav>
  	</header>
- 	<aside>
- 		<div class="">
- 			<ul>
- 				<li><a href="verified.html">Mark a client as verified</a></li>
- 				<li><a href="loans.html">View all loan application</a></li>
- 				<li><a href="current.html">View all current loans(not fully paid)</a></li>
- 				<li><a href="repaid.html">View all repaid loans </a></li>
- 				<li><a href="specific.html">View a specific loan application</a></li>
- 				<li><a href="approved.html">Approve/Reject loan application</a></li>
- 				<li><a href="post.html">Post a loan repayment transaction in favour of a client</a></li>
- 			</ul>
- 		</div>
- 	</aside>
- 	<section>
- 		<div class="">
- 			<p>Get a loan with from us in minutes!!</p>
- 			<p>You can get up to #3,000,000</p>
- 			<p>start your loan application here</p>
- 			<a href="signup.html">APPLY!!</a>
+ 	<section class="row-box container-main">
+ 		<div class="row min-height mx-0">
+	 		<aside class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 user-section-aside">
+		 		<ul class="aside-content">
+					<li class="aside-text"><a href="verified.html">Mark a client as verified</a></li>
+	 				<li class="aside-text"><a href="loans.html">View all loan application</a></li>
+	 				<li class="aside-text"><a href="current.html">View all current loans(not fully paid)</a></li>
+	 				<li class="aside-text"><a href="repaid.html">View all repaid loans </a></li>
+	 				<li class="aside-text"><a href="specific.html">View a specific loan application</a></li>
+	 				<li class="aside-text"><a href="approved.html">Approve/Reject loan application</a></li>
+	 				<li class="aside-text"><a href="post.html">Post a loan repayment transaction in favour of a client</a></li>
+				</ul>
+	 		</aside>
+			<main class="main col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12 p-4">
+				<div class="default-main-content d-flex flex-column align-center">
+					<p>Welcome back Admin!!</p>
+		 			<p>Enjoy your day</p>
+				</div>
+			</main>
  		</div>
  	</section>
- 	<footer>
- 		<p>Quick credit</p>
+ 	<footer class="row-box container-footer" id="contact">
+ 		<div class="footer-content border p-2 text-center">
+ 			<p class="pb-2">Address: Lagos Nigeria</p>
+ 			<p class="pb-2">Mobile: 08037022549</p>
+ 		</div>
  	</footer>
+ 	<script type="text/javascript" src="./assets/js/bundle.min.js"></script>
  	</div>
  </body>
 </html>

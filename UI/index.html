@@ -5,23 +5,29 @@
  	<meta name = "viewport" content = "width=device-width initial-scale=1.0">
  	<meta name = "author" content = "Chukwuma Emmanuel">
  	<title>Quick Credit | Welcome</title>
+ 	<link rel="stylesheet" type="text/css" href="quick.css">
  	<link rel="stylesheet" type="text/css" href="style.css">
  	<link rel="stylesheet" type="text/css" href="./assets/css/modules.css">
  	<script type="text/javascript" src = "quick.js" defer></script>	
  </head>
  <body>
  	<div class="background-image"></div>
- 	<header class="container-fluid">
+ 	<header class="container-fluid row-box container-header">
 		<nav class="navbar container d-flex">
 		  	<h1 class="brand-name">Quick Credit</h1>
-			<ul>
+			<ul class="md-dropdown-none">
 				<li class="d-inline-flex">
-					<a class="nav-item" href="signup.html">sign up</a>
+					<a class="nav-item" href="sigup.html">Sign Up</a>
 				</li>
 				<li class="d-inline-flex">
-					<a class="nav-item mr-0" href="signin.html">sign in</a>
+					<a class="nav-item" href="signin.html">Sign In</a>
 				</li>
 			</ul>
+			<div id="icon" onclick="userMenuToggler(this)" class="toggler-icon fa-menu md-toggle-none">
+		 		<div></div>
+		 		<div></div>
+		 		<div></div>
+		 	</div>
 		</nav>
  	</header>
  	<div class="container d-flex flex-column">
@@ -51,6 +57,7 @@
  			</div>
  		</div>
  	</div>
+ 	<script type="text/javascript" src="./assets/js/bundle.min.js"></script>
  </body>
 </html>
 

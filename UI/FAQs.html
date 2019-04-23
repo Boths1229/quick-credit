@@ -6,73 +6,88 @@
  	<meta name = "author" content = "Chukwuma Emmanuel">
  	<title>Quick Credit | FAQs</title>
  	<link rel="stylesheet" type="text/css" href="quick.css">
+ 	<link rel="stylesheet" type="text/css" href="style.css">
+ 	<link rel="stylesheet" type="text/css" href="./assets/css/modules.css">
  	<script type="text/javascript" src = "quick.js" defer></script>	
  </head>
  <body>
- 	<div class="grid-parent">
- 	<header>
- 		<div class = "entity">
- 			<div class = "upper">
- 				<h1>Quick Credit</h1>
- 			</div>
- 			<nav>
- 				<div class = "menu">
- 					<ul>
- 						<li><a href="index.html">Contact us</a></li>
- 						<li><a href="FAQs.html">FAQs</a></li>
- 						<li class="identity">Your ID:</li>
- 						<li><a href="index.html">Log out</a></li>
- 					</ul>
- 				</div>
- 			</nav>
- 		</div>
+ 	<div class="box">
+ 		<header class="container-fluid row-box container-header">
+		<nav class="navbar container d-flex">
+		  	<h1 class="brand-name">Quick Credit</h1>
+			<ul class="md-dropdown-none">
+				<li class="d-inline-flex">
+					<a class="nav-item" href="#contact">Contact us</a>
+				</li>
+				<li class="d-inline-flex">
+					<a class="nav-item" href="FAQs.html">FAQs</a>
+				</li>
+				<li class="d-inline-flex">
+					<span class="nav-item">Your ID:</span>
+				</li>
+				<li class="d-inline-flex">
+					<a class="nav-item mr-0" href="index.html">Log out</a>
+				</li>
+			</ul>
+			<div id="icon" onclick="userMenuToggler(this)" class="toggler-icon fa-menu md-toggle-none">
+		 		<div></div>
+		 		<div></div>
+		 		<div></div>
+		 	</div>
+		</nav>
  	</header>
- 	<aside>
- 		<div class="">
- 			<ul>
- 				<li><a href="about.html">About Us</a></li>
- 				<li><a href="product.html">products</a></li>
- 				<li><a href="applyloan.html">Apply for a loan</a></li>
- 				<li><a href="userpay.html">View loan repayment history</a></li>
- 			</ul>
- 		</div>
- 	</aside>
- 	<section>
- 		<div>
- 			<ol>
- 		<li>Who is eligible?
- 			<div>
- 				<p>Anyone above 20yrs old and is earning money</p>
- 			</div>
- 		</li>
- 		<li>What are the requirements?
- 			<div>
- 				<p>When you apply depending on the package,you will receive a mail from us. But no collateral required</p>
- 			</div>
- 		</li>
- 		<li>How long does it take to process?
- 			<div>
- 				<p>Within 24hrs.</p>
- 				<p>Except some exceptional cases</p>
- 			</div>
- 		</li>
- 		<li>What is the interest rate?
- 			<div>
- 				<p>Usually 5%. it can varry</p>
- 			</div>
- 		</li>
- 		<li>How long can i pay back?
- 			<div>
- 				<p>It depends on you.</p>
- 				<p>But maximum loan duration is 5yrs</p>
- 			</div>
- 		</li>
- 	</ol>
+ 	<section class="row-box container-main">
+ 		<div class="row min-height mx-0">
+	 		<aside class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 user-section-aside">
+		 		<ul class="aside-content">
+					<li class="aside-text"><a href="about.html">About Us</a></li>
+					<li class="aside-text"><a href="product.html">products</a></li>
+					<li class="aside-text"><a href="applyloan.html">Apply for a loan</a></li>
+					<li class="aside-text"><a href="userpay.html">View loan repayment history</a></li>
+				</ul>
+	 		</aside>
+			<main class="main col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12 p-4">
+				<div class="default-main-content d-flex flex-column align-center">
+					<ol>
+				 		<li>Question: Who is eligible?
+				 			<div>
+				 				<p>Ans: Anyone above 20yrs old and is earning money</p>
+				 			</div>
+				 		</li>
+				 		<li>Question: What are the requirements?
+				 			<div>
+				 				<p>Ans: When you apply depending on the package,you will receive a mail from us. But no collateral required</p>
+				 			</div>
+				 		</li>
+				 		<li>Question: How long does it take to process?
+				 			<div>
+				 				<p>Ans: Within 24hrs.</p>
+				 				<p>Except some exceptional cases</p>
+				 			</div>
+				 		</li>
+				 		<li>Question: What is the interest rate?
+				 			<div>
+				 				<p>Ans: Usually 5%. it can varry</p>
+				 			</div>
+				 		</li>
+				 		<li>Question: How long can i pay back?
+				 			<div>
+				 				<p>Ans: It depends on you.</p>
+				 				<p>But maximum loan duration is 5yrs</p>
+				 			</div>
+				 		</li>
+				 	</ol>
+				</div>
+			</main>
  		</div>
  	</section>
- 	<footer>
- 		<p>Quick credit</p>
+ 	<footer class="row-box container-footer" id="contact">
+ 		<div class="footer-content border p-2 text-center">
+ 			<p class="pb-2">Address: Lagos Nigeria</p>
+ 			<p class="pb-2">Mobile: 08037022549</p>
+ 		</div>
  	</footer>
+ 	<script type="text/javascript" src="./assets/js/bundle.min.js"></script>
  	</div>
  </body>
 </html>	

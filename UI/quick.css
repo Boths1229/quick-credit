@@ -46,6 +46,13 @@
     padding: 10px 0;
 }
 
+.input {
+    width: 150px;
+}
+
+.table {
+    border:1px solid black;
+}
 @media (min-width: 767px) {
     .md-toggle-none {
         display: none!important;
