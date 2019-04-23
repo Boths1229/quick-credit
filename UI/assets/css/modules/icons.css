@@ -1,0 +1,22 @@
+.toggler-icon {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.fa-menu div {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.toggle div:nth-child(1) {
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.toggle div:nth-child(2) {opacity: 0;}
+
+.toggle div:nth-child(3) {
+  transform: rotate(45deg) translate(-8px, -8px);
+}

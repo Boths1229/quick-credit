@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ 	<meta charset = "utf-8">
+ 	<meta name = "viewport" content = "width=device-width initial-scale=1.0">
+ 	<meta name = "author" content = "Chukwuma Emmanuel">
+ 	<title>Quick Credit | Sign In</title>
+ 	<script type="text/javascript" src = "quick1.js" defer></script>	
+ 	<link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/modules.css">
+ </head>
+ <body>
+    <div class="background-image"></div>
+    <header class="container-fluid position-sticky top0">
+        <nav class="navbar container d-flex">
+            <h1 class="brand-name">Quick Credit</h1>
+            <ul>
+                <li class="d-inline-flex">
+                    <a class="nav-item mr-0" href="signup.html">sign up</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="card col-md-6 p-3 mx-auto my-5">
+         	<form class="signin" action="./user.html" method="get">
+                <h2>Welcome</h2>
+                <p class="form-group d-column">
+                    <label for="login">Email</label>
+                    <input type="text" name="login" id="login" placeholder="Username">
+                </p>
+                <p class="form-group d-column">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="Password"> 
+                </p>
+                <p class="form-group">
+                    <input class="checkbox-input mr-3" type="checkbox" name="remember" id="remember">
+                    <label class="vertical-top" for="remember">Remember me</label>
+                </p>
+                <span class="psw">Forgot <a href="#">password?</a></span><br><br>
+                <button class="button mx-1" type="submit">Sign In</button>    
+            </form>
+        </div>
+    </div>
+</body>
+</html>

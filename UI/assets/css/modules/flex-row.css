@@ -1,0 +1,28 @@
+.flex-row {
+	flex-direction: row!important;
+	box-sizing: border-box;
+}
+
+@media screen and (min-width: 576px) {
+	.flex-sm-row {
+		flex-direction: row!important;
+	}
+}
+
+@media screen and (min-width: 767px) {
+	.flex-md-row {
+		flex-direction: row!important;
+	}
+}
+
+@media screen and (min-width: 992px) {
+	.flex-lg-row {
+		flex-direction: row!important;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.flex-xl-row {
+		flex-direction: row!important;
+	}
+}

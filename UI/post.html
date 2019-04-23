@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ 	<meta charset = "utf-8">
+ 	<meta name = "viewport" content = "width=device-width initial-scale=1.0">
+ 	<meta name = "author" content = "Chukwuma Emmanuel">
+ 	<title>Quick Credit | Repayment Posting</title>
+ 	<link rel="stylesheet" type="text/css" href="quick1.css">
+ 	<link rel="stylesheet" type="text/css" href="style.css">
+ 	<link rel="stylesheet" type="text/css" href="./assets/css/modules.css">
+ 	<script type="text/javascript" src = "quick1.js" defer></script>	
+ </head>
+ <body>
+ 	<div class="box">
+ 		<header class="container-fluid row-box container-header">
+		<nav class="navbar container d-flex">
+		  	<h1 class="brand-name">Quick Credit</h1>
+			<ul class="md-dropdown-none">
+				<li class="d-inline-flex">
+					<a class="nav-item mr-0" href="index.html">Log out</a>
+				</li>
+			</ul>
+			<div id="icon" onclick="userMenuToggler(this)" class="toggler-icon fa-menu md-toggle-none">
+		 		<div></div>
+		 		<div></div>
+		 		<div></div>
+		 	</div>
+		</nav>
+ 	</header>
+ 	<section class="row-box container-main">
+ 		<div class="row min-height mx-0">
+	 		<aside class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 user-section-aside">
+		 		<ul class="aside-content">
+					<li class="aside-text"><a href="verified.html">Mark a client as verified</a></li>
+	 				<li class="aside-text"><a href="loans.html">View all loan application</a></li>
+	 				<li class="aside-text"><a href="current.html">View all current loans(not fully paid)</a></li>
+	 				<li class="aside-text"><a href="repaid.html">View all repaid loans </a></li>
+	 				<li class="aside-text"><a href="specific.html">View a specific loan application</a></li>
+	 				<li class="aside-text"><a href="approved.html">Approve/Reject loan application</a></li>
+	 				<li class="aside-text"><a href="post.html">Post a loan repayment transaction in favour of a client</a></li>
+				</ul>
+	 		</aside>
+			<main class="main col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12 p-4">
+				<div class="default-main-content d-flex flex-column align-center">
+					<div class="table-heading">
+						Client ID: <input type="text" class="input" name="clientID">
+			 			<button class="">Click</button>
+			 		<div class="repayment">
+			 			client loan repayment form
+			 			<button id="">Submit</button>
+					</div>
+				</div>
+				</div>
+			</main>
+ 		</div>
+ 	</section>
+ 	<footer class="row-box container-footer" id="contact">
+ 		<div class="footer-content border p-2 text-center">
+ 			<p class="pb-2">Address: Lagos Nigeria</p>
+ 			<p class="pb-2">Mobile: 08037022549</p>
+ 		</div>
+ 	</footer>
+ 	<script type="text/javascript" src="./assets/js/bundle.min.js"></script>
+ 	</div>
+ </body>
+</html>

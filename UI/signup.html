@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ 	<meta charset = "utf-8">
+ 	<meta name = "viewport" content = "width=device-width initial-scale=1.0">
+ 	<meta name = "author" content = "Chukwuma Emmanuel">
+ 	<title>Quick Credit | Sign Up</title>
+ 	<link rel="stylesheet" type="text/css" href="./assets/css/modules.css">
+ 	<link rel="stylesheet" type="text/css" href="style.css">
+ 	<script type="text/javascript" src = "quick1.js" defer></script>	
+ </head>
+ <body>
+ 	<div class="background-image"></div>
+ 	<header class="container-fluid position-sticky top0">
+		<nav class="navbar container d-flex">
+		  	<h1 class="brand-name">Quick Credit</h1>
+			<ul>
+				<li class="d-inline-flex">
+					<a class="nav-item mr-0" href="signin.html">sign in</a>
+				</li>
+			</ul>
+		</nav>
+ 	</header>
+ 	<div class="container">
+ 		<div class="card col-md-6 p-3 mx-auto my-5">
+ 			<form action="./signin.html" method="get" class="signup">
+		 		<h2>Please fill out this form</h2>
+		 		<div class="form-group d-column">
+		 			<label for="firstname">First Name:</label>
+		 			<input type="text" id="firstname" name="firstname">
+		 		</div>
+		 		<div class="form-group d-column">
+		 			<label for="lastname">Last Name:</label>
+		 			<input type ="text" id="lastname" name="lastname">
+		 		</div>
+		 		<div class="form-group d-column">
+		 			<label for="email">Email:</label>
+		 			<input type ="email" id="email" name="email" placeholder="email@" required>
+		 		</div>
+		 		<div class="form-group d-column">
+		 			<label for="password">Password:</label>
+		 			<input type ="password" id="password" min="6" name="password">
+		 		</div>
+		 		<div class="form-group d-column">
+		 			<label for="bvn">BVN:</label>
+		 			<input type="number" placeholder="bvn" id="bvn" name="bvn" required>
+		 		</div>
+		 		<div class="form-group d-column">
+		 			<label for="mobile">Mobile:</label>
+		 			<input type="text" name="mobile" id="mobile" placeholder="phone number">
+		 		</div>
+		 		<div class="form-group d-column"> 
+		 			<label for="birthdate">Birthdate:</label>
+		 			<input type ="date" name="birthdate" id="birthdate">
+		 		</div>
+		 		<div class="form-group d-column">
+		 			<label for="age">Age:</label>
+		 			<input type ="text" name="age" placeholder="your age" id="age">
+		 		</div>
+		 		<div class="form-group d-column">
+		 			<label for="nationality">Nationality:</label>
+		 			<select>
+			            <option value="nigeria" name="Nigeria">Nigeria</option>
+			            <option value="other" name="other">other</option>
+			         </select>
+		 		</div>
+		 		<div class="form-group">
+		 			<label for="nationality">Gender:</label><br>
+		 			<div class="form-group mt-2">
+		 				<input class="radio-input mr-3" type ="radio" name="gender">
+		 				<span class="vertical-top">Male</span>
+		 			</div>
+		 			<div class="form-group mt-2">
+		 				<input class="radio-input mr-3" type ="radio" name="gender">
+		 				<span class="vertical-top">Female</span>
+		 			</div>
+		 			<div class="form-group mt-2">
+		 				<input class="radio-input mr-3" type ="radio" name="gender">
+		 				<span class="vertical-top">Other</span>
+		 			</div>
+		 		</div>
+		 		<div class="form-group">
+		 			<label for="nationality">
+		 				<input class="checkbox-input mr-3" type="checkbox" required>
+		 				<span class="vertical-top terms">I accept all terms and conditions</span>
+		 			</label>
+		 			<br>
+		 			<label for="nationality">
+		 				<input class="checkbox-input mr-3" type="checkbox" required>
+		 				<span class="terms">I accept your privacy policy.</span>
+		 			</label>
+		 		</div>
+		 		 <p class="terms">I have read, understand and accept all the <span class="text-dark">terms, conditions</span> and <span class=text-dark>privacy</span> for Quick credit</p><br>
+		 		 <div>
+		 			<button class="button mx-1" type="submit">Register!</button>
+		 			<button class="button mx-1" type="reset">Reset</button>
+		 		 </div>
+		 	</form>
+ 		</div>
+ 	</div>
+ </body>
+</html>

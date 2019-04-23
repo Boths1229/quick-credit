@@ -1,0 +1,112 @@
+@media (min-width: 767px) {
+	.border {
+		border: 1px solid #666;
+	}
+}
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.column {
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+
+.justify-center {
+	justify-content: center;
+}
+
+.justify-between {
+	justify-content: space-between;
+}
+
+.align-center {
+	align-items: center;
+}
+
+.text-center {
+	text-align: center
+}
+
+.vertical-top {
+	vertical-align: top;
+}
+
+.container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+html, body {
+	height: 100%;
+	margin: 0;
+} 
+
+.box {
+   display: flex;
+   flex-flow: column;
+   height: 100%;
+}
+
+.box .row-box {
+  border: 1px solid grey;
+}
+
+.box .row-box .container-header {
+	flex: 0 1 auto;
+}
+
+.box .row-box .container-main {
+	flex: 1 1 auto;
+	background: rgba(122 255 100 0.4);
+}
+
+.box .row-box .container-footer {
+    flex: 0 1 40px;
+}
+
+@media (min-width: 576px) {
+	.container {
+    	max-width: 540px;
+	}
+}
+
+@media (min-width: 768px) {
+	.container {
+    	max-width: 720px;
+	}
+}
+
+@media (min-width: 992px) {
+	.container {
+    	max-width: 960px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.container {
+   		max-width: 1140px;
+	}
+}

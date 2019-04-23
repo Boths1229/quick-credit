@@ -1,0 +1,8 @@
+p, a, div, img, main, aside, li, ul, ol, span, nav, header, label, input, button, select, section, aside, footer
+{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	box-sizing: border-box;
+	text-decoration: none;
+}
