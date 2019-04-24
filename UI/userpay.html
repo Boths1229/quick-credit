@@ -2,7 +2,7 @@
 <html>
  <head>
  	<meta charset = "utf-8">
- 	<meta name = "viewport" content = "width=device-width initial-scale=1.0">
+ 	<meta name = "viewport" content ="width=device-width,initial-scale=1.0,user-scalable=yes">
  	<meta name = "author" content = "Chukwuma Emmanuel">
  	<title>Quick Credit | Repayment History</title>
  	<link rel="stylesheet" type="text/css" href="quick1.css">
@@ -13,11 +13,16 @@
  <body>
  	<div class="box">
     <header class="container-fluid row-box container-header">
-    <nav class="navbar container d-flex">
-        <h1 class="brand-name">Quick Credit</h1>
-      <ul class="md-dropdown-none">
-        <li class="d-inline-flex">
-          <a class="nav-item" href="#contact">Contact us</a>
+        <nav class="navbar container d-flex">
+          <div id="icon" onclick="handleAsideToggle(this)" class="toggler-icon fa-menu md-toggle-none">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <h1 class="brand-name">Quick Credit</h1>
+          <ul class="dropdown-none">
+            <li class="d-inline-flex">
+        <a class="nav-item" href="#contact">Contact us</a>
         </li>
         <li class="d-inline-flex">
           <a class="nav-item" href="FAQs.html">FAQs</a>
@@ -25,92 +30,85 @@
         <li class="d-inline-flex">
           <span class="nav-item">Your ID:</span>
         </li>
-        <li class="d-inline-flex">
-          <a class="nav-item mr-0" href="index.html">Log out</a>
-        </li>
-      </ul>
-      <div id="icon" onclick="userMenuToggler(this)" class="toggler-icon fa-menu md-toggle-none">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </nav>
-  </header>
-  <section class="row-box container-main">
-    <div class="row min-height mx-0">
-      <aside class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 user-section-aside">
-        <ul class="aside-content">
-          <li class="aside-text"><a href="about.html">About Us</a></li>
+            <li class="d-inline-flex">
+              <a class="nav-item mr-0" href="index.html">Log out</a>
+            </li>
+          </ul>
+          <div id="icon" onclick="userMenuToggler(this)" class="toggler-icon fa-menu md-toggle-none">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </nav>
+      </header>
+      <section class="row-box container-main">
+        <div class="row min-height mx-0">
+          <aside id="aside-drawer" class="side-drawer-none col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 user-section-aside">
+            <ul class="aside-content">
+              <li class="aside-text"><a href="about.html">About Us</a></li>
           <li class="aside-text"><a href="product.html">Products</a></li>
           <li class="aside-text"><a href="applyloan.html">Apply for a loan</a></li>
           <li class="aside-text"><a href="userpay.html">View loan repayment history</a></li>
-        </ul>
-      </aside>
-      <main class="main col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12 p-4">
-        <div class="default-main-content d-flex flex-column align-center">
-                Client ID: <br>
-                    Loan ID: <br>
-                    <br>
-                    Total Amount Collected: <br>
-                    <br>
-                    Date Collected: <br>
-                    <br>
-                    Interest Rate: <br>
-                    <br>
-                    Loan Duration: <br>
-                    <br>
-                    Repayment History: <br>
-              <table class="table"> 
-                <tr > 
-                  <th>Amount Paid</th> 
-                  <th>Date</th>  
-                  <th>Amount Remaining</th> 
-                </tr> 
-                <tr> 
-                  <td>nil</td> 
-                  <td>..</td> 
-                  <td>nil</td> 
-                </tr> 
-                <tr> 
-                  <td>nil</td> 
-                  <td>..</td> 
-                  <td>nil</td>
-                </tr> 
-                <tr> 
-                  <td>nil</td> 
-                  <td>..</td> 
-                  <td>nil</td> 
-                </tr> 
-                <tr> 
-                  <td>nil</td> 
-                  <td>..</td> 
-                  <td>nil</td>
-                </tr> 
-                <tr> 
-                  <td>nil</td> 
-                  <td>..</td> 
-                  <td>nil</td>
-                </tr> 
-                <tr> 
-                  <td>nil</td> 
-                  <td>..</td> 
-                  <td>nil</td>
-                </tr> 
-              </table> 
-                <br>
-                Loan Amount Remaining: #0.00 <br>
-                Loan fully Paid: Boolean
+            </ul>
+          </aside>
+          <main class="main col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12 p-4">
+            <div class="default-main-content d-flex flex-column align-center">
+              <div class="container">
+                <h2>Loan ID:</h2>
+                <h2>Total Amount Collected:</h2>
+                <h2>Date Collected:</h2>
+                <h2>Interest Rate: 5%</h2>
+                <h2>Loan Duration:</h2>
+                <h2>Repayment History:</h2>
+              <div class="px-3 pb-3 mx-auto">
+                <h2>Loans:</h2>
+              <main class="signin row p-0">
+                <div class="col-4 border thead">
+                    <div>Name</div>
+                </div>
+                <div class="col-2 border thead">
+                    <div>User ID</div>
+                </div>
+                <div class="col-2 border thead">
+                    <div>Amount paid</div>
+                </div>
+                <div class="col-2 border thead">
+                    <div>Date</div>
+                </div>
+                <div class="col-2 border thead">
+                    <div>Balance</div>
+                </div>
+                <div class="col-4 border tbody">
+                    <div>fullname</div>
+                </div>
+                <div class="col-2 border tbody">
+                    <div>028398a</div> 
+                </div>
+                <div class="col-2 border tbody">
+                    <div>2000</div>
+                </div>
+                <div class="col-2 border tbody">
+                    <div>date</div>
+                </div>
+                <div class="col-2 border tbody">
+                    <div>3000</div> 
+                </div>
+              </main>
+            </div>
+              <h2>Loan Amount Remaining: #0.00</h2>
+              <h2>Loan fully Paid: Yes/No</h2>
+              </div>
+            </div>
+          </main>
         </div>
-      </main>
-    </div>
-  </section>
-  <footer class="row-box container-footer" id="contact">
-    <div class="footer-content border p-2 text-center">
-      <p class="pb-2">Address: Lagos Nigeria</p>
-      <p class="pb-2">Mobile: 08037022549</p>
-    </div>
-  </footer>
-  <script type="text/javascript" src="./assets/js/bundle.min.js"></script>
+      </section>
+      <footer class="row-box container-footer" id="contact">
+        <div class="footer-content border p-2 text-center">
+          <p class="pb-2">Copyright &copy;2019 Chukwuma Emmanuel</p>
+          <p class="pb-2">Mobile: 08037022549</p>
+        </div>
+      </footer>
+     <script type="text/javascript" src="./assets/js/bundle.min.js"></script>
  	</div>
  </body>
 </html>
