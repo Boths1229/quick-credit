@@ -13,64 +13,87 @@
  <body>
  	<div class="box">
  		<header class="container-fluid row-box container-header">
-		<nav class="navbar container d-flex">
-		  	<h1 class="brand-name">Quick Credit</h1>
-			<ul class="md-dropdown-none">
-				<li class="d-inline-flex">
-					<a class="nav-item mr-0" href="index.html">Log out</a>
-				</li>
-			</ul>
-			<div id="icon" onclick="userMenuToggler(this)" class="toggler-icon fa-menu md-toggle-none">
-		 		<div></div>
-		 		<div></div>
-		 		<div></div>
-		 	</div>
-		</nav>
- 	</header>
- 	<section class="row-box container-main">
- 		<div class="row min-height mx-0">
-	 		<aside class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 user-section-aside">
-		 		<ul class="aside-content">
-					<li class="aside-text"><a href="verified.html">Mark a client as verified</a></li>
-	 				<li class="aside-text"><a href="loans.html">View all loan application</a></li>
-	 				<li class="aside-text"><a href="current.html">View all current loans(not fully paid)</a></li>
-	 				<li class="aside-text"><a href="repaid.html">View all repaid loans </a></li>
-	 				<li class="aside-text"><a href="specific.html">View a specific loan application</a></li>
-	 				<li class="aside-text"><a href="approved.html">Approve/Reject loan application</a></li>
-	 				<li class="aside-text"><a href="post.html">Post a loan repayment transaction in favour of a client</a></li>
-				</ul>
-	 		</aside>
-			<main class="main col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12 p-4">
-				<div class="default-main-content d-flex flex-column align-center">
-					 <div class="table-heading">
-					 	<table>
-						  <tr> 
-						    <th>Name</th> 
-						    <th>User ID</th>
-						    <th>Amount</th> 
-						    <th>Loan Duration</th>
-						  </tr> 
-						  <tr> 
-						    <td><input type="text" class="input" placeholder="name" id="name"></td> 
-						   <td><input type="text" class="input" placeholder="userid" id="userid"></td>
-						   <td><input type="text" class="input" placeholder="amount" id="amount"></td>
-						    <td><input type="text" class="input" placeholder="loan duration" id="duration"></td>
-						    <td><input type="submit" class="input" value="APPROVE"></td>
-						    <td><input type="submit" class="input" value="REJECT"></td>
-						  </tr> 
-						</table> 
-			 		</div>
-				</div>
-			</main>
- 		</div>
- 	</section>
- 	<footer class="row-box container-footer" id="contact">
- 		<div class="footer-content border p-2 text-center">
- 			<p class="pb-2">Address: Lagos Nigeria</p>
- 			<p class="pb-2">Mobile: 08037022549</p>
- 		</div>
- 	</footer>
- 	<script type="text/javascript" src="./assets/js/bundle.min.js"></script>
+		    <nav class="navbar container d-flex">
+		      <div id="icon" onclick="handleAsideToggle(this)" class="toggler-icon fa-menu md-toggle-none">
+		        <div></div>
+		        <div></div>
+		        <div></div>
+		      </div>
+		      <h1 class="brand-name">Quick Credit</h1>
+		      <ul class="dropdown-none">
+		        <li class="d-inline-flex">
+		          <a class="nav-item mr-0" href="index.html">Log out</a>
+		        </li>
+		      </ul>
+		      <div id="icon" onclick="userMenuToggler(this)" class="toggler-icon fa-menu md-toggle-none">
+		        <div></div>
+		        <div></div>
+		        <div></div>
+		      </div>
+		    </nav>
+		  </header>
+		  <section class="row-box container-main">
+		    <div class="row min-height mx-0">
+		      <aside id="aside-drawer" class="side-drawer-none col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 user-section-aside">
+		        <ul class="aside-content">
+		          <li class="aside-text"><a href="verified.html">Mark a client as verified</a></li>
+		          <li class="aside-text"><a href="loans.html">View all loan application</a></li>
+		          <li class="aside-text"><a href="current.html">View all current loans(not fully paid)</a></li>
+		          <li class="aside-text"><a href="repaid.html">View all repaid loans </a></li>
+		          <li class="aside-text"><a href="specific.html">View a specific loan application</a></li>
+		          <li class="aside-text"><a href="approved.html">Approve/Reject loan application</a></li>
+		          <li class="aside-text"><a href="post.html">Post a loan repayment transaction in favour of a client</a></li>
+		        </ul>
+		      </aside>
+		      <main class="main col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12 p-4">
+		        <div class="default-main-content d-flex flex-column align-center">
+		          <div class="container">
+		            <div class="px-3 pb-3 mx-auto">
+		                <h2>Approve/Reject Loans:</h2>
+		              <main class="signin row p-0">
+		                <div class="col-4 border thead">
+		                    <div>Name</div>
+		                </div>
+		                <div class="col-2 border thead">
+		                    <div>User ID</div>
+		                </div>
+		                <div class="col-2 border thead">
+		                    <div>Amount</div>
+		                </div>
+		                <div class="col-2 border thead">
+		                    <div>Duration</div>
+		                </div>
+		                <!-- table data -->
+		                <div class="col-4 border tbody">
+		                    <div>fullname</div>
+		                </div>
+		                <div class="col-2 border tbody">
+		                    <div>028398a</div> 
+		                </div>
+		                <div class="col-2 border tbody">
+		                    <div>5000</div>
+		                </div>
+		                <div class="col-2 border tbody">
+		                    <div>5months</div> 
+		                </div>
+		                <div class="col-2 tbody">
+		                	<button type="submit" id="approve">APPROVE</button>
+		                	<button type="submit" id="reject">REJECT</button>
+		                </div>
+		              </main>
+		            </div>
+		          </div>
+		        </div>
+		      </main>
+		    </div>
+		  </section>
+		  <footer class="row-box container-footer" id="contact">
+		    <div class="footer-content border p-2 text-center">
+		      <p class="pb-2">Copyright &copy;2019 Chukwuma Emmanuel</p>
+		      <p class="pb-2">Mobile: 08037022549</p>
+		    </div>
+		  </footer>
+		 <script type="text/javascript" src="./assets/js/bundle.min.js"></script>
  	</div>
  </body>
 </html>
