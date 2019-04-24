@@ -5,8 +5,41 @@
     /*background: #666*/
 }
 
+.border {
+    border: 1px solid #666;
+}
+
+.thead {
+    font-size: 24px;
+    text-align: center;
+    padding: 5px;
+    word-break: break-word;
+}
+
+.tbody {
+    font-size: 20px;
+    padding: 10px;
+}
+
+@media(max-width: 992px) {
+    .thead {
+        font-size: 17px;
+        text-align: left;
+        padding: 5px;
+        font-weight: 300
+    }
+
+    .tbody {
+        font-size: 15px;
+        padding: 4px;
+        font-weight: 300;
+        word-break: break-word;
+    }
+}
+
 /*#f8f8f8*/
 
+/*@media*/
 .user-section-aside {
     background-color: #f2f2f2;
     min-height: 300px;
@@ -40,38 +73,59 @@
     font-size: 25px;
     color: #669;
     font-family: cursive;
+    width: 100%
 }
 
 .default-main-content p {
     padding: 10px 0;
 }
 
-.input {
-    width: 150px;
-}
 
-.table {
-    border:1px solid black;
-}
 @media (min-width: 767px) {
     .md-toggle-none {
         display: none!important;
     }
-
 }
 
 @media (max-width: 767px) {
-    .md-dropdown-none {
+    .min-height {
+        min-height: 700px;
+    }
+
+    .dropdown-none {
         display: none;
         padding: 10px 0;
+        z-index: 200;
         height: 0;
         position: relative;
         opacity: 0;
         transition: all ease-in 4s;
     }
+
+    .side-drawer-none {
+        left: -550px;
+        top: 68px;
+        padding: 10px 0;
+        height: 100%;
+        background-color: #35424a!important;
+        position: absolute;
+        transition: left .5s cubic-bezier(0.820, 0.085, 0.395, 0.895);
+    }
+
+    .user-section-aside li a {
+        color: white
+    }
+
+    .aside-text:nth-child(odd) {
+        background-color: #35424a!important
+    }
+
+    .aside-text:nth-child(even) {
+        background-color: #669
+    }
 }
 
-.sm-dropdown {
+.show-dropdown {
     position: absolute;
     display: block!important;
     right: 0px;
@@ -83,10 +137,11 @@
     transition: all ease-in 4s;
 }
 
-.sm-dropdown li {
+.show-side-drawer {
+    left: 0;
+}
+
+.show-dropdown li {
     display: inherit!important;
     padding: 10px 0
 }
-
-/*position: absolute;
-    width: 70%;*/

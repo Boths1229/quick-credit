@@ -126,29 +126,8 @@ header a {
 	}
 }
 
-/*.view p {
-	overflow: hidden;
-	line-height: 1.6;
-  animation-duration: 5s;
-  animation-name: slidein;
-  animation-iteration-count: forward;
-}*/
-
-/*@keyframes slidein {
-  from {
-    margin-top: 100%;
-    width: 100%;
-  }
-
-  to {
-    margin-top: 0%;
-    width: 100%;
-  }
-}*/
-
 .terms {
 	font-family: "Roboto", sans-serif;
-    /*padding: 0px 25px;*/
 	font-size: 12px;
     color: rgb(143, 149, 163);
 }

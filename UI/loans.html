@@ -2,7 +2,7 @@
 <html>
  <head>
  	<meta charset = "utf-8">
- 	<meta name = "viewport" content = "width=device-width initial-scale=1.0">
+ 	<meta name = "viewport" content ="width=device-width,initial-scale=1.0,user-scalable=yes">
  	<meta name = "author" content = "Chukwuma Emmanuel">
  	<title>Quick Credit | All Loans</title>
  	<link rel="stylesheet" type="text/css" href="quick1.css">
@@ -14,8 +14,13 @@
  	<div class="box">
     <header class="container-fluid row-box container-header">
     <nav class="navbar container d-flex">
-        <h1 class="brand-name">Quick Credit</h1>
-      <ul class="md-dropdown-none">
+      <div id="icon" onclick="handleAsideToggle(this)" class="toggler-icon fa-menu md-toggle-none">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <h1 class="brand-name">Quick Credit</h1>
+      <ul class="dropdown-none">
         <li class="d-inline-flex">
           <a class="nav-item mr-0" href="index.html">Log out</a>
         </li>
@@ -29,7 +34,7 @@
   </header>
   <section class="row-box container-main">
     <div class="row min-height mx-0">
-      <aside class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 user-section-aside">
+      <aside id="aside-drawer" class="side-drawer-none col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 user-section-aside">
         <ul class="aside-content">
           <li class="aside-text"><a href="verified.html">Mark a client as verified</a></li>
           <li class="aside-text"><a href="loans.html">View all loan application</a></li>
@@ -42,26 +47,45 @@
       </aside>
       <main class="main col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12 p-4">
         <div class="default-main-content d-flex flex-column align-center">
-          <div class="table-heading">
-                Loans:<br>
-            <table><br>
-              <tr>
-                <th>Name</th>
-                <th>User ID</th>
-                <th>Outstanding loan</th>
-                <th>Amount</th>
-                <th>Loan Duration</th>
-              </tr>
-              <tr>
-                <td><input type="text" class="input" placeholder="name" id="name"></td>
-                <td><input type="text" class="input" placeholder="userid" id="userid"></td>
-                <td><input type="text" class="input" placeholder="outstanding" id="yes"></td>
-                <td><input type="text" class="input" placeholder="amount" id="amount"></td>
-                <td><input type="text" class="input" placeholder="duration"></td>
-                <td><input type="submit" class="input" value="View"></td>
-              </tr>
-            </table>
-       </div>
+          <div class="container">
+            <div class="px-3 pb-3 mx-auto">
+                <h2>Loans:</h2>
+              <main class="signin row p-0">
+                <div class="col-4 border thead">
+                    <div>Name</div>
+                </div>
+                <div class="col-2 border thead">
+                    <div>User ID</div>
+                </div>
+                <div class="col-2 border thead">
+                    <div>Valid</div>
+                </div>
+                <div class="col-2 border thead">
+                    <div>Amount</div>
+                </div>
+                <div class="col-2 border thead">
+                    <div>Duration</div>
+                </div>
+                <!-- table data -->
+                <div class="col-4 border tbody">
+                    <div>myname my very long surname</div>
+                </div>
+                <div class="col-2 border tbody">
+                    <div>028398a</div> 
+                </div>
+                <div class="col-2 border tbody">
+                    <div>YES</div>
+                </div>
+                <div class="col-2 border tbody">
+                    <div>5000</div>
+                </div>
+                <div class="col-2 border tbody">
+                    <div>5months</div> 
+                </div>
+                <!-- <button class="button mx-1" type="submit">View</button>     -->
+              </main>
+            </div>
+          </div>
         </div>
       </main>
     </div>

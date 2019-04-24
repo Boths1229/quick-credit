@@ -2,7 +2,7 @@
 <html>
  <head>
  	<meta charset = "utf-8">
- 	<meta name = "viewport" content = "width=device-width initial-scale=1.0">
+ 	<meta name = "viewport" content ="width=device-width,initial-scale=1.0,user-scalable=yes">
  	<meta name = "author" content = "Chukwuma Emmanuel">
  	<title>Quick Credit | Specific loan</title>
  	<link rel="stylesheet" type="text/css" href="quick1.css">
@@ -42,14 +42,23 @@
 	 		</aside>
 			<main class="main col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12 p-4">
 				<div class="default-main-content d-flex flex-column align-center">
-					<div class="user">
-			 			<input type="text" class="input" placeholder="name"><br>
-			 			<br>
-			 			<input type="text" class="input" placeholder="userId"><br>
-			 			<br>
-			 			<button id="userInfo">View</button><br>
-			 		</div>
-			 		<div class="information"></div><br>
+					<div class="container">
+			            <div class="col-md-10 px-3 pb-3 mx-auto">
+				            <form class="signin" action="./user.html" method="get">
+				                <h2>Loans:</h2>
+				                <div class="form-group d-column">
+				                    <label for="name">Name</label>
+				                    <input type="text" name="name" id="name" placeholder="Name">
+				                </div>
+				                <div class="form-group d-column">
+				                    <label for="userid">User ID</label>
+				                    <input type="text" name="userid" id="userid" placeholder="User Id"> 
+				                </div>
+				                <button class="button mx-1" type="submit">View</button>    
+				            </form>
+			            </div>
+			            <div class="information"></div><br>
+			        </div>
 				</div>
 			</main>
  		</div>
