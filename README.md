@@ -1,5 +1,6 @@
 # Welcome to Quick Credit
 [![Build Status](https://travis-ci.com/Boths1229/quick-credit.svg?branch=develop)](https://travis-ci.com/Boths1229/quick-credit)
+[![Coverage Status](https://coveralls.io/repos/github/Boths1229/quick-credit/badge.svg?branch=develop)](https://coveralls.io/github/Boths1229/quick-credit?branch=develop)
 
 ## About
 You can use the [editor on GitHub](https://github.com/Boths1229/quick-credit/edit/master/README.md) to maintain and preview the content for your website in Markdown files.

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "nodemon --exec babel-node -- ./server/app.js",
-    "test": "SET NODE_ENV=test&&nyc mocha server/test/*.js --require @babel/register --reporter spec --timeout 25000",
+    "test": "SET NODE_ENV=test&&nyc mocha server/test/**/*.js --require @babel/register --reporter spec --timeout 25000",
     "int:test": "nyc mocha server/test/*.js --require @babel/register --reporter spec --timeout 25000",
     "coveralls": "npm run int:test&& nyc report --reporter=text-lcov | coveralls"
   },
@@ -38,11 +38,13 @@
     "@babel/preset-env": "^7.4.4",
     "@babel/register": "^7.4.4",
     "babel-eslint": "^10.0.1",
-    "babel-polyfill": "^6.26.0",
     "body-parser": "^1.19.0",
     "coveralls": "^3.0.3",
     "dotenv": "^7.0.0",
     "express": "^4.16.4",
-    "morgan": "^1.9.1"
+    "idempotent-babel-polyfill": "^7.0.0",
+    "morgan": "^1.9.1",
+    "validator": "^10.11.0",
+    "validatorjs": "^3.15.1"
   }
 }
