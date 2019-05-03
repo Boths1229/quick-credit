@@ -4,7 +4,7 @@ const validateEmailExistence = (req, res, next) => {
    const user = Users.filter((user) => user.email === req.body.email);
    if (user.length > 0) {
        return res.status(409).json({
-        message: 'this email already in use'
+        message: 'this email is already in use'
        })
    }
    next();

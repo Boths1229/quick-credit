@@ -31,12 +31,13 @@ To install this application,
 #### Coding Style
   Airbnb: Airbnb is a coding style guide that guides developers to write clean codes   
 
-#### Features
+#### Features 
+
     1. Users can register in order to access loans.
     2. Users can monitor their loan repayment progress.
     3. Admin can monitor all loans,verify, approve or reject any loan application as the case maybe. 
 
-#### How to Contribute
+#### How to Contribut
       Fork this repository.
       Clone it.
       Create your feature branch on your local machine with git checkout -b your-feature-branch
@@ -45,6 +46,7 @@ To install this application,
       Refer to this wiki for proper GIT CONVENTION  
 
 #### Links
+
       Project homepage: https://github.com/Boths1229/quick-credit.git
       Repository: https://github.com/Boths1229/quick-credit.git
       Issue tracker: https://github.com/Boths1229/quick-credit.git/issues
