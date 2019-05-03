@@ -7,7 +7,7 @@ const errorMessages = {
 };
 
 const validateRequestCredentials = (req, res, next, rules) => {
-    const validator = new Validator(req.body,rules, errorMessages)
+    const validator = new Validator(req.body, rules, errorMessages)
     if (validator.passes()) {
         return next();
     }

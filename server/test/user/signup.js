@@ -38,7 +38,7 @@ describe('Sign up Routes /api/v1/user/signup', () => {
             .end((err, res) => {
              expect(res.body).to.be.an('object')
              expect(res.statusCode).to.equal(409)
-             expect(res.body.message).to.equal('this email already in use')
+             expect(res.body.message).to.equal('this email is already in use')
               setImmediate(done)
             })
       });
