@@ -29,7 +29,7 @@ To install this application,
 
 ### API Documentation
 
-  THE Documentation for the Quick-Credit Restful API: Quick-Credit API 
+  THE Documentation for the Quick-Credit Restful API: [Quick-Credit API](https://github.com/Boths1229/quick-credit.git) 
 
 ### Coding Style
 
@@ -59,7 +59,7 @@ To install this application,
 
 ### Licensing
 
-  The code in this project is licensed under ANDELA license.  
+  [MIT License](https://github.com/Boths1229/quick-credit.git/develop/LICENSE) 
 
 ### Author
 
