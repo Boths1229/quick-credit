@@ -36,10 +36,6 @@
     <div class="row min-height mx-0">
       <aside id="aside-drawer" class="side-drawer-none col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 user-section-aside">
         <ul class="aside-content">
-          <li class="aside-text"><a href="about.html">About Us</a></li>
-          <li class="aside-text"><a href="product.html">Products</a></li>
-          <li class="aside-text"><a href="applyloan.html">Apply for a loan</a></li>
-          <li class="aside-text"><a href="userpay.html">View loan repayment history</a></li>
           <li class="aside-text"><a href="verified.html">Mark a client as verified</a></li>
           <li class="aside-text"><a href="loans.html">View all loan application</a></li>
           <li class="aside-text"><a href="current.html">View all current loans(not fully paid)</a></li>
@@ -53,39 +49,49 @@
         <div class="default-main-content d-flex flex-column align-center">
           <div class="container">
             <div class="px-3 pb-3 mx-auto">
-                <h2>Repaid Loans:</h2>
               <main class="signin row p-0">
-                <div class="col-4 border thead">
-                    <div>Name</div>
-                </div>
-                <div class="col-2 border thead">
-                    <div>Loan ID</div>
-                </div>
-                <div class="col-2 border thead">
-                    <div>Amount</div>
-                </div>
-                <div class="col-2 border thead">
-                    <div>Date</div>
-                </div>
-                <div class="col-2 border thead">
-                    <div>Duration</div>
-                </div>
-                <!-- table data -->
-                <div class="col-4 border tbody">
-                    <div>fullname</div>
-                </div>
-                <div class="col-2 border tbody">
-                    <div>028398a</div> 
-                </div>
-                <div class="col-2 border tbody">
-                    <div>5000</div>
-                </div>
-                <div class="col-2 border tbody">
-                    <div>date completed</div>
-                </div>
-                <div class="col-2 border tbody">
-                    <div>5months</div> 
-                </div>
+                  <table>
+                      <caption>Repaid Loans</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">Name</th>
+                          <th scope="col">Loan ID</th>
+                          <th scope="col">Loaned Amount</th>
+                          <th scope="col">Duration</th>
+                          <th scope="col">Date Completed</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="name">Kene Bryan</td>
+                          <td data-label="loan id">12345</td>
+                          <td data-label="amount">#200000</td>
+                          <td data-label="duration">5months</td>
+                          <td data-label="date">13/04/2015</td>
+                        </tr>
+                        <tr>
+                            <td data-label="name">David Etim</td>
+                            <td data-label="user id">1233849</td>
+                            <td data-label="amount">#2000</td>
+                            <td data-label="duration">6months</td>
+                            <td data-label="date">13/04/2015</td>
+                        </tr>
+                        <tr>
+                            <td data-label="name">Ahmed Yusuf</td>
+                            <td data-label="user id">12334</td>
+                            <td data-label="amount">#80000</td>
+                            <td data-label="duration">8months</td>
+                            <td data-label="date">13/04/2015</td>
+                        </tr>
+                        <tr>
+                            <td data-label="name">Anita David</td>
+                            <td data-label="user id">93929</td>
+                            <td data-label="amount">#450000</td>
+                            <td data-label="duration">4months</td>
+                            <td data-label="date">13/04/2015</td>
+                        </tr>
+                      </tbody>
+                    </table>
               </main>
             </div>
           </div>

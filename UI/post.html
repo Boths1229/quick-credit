@@ -36,11 +36,7 @@
 		    <div class="row min-height mx-0">
 		      <aside id="aside-drawer" class="side-drawer-none col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 user-section-aside">
 		        <ul class="aside-content">
-		          <li class="aside-text"><a href="about.html">About Us</a></li>
-					<li class="aside-text"><a href="product.html">Products</a></li>
-					<li class="aside-text"><a href="applyloan.html">Apply for a loan</a></li>
-					<li class="aside-text"><a href="userpay.html">View loan repayment history</a></li>
-					<li class="aside-text"><a href="verified.html">Mark a client as verified</a></li>
+					      <li class="aside-text"><a href="verified.html">Mark a client as verified</a></li>
 		            <li class="aside-text"><a href="loans.html">View all loan application</a></li>
 		            <li class="aside-text"><a href="current.html">View all current loans(not fully paid)</a></li>
 		            <li class="aside-text"><a href="repaid.html">View all repaid loans </a></li>
@@ -53,12 +49,32 @@
 		        <div class="default-main-content d-flex flex-column align-center">
 		          <div class="container">
 		            <div class="table-heading">
-								Client ID: <input type="text" class="input" name="clientID">
-					 			<button class="">Click</button>
+								Client ID: <input type="text" class="input" name="clientID"><br><br>
+					 			<button class="button">Click</button>
 					 		<div class="repayment">
-					 			client loan repayment form
-					 			<button id="">Submit</button>
+								 <table>
+                    <caption> client loan repayment form</caption>
+                    <thead>
+                      <tr>
+                        <th scope="col">Loan ID</th>
+                        <th scope="col">Amount paid</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Balance</th>
+                        <th scope="col">Duration</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td data-label="loan id">3452</td>
+                        <td data-label="amount">#23000</td>
+                        <td data-label="date">20/05/2019</td>
+                        <td data-label="balance">#10000</td>
+                        <td data-label="duration">3months</td>
+                      </tr>
+                    </tbody>
+                  </table><br><br>
 							</div>
+							<button id="post" class="button">Submit</button>
 						</div>
 		          </div>
 		        </div>

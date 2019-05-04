@@ -49,13 +49,6 @@
               <li class="aside-text"><a href="product.html">Products</a></li>
               <li class="aside-text"><a href="applyloan.html">Apply for a loan</a></li>
               <li class="aside-text"><a href="userpay.html">View loan repayment history</a></li>
-              <li class="aside-text"><a href="verified.html">Mark a client as verified</a></li>
-              <li class="aside-text"><a href="loans.html">View all loan application</a></li>
-              <li class="aside-text"><a href="current.html">View all current loans(not fully paid)</a></li>
-              <li class="aside-text"><a href="repaid.html">View all repaid loans </a></li>
-              <li class="aside-text"><a href="specific.html">View a specific loan application</a></li>
-              <li class="aside-text"><a href="approved.html">Approve/Reject loan application</a></li>
-              <li class="aside-text"><a href="post.html">Post a loan repayment transaction in favour of a client</a></li>
             </ul>
           </aside>
           <main class="main col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12 p-4">
@@ -65,44 +58,48 @@
                 <h5>Date Collected:</h5>
                 <h5>Interest Rate: 5%</h5>
                 <h5>Loan Duration:</h5>
-                <h5>Repayment History:</h5>
-              <div class="px-3 pb-3 mx-auto">
-                <h2>Loans:</h2>
-              <main class="signin row p-0">
-                <div class="col-4 border thead">
-                    <div>Name</div>
-                </div>
-                <div class="col-2 border thead">
-                    <div>Loan ID</div>
-                </div>
-                <div class="col-2 border thead">
-                    <div>Amount paid</div>
-                </div>
-                <div class="col-2 border thead">
-                    <div>Date</div>
-                </div>
-                <div class="col-2 border thead">
-                    <div>Balance</div>
-                </div>
-                <div class="col-4 border tbody">
-                    <div>Fullname</div>
-                </div>
-                <div class="col-2 border tbody">
-                    <div>028398a</div> 
-                </div>
-                <div class="col-2 border tbody">
-                    <div>2000</div>
-                </div>
-                <div class="col-2 border tbody">
-                    <div>date</div>
-                </div>
-                <div class="col-2 border tbody">
-                    <div>3000</div> 
-                </div>
-              </main>
-            </div>
-              <h5>Loan Amount Remaining: #0.00</h5>
-              <h5>Loan fully Paid: Yes/No</h5>
+                <table>
+                    <caption>Repayment History</caption>
+                    <thead>
+                      <tr>
+                        <th scope="col">Loan ID</th>
+                        <th scope="col">Amount paid</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Balance</th>
+                        <th scope="col">Duration</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td data-label="loan id">3452</td>
+                        <td data-label="amount">#23000</td>
+                        <td data-label="date">20/05/2019</td>
+                        <td data-label="balance">#10000</td>
+                        <td data-label="duration">3months</td>
+                      </tr>
+                      <tr>
+                          <td data-label="loan id">3452</td>
+                          <td data-label="amount">#3000</td>
+                          <td data-label="date">20/06/2019</td>
+                          <td data-label="balance">#70000</td>
+                          <td data-label="duration">3months</td>
+                      </tr>
+                      <tr>
+                          <td data-label="loan id">3452</td>
+                          <td data-label="amount">#3000</td>
+                          <td data-label="date">20/07/2019</td>
+                          <td data-label="balance">#4000</td>
+                          <td data-label="duration">3months</td>
+                      </tr>
+                      <tr>
+                          <td data-label="loan id">3452</td>
+                          <td data-label="amount">#3000</td>
+                          <td data-label="date">20/08/2019</td>
+                          <td data-label="balance">#1000</td>
+                          <td data-label="duration">3months</td>
+                      </tr>
+                    </tbody>
+                  </table>
               </div>
             </div>
           </main>

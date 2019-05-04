@@ -36,10 +36,6 @@
     <div class="row min-height mx-0">
       <aside id="aside-drawer" class="side-drawer-none col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 user-section-aside">
         <ul class="aside-content">
-          <li class="aside-text"><a href="about.html">About Us</a></li>
-          <li class="aside-text"><a href="product.html">Products</a></li>
-          <li class="aside-text"><a href="applyloan.html">Apply for a loan</a></li>
-          <li class="aside-text"><a href="userpay.html">View loan repayment history</a></li>
           <li class="aside-text"><a href="verified.html">Mark a client as verified</a></li>
           <li class="aside-text"><a href="loans.html">View all loan application</a></li>
           <li class="aside-text"><a href="current.html">View all current loans(not fully paid)</a></li>
@@ -53,38 +49,49 @@
         <div class="default-main-content d-flex flex-column align-center">
           <div class="container">
             <div class="px-3 pb-3 mx-auto">
-                <h2>Current Loans:</h2>
               <main class="signin row p-0">
-                <div class="col-4 border thead">
-                    <div>Name</div>
-                </div>
-                <div class="col-2 border thead">
-                    <div>Loan ID</div>
-                </div>
-                <div class="col-2 border thead">
-                    <div>Initial</div>
-                </div>
-                <div class="col-2 border thead">
-                    <div>Remaining</div>
-                </div>
-                <div class="col-2 border thead">
-                    <div>Duration</div>
-                </div>
-                <div class="col-4 border tbody">
-                    <div>fullname</div>
-                </div>
-                <div class="col-2 border tbody">
-                    <div>028398a</div> 
-                </div>
-                <div class="col-2 border tbody">
-                    <div>5000</div>
-                </div>
-                <div class="col-2 border tbody">
-                    <div>2000</div>
-                </div>
-                <div class="col-2 border tbody">
-                    <div>5months</div> 
-                </div>
+                  <table>
+                      <caption>Current Loans</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">Name</th>
+                          <th scope="col">Loan ID</th>
+                          <th scope="col">Loan Amount</th>
+                          <th scope="col">Balance</th>
+                          <th scope="col">Loan Duration</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="name">Kene Bryan</td>
+                          <td data-label="loan id">12345</td>
+                          <td data-label="initial">#200000</td>
+                          <td data-label="balance">#30000</td>
+                          <td data-label="duration">5months</td>
+                        </tr>
+                        <tr>
+                          <td scope="row" data-label="name">David Etim</td>
+                          <td data-label="loan id">74832982</td>
+                          <td data-label="initial">#849202</td>
+                          <td data-label="balance">#3002</td>
+                          <td data-label="duration">3months</td>
+                        </tr>
+                        <tr>
+                            <td scope="row" data-label="name">Ade Olabiyi</td>
+                            <td data-label="loan id">74883</td>
+                            <td data-label="initial">#80000</td>
+                            <td data-label="balance">#3000</td>
+                            <td data-label="duration">2months</td>
+                        </tr>
+                        <tr>
+                            <td scope="row" data-label="name">Ahmed Yusuf</td>
+                            <td data-label="loan id">2384</td>
+                            <td data-label="initial">#4539</td>
+                            <td data-label="balance">#2000</td>
+                            <td data-label="duration">5months</td>
+                        </tr>
+                      </tbody>
+                    </table>
               </main>
             </div>
           </div>
