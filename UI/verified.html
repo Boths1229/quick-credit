@@ -36,11 +36,7 @@
 		    <div class="row min-height mx-0">
 		      <aside id="aside-drawer" class="side-drawer-none col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 user-section-aside">
 		        <ul class="aside-content">
-		            <li class="aside-text"><a href="about.html">About Us</a></li>
-					<li class="aside-text"><a href="product.html">Products</a></li>
-					<li class="aside-text"><a href="applyloan.html">Apply for a loan</a></li>
-					<li class="aside-text"><a href="userpay.html">View loan repayment history</a></li>
-					<li class="aside-text"><a href="verified.html">Mark a client as verified</a></li>
+					      <li class="aside-text"><a href="verified.html">Mark a client as verified</a></li>
 		            <li class="aside-text"><a href="loans.html">View all loan application</a></li>
 		            <li class="aside-text"><a href="current.html">View all current loans(not fully paid)</a></li>
 		            <li class="aside-text"><a href="repaid.html">View all repaid loans </a></li>
@@ -53,36 +49,51 @@
 		        <div class="default-main-content d-flex flex-column align-center">
 		          <div class="container">
 		            <div class="px-3 pb-3 mx-auto">
-		                <h2>Verified Addresses:</h2>
 		              <main class="signin row p-0">
-		                <div class="col-4 border thead">
-		                    <div>Name</div>
-		                </div>
-		                <div class="col-2 border thead">
-		                    <div>User ID</div>
-		                </div>
-		                <div class="col-2 border thead">
-		                    <div>Home Add</div>
-		                </div>
-		                <div class="col-2 border thead">
-		                    <div>Office Add</div>
-		                </div>
-		                <div class="col-4 border tbody">
-		                    <div>fullname</div>
-		                </div>
-		                <div class="col-2 border tbody">
-		                    <div>028398a</div> 
-		                </div>
-		                <div class="col-2 border tbody">
-		                    <div>home add</div>
-		                </div>
-		                <div class="col-2 border tbody">
-		                    <div>office add</div>
-		                </div>
-		                <div class="col-2 tbody">
-		                   <button type="submit" id="verified">VERIFIED</button> 
-		                </div>
-		              </main>
+											<table>
+													<caption>Verified Addresses</caption>
+													<thead>
+														<tr>
+															<th scope="col">Name</th>
+															<th scope="col">User ID</th>
+															<th scope="col">House Address</th>
+															<th scope="col">Office Address</th>
+															<th scope="col">Valid</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td data-label="name">Kene Bryan</td>
+															<td data-label="User id">12345</td>
+															<td data-label="house">14 Eleme str lekki</td>
+															<td data-label="office">231 Broad str Yaba</td>
+															<td data-label="valid">Yes</td>
+														</tr>
+														<tr>
+																<td data-label="name">David Etim</td>
+																<td data-label="user id">1233849</td>
+																<td data-label="house">34 yobo str Aja</td>
+																<td data-label="office">2 Bail str Maba</td>
+																<td data-label="valid">Yes</td>
+														</tr>
+														<tr>
+																<td data-label="name">Ahmed Yusuf</td>
+																<td data-label="user id">12334</td>
+																<td data-label="house">4 Ken str Aja</td>
+																<td data-label="office">25 Sail str Maba</td>
+																<td data-label="valid">No</td>
+														</tr>
+														<tr>
+																<td data-label="name">Anita David</td>
+																<td data-label="user id">93929</td>
+																<td data-label="house">15 Slim str Lasu</td>
+																<td data-label="office">23 iroko str Rakaba</td>
+																<td data-label="valid">Yes</td>
+														</tr>
+													</tbody>
+												</table><br><br>
+									</main>
+									<button id="verify" class="button">VERIFIED</button>  <input type="text" class="userid" placeholder="user id">
 		            </div>
 		          </div>
 		        </div>

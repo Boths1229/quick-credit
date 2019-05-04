@@ -36,11 +36,7 @@
 		    <div class="row min-height mx-0">
 		      <aside id="aside-drawer" class="side-drawer-none col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 user-section-aside">
 		        <ul class="aside-content">
-		            <li class="aside-text"><a href="about.html">About Us</a></li>
-					<li class="aside-text"><a href="product.html">Products</a></li>
-					<li class="aside-text"><a href="applyloan.html">Apply for a loan</a></li>
-					<li class="aside-text"><a href="userpay.html">View loan repayment history</a></li>
-					<li class="aside-text"><a href="verified.html">Mark a client as verified</a></li>
+					      <li class="aside-text"><a href="verified.html">Mark a client as verified</a></li>
 		            <li class="aside-text"><a href="loans.html">View all loan application</a></li>
 		            <li class="aside-text"><a href="current.html">View all current loans(not fully paid)</a></li>
 		            <li class="aside-text"><a href="repaid.html">View all repaid loans </a></li>
@@ -53,51 +49,62 @@
 		        <div class="default-main-content d-flex flex-column align-center">
 		          <div class="container">
 		            <div class="px-3 pb-3 mx-auto">
-		                <h2>Approve/Reject Loans:</h2>
 		              <main class="signin row p-0">
-		                <div class="col-4 border thead">
-		                    <div>Name</div>
-		                </div>
-		                <div class="col-2 border thead">
-		                    <div>User ID</div>
-		                </div>
-		                <div class="col-2 border thead">
-		                    <div>Amount</div>
-		                </div>
-		                <div class="col-2 border thead">
-		                    <div>Duration</div>
-		                </div>
-		                <!-- table data -->
-		                <div class="col-4 border tbody">
-		                    <div>fullname</div>
-		                </div>
-		                <div class="col-2 border tbody">
-		                    <div>028398a</div> 
-		                </div>
-		                <div class="col-2 border tbody">
-		                    <div>5000</div>
-		                </div>
-		                <div class="col-2 border tbody">
-		                    <div>5months</div> 
-		                </div>
-		                <div class="col-2 tbody">
-		                	<button type="submit" id="approve">APPROVE</button>
-		                	<button type="submit" id="reject">REJECT</button>
-		                </div>
-		              </main>
-		            </div>
-		          </div>
-		        </div>
-		      </main>
-		    </div>
-		  </section>
-		  <footer class="row-box container-footer" id="contact">
-		    <div class="footer-content border p-2 text-center">
-		      <p class="pb-2">Copyright &copy;2019 Chukwuma Emmanuel</p>
-		      <p class="pb-2">Mobile: 08037022549</p>
-		    </div>
-		  </footer>
-		 <script type="text/javascript" src="./assets/js/bundle.min.js"></script>
- 	</div>
- </body>
-</html>
+											<table>
+													<caption>Approve/Reject Loans</caption>
+													<thead>
+														<tr>
+															<th scope="col">Name</th>
+															<th scope="col">User ID</th>
+															<th scope="col">Amount</th>
+															<th scope="col">Duration</th>
+															<th scope="col">Verified</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td data-label="name">Kene Bryan</td>
+															<td data-label="user id">12345</td>
+															<td data-label="amount">#200000</td>
+															<td data-label="duration">5months</td>
+															<td data-label="verified">Yes</td>
+														</tr>
+														<tr>
+																<td data-label="name">David Etim</td>
+															<td data-label="user id">1233849</td>
+															<td data-label="amount">#2000</td>
+															<td data-label="duration">6months</td>
+															<td data-label="verified">No</td>
+														</tr>
+														<tr>
+																<td data-label="name">Ahmed Yusuf</td>
+															<td data-label="user id">12334</td>
+															<td data-label="amount">#80000</td>
+															<td data-label="duration">8months</td>
+															<td data-label="verified">Yes</td>
+														</tr>
+														<tr>
+																<td data-label="name">Anita David</td>
+															<td data-label="user id">93929</td>
+															<td data-label="amount">#450000</td>
+															<td data-label="duration">4months</td>
+															<td data-label="verified">No</td>
+														</tr>
+													</tbody>
+												</table>
+												<br><br>
+										</main>
+										    <button id="approve" class="button">APPROVE</button>  <input type="text" class="userid" placeholder="user id"><br><br>
+												<button id="reject" class="button">REJECT</button>  <input type="text" class="userid" placeholder="user id">
+									</div>
+								</section>
+								<footer class="row-box container-footer" id="contact">
+									<div class="footer-content border p-2 text-center">
+										<p class="pb-2">Copyright &copy;2019 Chukwuma Emmanuel</p>
+										<p class="pb-2">Mobile: 08037022549</p>
+									</div>
+						</footer>
+					<script type="text/javascript" src="./assets/js/bundle.min.js"></script>
+				</div>
+			</body>
+			</html>
