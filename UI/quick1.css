@@ -1,9 +1,14 @@
 .min-height {
     min-height: 1200px;
     border: 1px solid #669;
-    background: rgba(122,255,100,0.4);
-    /*background: #666*/
+    /*background: rgba(122,255,100,0.4);*/
+    background: whitesmoke;
 }
+
+.userpage {
+    text-align: center;
+}
+
 
 .border {
     border: 1px solid #666;
@@ -56,7 +61,7 @@
 }
 
 .aside-text:hover {
-    background-color: #999
+    background-color: #999;
     cursor: pointer;
 }
 
