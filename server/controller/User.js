@@ -13,6 +13,21 @@ class User {
             }
         })
     }
+    static async signIn(req, res) {
+        const { email, password } = req.body;
+        user.filter((userfound) => {
+            if (userfound.email === email && userfound.password === password) {
+                return res.status(200).json({
+                    message: 'signin successful',
+                    token: { email, password }
+                })
+            } else {
+                return res.status(409).json({
+                    message: 'invalid email or password'
+                })
+            }
+        })
+      }
 }
 
 export default User;

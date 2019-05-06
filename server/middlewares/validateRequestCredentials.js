@@ -28,3 +28,11 @@ export const validateRegisterationCredentials = (req, res, next) => {
     }
     return validateRequestCredentials(req, res, next, rules);
 }
+
+export const validateSigninCredentials = (req, res, next) => {
+    const rules = {
+        email: 'required|email',
+        password: 'required|min:6'
+    }
+    return validateRequestCredentials(req, res, next, rules);
+}
