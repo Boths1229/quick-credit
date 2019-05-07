@@ -8,31 +8,31 @@ const { expect } = chai;
 
 const { signin } = data;
 
-describe('Sign in Routes api/v1/user/signin', () => {
+describe('Sign in Routes api/v1/auth/signin', () => {
     it('should return signin successful', (done) => {
-        chai.request(server)
-        .post('/api/v1/user/signin')
-        .set('Accept', 'application/json')
-        .send(signin)
-        .end((err, res) => {
-           expect(res.body).to.be.an('object')
-           expect(res.statusCode).to.equal(200)
-           expect(res.body.message).to.equal('signin successful')
-           setImmediate(done)
-        })
+    chai.request(server)
+    .post('/api/v1/auth/signin')
+    .set('Accept', 'application/json')
+    .send(signin)
+    .end((err, res) => {
+        expect(res.body).to.be.an('object')
+        expect(res.statusCode).to.equal(200)
+        expect(res.body.message).to.equal('signin successful')
+        setImmediate(done)
+    })
     });
     it('should return email field not filled', (done) => {
-        chai.request(server)
-        .post('/api/v1/user/signin')
-        .set('Accept', 'application/json')
-        .send({
-            email: '',
-         password: 'developer'
-        })
-        .end((err, res) => {
-            const { 
-                email
-            } = res.body.errors;
+    chai.request(server)
+    .post('/api/v1/auth/signin')
+    .set('Accept', 'application/json')
+    .send({
+        email: '',
+        password: 'developer'
+    })
+    .end((err, res) => {
+        const { 
+            email
+        } = res.body.errors;
         expect(res.body).to.be.an('object')
         expect(res.statusCode).to.equal(400)
         expect(res.body.message).to.equal('Invalid Credentials')
@@ -41,7 +41,7 @@ describe('Sign in Routes api/v1/user/signin', () => {
 });
 it('should return email format incorrect', (done) => {
     chai.request(server)
-    .post('/api/v1/user/signin')
+    .post('/api/v1/auth/signin')
     .set('Accept', 'application/json')
     .send({
         email: 'boths104',
@@ -59,7 +59,7 @@ it('should return email format incorrect', (done) => {
 });
 it('should return password field not filled', (done) => {
     chai.request(server)
-    .post('/api/v1/user/signin')
+    .post('/api/v1/auth/signin')
     .set('Accept', 'application/json')
     .send({
         email: 'boths104@example.com',
@@ -78,7 +78,7 @@ it('should return password field not filled', (done) => {
 });
 it('should return password incorrect', (done) => {
     chai.request(server)
-    .post('/api/v1/user/signin')
+    .post('/api/v1/auth/signin')
     .set('Accept', 'application/json')
     .send({
         email: 'boths104@example.com',
@@ -86,7 +86,7 @@ it('should return password incorrect', (done) => {
     })
     .end((err, res) => {
         const {
-            password
+          password
         } = res.body.errors;
         expect(res.body).to.be.an('object')
         expect(res.statusCode).to.equal(400)
@@ -96,9 +96,9 @@ it('should return password incorrect', (done) => {
 });
 it('should return invalid details', (done) => {
     chai.request(server)
-    .post('/api/v1/user/signin')
-    .set('Accept', 'application/json')
-    .send({
+        .post('/api/v1/auth/signin')
+        .set('Accept', 'application/json')
+        .send({
         email: 'both100@example.com',
         password: 'develops'
     })

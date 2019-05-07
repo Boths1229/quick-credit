@@ -1,4 +1,4 @@
-import Users from '../dummy/user';
+import Users from '../dummy/auth';
 
 const validateUserExistence = (req, res, next) => {
     const { email } = req.body;
