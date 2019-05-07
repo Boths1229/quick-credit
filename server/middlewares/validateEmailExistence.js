@@ -1,4 +1,4 @@
-import Users from '../dummy/user';
+import Users from '../dummy/auth';
 
 const validateEmailExistence = (req, res, next) => {
    const user = Users.filter((user) => user.email === req.body.email);
