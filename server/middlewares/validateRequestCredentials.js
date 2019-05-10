@@ -21,7 +21,7 @@ const validateRequestCredentials = (req, res, next, rules) => {
 export const validateRegisterationCredentials = (req, res, next) => {
   req.body.age = +req.body.age;
   const rules = {
-    name: 'required|alpha',
+    firstname: 'required|alpha',
     age: 'min:18',
     email: 'required|email',
     password: 'required|min:6'
@@ -39,11 +39,11 @@ export const validateSigninCredentials = (req, res, next) => {
 
 export const validateApplyLoanCredentials = (req, res, next) => {
   const rules = {
-    name: 'required',
-    home_address: 'string',
-    current_loan: 'required',
-    name_organisation: 'required',
-    address_organisation: 'required',
+    firstName: 'required',
+    lastName: 'required',
+    valid: 'required',
+    amount: 'required',
+    paymentInstallment: 'required',
     bank_details: {
       account_number: 'required|min:10'
     }

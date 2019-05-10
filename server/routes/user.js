@@ -7,7 +7,19 @@ import validateEmailExistence from '../middlewares/validateEmailExistence';
 import validateUserExistence from '../middlewares/validateUserExistence';
 
 export default (app) => {
+    // Users
     app.post('/api/v1/auth/signup', validateRegisterationCredentials, validateEmailExistence, User.signUp);
     app.post('/api/v1/auth/signin', validateSigninCredentials, validateUserExistence, User.signIn);
-    app.post('/api/v1/loan/applyloan', validateApplyLoanCredentials, Loan.applyLoan);
+    app.patch('/api/v1/users/:useremail/verify', User.verifyUser);
+
+    // Loans
+    app.post('/api/v1/loans',validateApplyLoanCredentials, Loan.applyLoan);
+    app.get('/api/v1/loans', Loan.getAllLoans);
+    app.get('/api/v1/repaidLoans', Loan.getRepaidLoans);
+    app.get('/api/v1/currentLoans', Loan.getCurrentLoans);
+    app.get('/api/v1/loans/:id', Loan.getSpecificLoan);
+    app.patch('/api/v1/loans/:loanid', Loan.approveReject);
+    app.post('/api/v1/loans/:loanid/repayments', Loan.postLOanRepayments);
+    app.get('/api/v1/loans/:loanid/repayments', Loan.getRepaymentRecord);
+
 }
