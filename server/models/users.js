@@ -1,8 +1,8 @@
 const users = [
   {
     id: 1,
-    firstname: 'chukwuma',
-    lastname: 'Emmanuel',
+    firstName: 'chukwuma',
+    lastName: 'Emmanuel',
     homeAddress: '123 ere str',
     organization: 'boths integrated',
     organizationAddress: '23 tope str',
@@ -15,8 +15,8 @@ const users = [
   },
   {
     id: 2,
-    firstname: 'kene',
-    lastname: 'Bryan',
+    firstName: 'kene',
+    lastName: 'Bryan',
     homeAddress: '12 ere str',
     organization: 'Men integrated',
     organizationAddress: '2 tope str',
@@ -29,8 +29,8 @@ const users = [
   },
   {
     id: 3,
-    firstname: 'sonma',
-    lastname: 'Enyiokwa',
+    firstName: 'sonma',
+    lastName: 'Enyiokwa',
     homeAddress: '37 diamond str',
     organization: 'sonma integrated',
     organizationAddress: '2 tope str',

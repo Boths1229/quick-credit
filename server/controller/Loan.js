@@ -1,5 +1,4 @@
 import loan from '../models/loans';
-//import Record from '../helper/Record';
 import loanRepaymentRecord from '../models/loanRepaymentRecord';
 
 class Loan {
@@ -24,18 +23,6 @@ class Loan {
     loan.push(getLoan);
     return res.status(200).json({
       message: 'loan application successful'
-     /* data: {
-        loanId: getLoan.id,
-        firstName: getLoan.firstname,
-        lastName: getLoan.lastname,
-        email: getLoan.email,
-        tenor: getLoan.tenor,
-        amount: getLoan.amount,
-        paymentInstallment: getLoan.paymentInstallment,
-        status: getLoan.status, // should default to pending
-        balance: getLoan.balance,
-        interest: getLoan.interest,
-      },*/
     });
   }
 
@@ -47,45 +34,32 @@ class Loan {
   }
 
   static getRepaidLoans(req, res) {
-    const repaidLoan = loan.filter((user) => {
-      return (user.repaid === true && user.status === 'approved')
-    });
+    const repaidLoan = loan.filter(user => (user.repaid === true && user.status === 'approved'));
     if (!repaidLoan) {
       return res.status(404).json({
         message: 'request not found'
-      })
-    } 
+      });
+    }
     return res.status(200).json({
       message: 'All repaid loans',
       data: repaidLoan
-    })
-  
+    });
   }
 
   static getCurrentLoans(req, res) {
-    const currentLoan = loan.filter((user) => {
-      return (user.repaid === false && user.status === 'approved')
-    });
-    if(!currentLoan) {
+    const currentLoan = loan.filter(user => (user.repaid === false && user.status === 'approved'));
+    if (!currentLoan) {
       return res.status(404).json({
         message: 'request not found'
-      })
-    } 
+      });
+    }
     return res.status(200).json({
       message: 'All current loans',
       data: currentLoan
-    })
+    });
   }
 
   static getSpecificLoan(req, res) {
-    /*function getId(loan, loanId) {
-      var obj = loan.filter(function (val) {
-          return val.loanId === loanId;
-      });
-  
-      // Filter returns an array, and we just want the matching item.
-      return obj[0];
-  }*/
     const specific = loan.find(user => user.id === parseInt((req.params.id), 10));
     // specific loan not found
     if (!specific) {
@@ -159,16 +133,6 @@ class Loan {
         message: `loan with id:${req.params.loanid} not found`,
       });
     }
-
-   /* const newRecord = {
-      loanid: loanRecord.loanid,
-      createdOn: loanRecord.createdOn,
-      monthlyInstallment: loanRecord.monthlyInstallment,
-      amount: loanRecord.amount,
-      paidAmount: loanRecord.paidAmount,
-      balance: loanRecord.balance,
-    };*/
-    // loan repayment history found
     return res.status(200).json({
       message: 'your loan repayment history',
       status: 200,

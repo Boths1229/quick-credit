@@ -30,7 +30,7 @@ To install this application,
 
 ### API Documentation
 
-  THE Documentation for the Quick-Credit Restful API: [Quick-Credit API](https://github.com/Boths1229/quick-credit.git) 
+  THE Documentation for the Quick-Credit Restful API: [Quick-Credit API](https://app.swaggerhub.com/apis/boths1229/quick-credit/QuickCredit) 
 
 ### Coding Style
 
