@@ -1,5 +1,6 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
+import jwt from 'jsonwebtoken';
 import server from '../app';
 
 chai.use(chaiHttp);
@@ -15,8 +16,8 @@ describe('POST sign up successful api/v1/auth/signup', () => {
       .set('Accept', 'application/json')
       .send({
         id: 53,
-        firstname: 'sonmajkkl',
-        lastname: 'Enyiokwakll',
+        firstName: 'sonmajkkl',
+        lastName: 'Enyiokwakll',
         homeAddress: '3755 diamond str',
         organization: 'sonmahjb integrated',
         organizationAddress: '2t tope str',
@@ -36,15 +37,14 @@ describe('POST sign up successful api/v1/auth/signup', () => {
   });
 });
 describe('POST email already in use api/v1/auth/signup', () => {
-  const token = 'ajdsdkdk.akskks29030303umds.s';
   it('should return user with this email already exist', (done) => {
     chai.request(server)
       .post('/api/v1/auth/signup')
       .set('Accept', 'application/json')
       .send({
         id: 53,
-        firstname: 'sonmajkkl',
-        lastname: 'Enyiokwakll',
+        firstName: 'sonmajkkl',
+        lastName: 'Enyiokwakll',
         homeAddress: '3755 diamond str',
         organization: 'sonmahjb integrated',
         organizationAddress: '2t tope str',
@@ -64,15 +64,14 @@ describe('POST email already in use api/v1/auth/signup', () => {
   });
 });
 describe('POST sign up details in incomplete api/v1/auth/signup', () => {
-  const token = 'ajdsdkdk.akskks29030303umds.s';
   it('should return error when user signup details is incomplete', (done) => {
     chai.request(server)
       .post('/api/v1/auth/signup')
       .set('Accept', 'application/json')
       .send({
         id: 53,
-        firstname: '',
-        lastname: 'Enyiokwakll',
+        firstName: '',
+        lastName: 'Enyiokwakll',
         homeAddress: '3755 diamond str',
         organization: 'sonmahjb integrated',
         organizationAddress: '2t tope str',
@@ -85,11 +84,11 @@ describe('POST sign up details in incomplete api/v1/auth/signup', () => {
       })
       .end((err, res) => {
         const {
-          firstname, email
+          firstName, email
         } = res.body.errors;
         expect(res.body).to.be.an('object');
         expect(res.statusCode).to.equal(400);
-        expect(firstname[0]).to.equal('the firstname is required');
+        expect(firstName[0]).to.equal('the firstName is required');
         expect(email[0]).to.equal('the email is required');
         setImmediate(done);
       });
@@ -97,16 +96,14 @@ describe('POST sign up details in incomplete api/v1/auth/signup', () => {
 });
 
 describe('POST should return email is invalid api/v1/auth/signup', () => {
-  const token = 'ajdsdkdk.akskks29030303umds.s';
   it('should return error when email is invalid', (done) => {
     chai.request(server)
       .post('/api/v1/auth/signup')
-      .set('authorization', token)
       .set('Accept', 'application/json')
       .send({
         id: 53,
-        firstname: 'sonmajkkl',
-        lastname: 'Enyiokwakll',
+        firstName: 'sonmajkkl',
+        lastName: 'Enyiokwakll',
         homeAddress: '3755 diamond str',
         organization: 'sonmahjb integrated',
         organizationAddress: '2t tope str',
@@ -130,16 +127,14 @@ describe('POST should return email is invalid api/v1/auth/signup', () => {
 });
 
 describe('POST should return password length is less than 6 or invalid api/v1/auth/signup', () => {
-  const token = 'ajdsdkdk.akskks29030303umds.s';
   it('should return error when password length is less than 6 or invalid', (done) => {
     chai.request(server)
       .post('/api/v1/auth/signup')
-      .set('authorization', token)
       .set('Accept', 'application/json')
       .send({
         id: 53,
-        firstname: 'sonmajkkl',
-        lastname: 'Enyiokwakll',
+        firstName: 'sonmajkkl',
+        lastName: 'Enyiokwakll',
         homeAddress: '3755 diamond str',
         organization: 'sonmahjb integrated',
         organizationAddress: '2t tope str',
@@ -163,16 +158,14 @@ describe('POST should return password length is less than 6 or invalid api/v1/au
 });
 
 describe('POST should return error when age field is not filled api/v1/auth/signup', () => {
-  const token = 'ajdsdkdk.akskks29030303umds.s';
   it('should return error when age field is not filled', (done) => {
     chai.request(server)
       .post('/api/v1/auth/signup')
-      .set('authorization', token)
       .set('Accept', 'application/json')
       .send({
         id: 53,
-        firstname: 'sonmajkkl',
-        lastname: 'Enyiokwakll',
+        firstName: 'sonmajkkl',
+        lastName: 'Enyiokwakll',
         homeAddress: '3755 diamond str',
         organization: 'sonmahjb integrated',
         organizationAddress: '2t tope str',
@@ -195,16 +188,14 @@ describe('POST should return error when age field is not filled api/v1/auth/sign
 });
 
 describe('POST should return you are not up to age to apply', () => {
-  const token = 'ajdsdkdk.akskks29030303umds.s';
   it('should return error when you are not up to age to apply', (done) => {
     chai.request(server)
       .post('/api/v1/auth/signup')
-      .set('authorization', token)
       .set('Accept', 'application/json')
       .send({
         id: 53,
-        firstname: 'sonmajkkl',
-        lastname: 'Enyiokwakll',
+        firstName: 'sonmajkkl',
+        lastName: 'Enyiokwakll',
         homeAddress: '3755 diamond str',
         organization: 'sonmahjb integrated',
         organizationAddress: '2t tope str',
@@ -228,14 +219,21 @@ describe('POST should return you are not up to age to apply', () => {
 });
 
 describe('POST api/v1/auth/signin', () => {
-  const token = 'ajdsdkdk.akskks29030303umds.s';
+  const token = jwt.sign({
+    email: 'boths104@example.com',
+    firstName: 'sonmajkkl',
+    lastName: 'Enyiokwakll',
+  },
+  'secret');
   it('should return signin successful', (done) => {
     chai.request(server)
       .post('/api/v1/auth/signin')
+      .set('authorization', token)
       .set('Accept', 'application/json')
       .send({
         email: 'boths104@example.com',
-        password: 'developer'
+        password: 'developer',
+        token,
       })
       .end((err, res) => {
         expect(res.body).to.be.an('object');
@@ -246,8 +244,7 @@ describe('POST api/v1/auth/signin', () => {
   });
 });
 
-describe('Sign in a user with invalid input values api/v1/auth/signin', () => {
-  const token = 'ajdsdkdk.akskks29030303umds.s';
+describe('POST signin invalid input values api/v1/auth/signin', () => {
   it('should return error when invalid details', (done) => {
     chai.request(server)
       .post('/api/v1/auth/signin')
@@ -266,7 +263,6 @@ describe('Sign in a user with invalid input values api/v1/auth/signin', () => {
 });
 
 describe('POST should return email field not filled api/v1/auth/signin', () => {
-  const token = 'ajdsdkdk.akskks29030303umds.s';
   it('should return error when email field is not filled', (done) => {
     chai.request(server)
       .post('/api/v1/auth/signin')
@@ -276,9 +272,6 @@ describe('POST should return email field not filled api/v1/auth/signin', () => {
         password: 'developer'
       })
       .end((err, res) => {
-        const {
-          email
-        } = res.body.errors;
         expect(res.body).to.be.an('object');
         expect(res.statusCode).to.equal(400);
         expect(res.body.message).to.equal('Invalid Credentials');
@@ -288,7 +281,6 @@ describe('POST should return email field not filled api/v1/auth/signin', () => {
 });
 
 describe('POST should return email format incorrect api/v1/auth/signin', () => {
-  const token = 'ajdsdkdk.akskks29030303umds.s';
   it('should return error when email format is incorrect', (done) => {
     chai.request(server)
       .post('/api/v1/auth/signin')
@@ -298,9 +290,6 @@ describe('POST should return email format incorrect api/v1/auth/signin', () => {
         password: 'developer'
       })
       .end((err, res) => {
-        const {
-          email
-        } = res.body.errors;
         expect(res.body).to.be.an('object');
         expect(res.statusCode).to.equal(400);
         expect(res.body.message).to.equal('Invalid Credentials');
@@ -310,7 +299,6 @@ describe('POST should return email format incorrect api/v1/auth/signin', () => {
 });
 
 describe('POST should return password field not filled api/v1/auth/signin', () => {
-  const token = 'ajdsdkdk.akskks29030303umds.s';
   it('should return error when password field is not filled', (done) => {
     chai.request(server)
       .post('/api/v1/auth/signin')
@@ -320,9 +308,6 @@ describe('POST should return password field not filled api/v1/auth/signin', () =
         password: ''
       })
       .end((err, res) => {
-        const {
-          password
-        } = res.body.errors;
         expect(res.body).to.be.an('object');
         expect(res.statusCode).to.equal(400);
         expect(res.body.message).to.equal('Invalid Credentials');
@@ -332,7 +317,6 @@ describe('POST should return password field not filled api/v1/auth/signin', () =
 });
 
 describe('POST should return password incorrect api/v1/auth/signin', () => {
-  const token = 'ajdsdkdk.akskks29030303umds.s';
   it('should return error when password is incorrect', (done) => {
     chai.request(server)
       .post('/api/v1/auth/signin')
@@ -342,9 +326,6 @@ describe('POST should return password incorrect api/v1/auth/signin', () => {
         password: 'dev'
       })
       .end((err, res) => {
-        const {
-          password
-        } = res.body.errors;
         expect(res.body).to.be.an('object');
         expect(res.statusCode).to.equal(400);
         expect(res.body.message).to.equal('Invalid Credentials');
@@ -557,8 +538,8 @@ describe('POST /loans repayment record /api/v1/loans/:loan-id/repayments', () =>
         id: 1,
         loanId: 12,
         createdOn: '12-33-3000 12:33pm',
-        amount: 10000.00, 
-        monthlyInstallment: 2000.00, 
+        amount: 10000.00,
+        monthlyInstallment: 2000.00,
         paidAmount: 2000.00,
         balance: 8000.00,
       })

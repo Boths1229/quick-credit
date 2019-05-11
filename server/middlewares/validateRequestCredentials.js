@@ -21,7 +21,8 @@ const validateRequestCredentials = (req, res, next, rules) => {
 export const validateRegisterationCredentials = (req, res, next) => {
   req.body.age = +req.body.age;
   const rules = {
-    firstname: 'required|alpha',
+    firstName: 'required|alpha',
+    lastName: 'required|alpha',
     age: 'min:18',
     email: 'required|email',
     password: 'required|min:6'

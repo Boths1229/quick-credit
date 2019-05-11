@@ -5,8 +5,8 @@ const validateUserExistence = (req, res, next) => {
   const valid = Users.filter(user => user.email === email);
 
   if (valid.length < 0) {
-    return res.status(409).json({
-      message: 'invalid details'
+    return res.status(404).json({
+      message: 'invalid email or password'
     });
   }
   next();
