@@ -36,25 +36,25 @@ class User {
 
   static verifyUser(req, res) {
     const requestEmail = req.params.useremail;
-    const verify = user.find(userfound => (userfound.email === requestEmail));
-    if (!verify) {
+    const verifiedUser = user.find(userfound => (userfound.email === requestEmail));
+    if (!verifiedUser) {
       return res.status(404).json({
         message: 'addresses not verified'
       });
     }
     // Verify user
-    verify.status = 'verified';
+    verifiedUser.status = 'verified';
     return res.status(200).json({
       message: 'addresses verified',
       status: 200,
       data: {
-        email: verify.email,
-        firstName: verify.firstname,
-        lastName: verify.lastname,
-        password: verify.password,
-        homeAddress: verify.homeAddress,
-        organizationAddress: verify.organizationAddress,
-        status: verify.status,
+        email: verifiedUser.email,
+        firstName: verifiedUser.firstname,
+        lastName: verifiedUser.lastname,
+        password: verifiedUser.password,
+        homeAddress: verifiedUser.homeAddress,
+        organizationAddress: verifiedUser.organizationAddress,
+        status: verifiedUser.status,
       },
     });
   }

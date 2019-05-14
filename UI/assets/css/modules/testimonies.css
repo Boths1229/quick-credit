@@ -2,20 +2,20 @@ h1, h2, h3, h4 ,h5 ,h6, p{
     margin: 0;
     padding: 0;
 }
-body *{
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+body {
+    box-sizing: border-box;
 }
 
 
 .testimonials{
     padding-bottom: 2.2em; 
     text-align: center;
-    color: #666;
+    color: white;
+    background: #444;
 }
 .testimonials h1{
-    color: #222;
-    font-size: 1.3em;
+    color: whitesmoke;
+    font-size: 1.5em;
 }
 .testimonials .test-body{padding: 1em;}
 .testimonials .item{ 
@@ -31,7 +31,7 @@ body *{
 .testimonials .desig{
     font-size: 0.7em;
     padding: 0.5em 0;
-    color: #777;
+    color: white;
 }
 .testimonials .share{
     margin: 0 auto;
