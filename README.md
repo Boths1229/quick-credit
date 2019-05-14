@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.com/Boths1229/quick-credit.svg?branch=develop)](https://travis-ci.com/Boths1229/quick-credit)
 [![Coverage Status](https://coveralls.io/repos/github/Boths1229/quick-credit/badge.svg?branch=develop)](https://coveralls.io/github/Boths1229/quick-credit?branch=develop)
+[![Maintainability](https://api.codeclimate.com/v1/badges/57f9841789c8023c2fec/maintainability)](https://codeclimate.com/github/Boths1229/quick-credit/maintainability)
 
 # Quick Credit
  Quick Credit is an online lending platform that provides short term soft loans to individuals. This
@@ -29,7 +30,7 @@ To install this application,
 
 ### API Documentation
 
-  THE Documentation for the Quick-Credit Restful API: [Quick-Credit API](https://github.com/Boths1229/quick-credit.git) 
+  THE Documentation for the Quick-Credit Restful API: [Quick-Credit API](https://app.swaggerhub.com/apis/Boths1229/QUICK-CREDIT/1.0.0) 
 
 ### Coding Style
 

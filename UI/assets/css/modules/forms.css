@@ -53,10 +53,17 @@ select {
 }
 
 .checkbox-input:checked,
-.radio-input:checked {
+.radio-input:checked, .checkbox-verify {
   background-color: #fff;
   border-width: 5px;
   border-style: solid;
   border-color: #35424a;
   border-image: initial;
+}
+
+.checkbox-verify {
+  width: 20px;
+  height: 20px;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
 }

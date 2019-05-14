@@ -6,14 +6,13 @@
  	<meta name = "author" content = "Chukwuma Emmanuel">
  	<title>Quick Credit | Sign Up</title>
  	<link rel="stylesheet" type="text/css" href="./assets/css/modules.css">
- 	<link rel="stylesheet" type="text/css" href="style.css">
- 	<script type="text/javascript" src = "quick1.js" defer></script>	
+ 	<script type="text/javascript" src = "./assets/js/quick1.js" defer></script>	
  </head>
  <body>
  	<div class="background-image"></div>
  	<header class="container-fluid position-sticky top0">
 		<nav class="navbar container d-flex">
-		  	<h1 class="brand-name">Quick Credit</h1>
+			<h1 class="brand-name"><a href="index.html">Quick Credit</a></h1>
 			<ul>
 				<li class="d-inline-flex">
 					<a class="nav-item mr-0" href="signin.html">sign in</a>
@@ -32,22 +31,34 @@
 		 		<div class="form-group d-column">
 		 			<label for="lastname">Last Name:</label>
 		 			<input type ="text" id="lastname" name="lastname" required>
-		 		</div>
+				 </div>
+				 <div class="form-group d-column">
+						<label for="houseAddress">House Address:</label>
+						<input type ="text" id="houseAddress" name="houseAddress" required>
+					</div>
 		 		<div class="form-group d-column">
 		 			<label for="email">Email:</label>
-		 			<input type ="email" id="email" name="email" placeholder="email@" required>
-		 		</div>
+		 			<input type ="email" id="email" name="email" required>
+				 </div>
+				 <div class="form-group d-column">
+						<label for="organization">Organization</label>
+						<input type ="text" id="organization" name="organization" required>
+					</div>
+				<div class="form-group d-column">
+						<label for="organizationAddress">Organization Address</label>
+						<input type ="text" id="lastname" name="lastname" required>
+					</div>	
 		 		<div class="form-group d-column">
 		 			<label for="password">Password:</label>
 		 			<input type ="password" id="password" min="6" name="password">
 		 		</div>
 		 		<div class="form-group d-column">
 		 			<label for="bvn">BVN:</label>
-		 			<input type="number" placeholder="bvn" id="bvn" name="bvn" required>
+		 			<input type="number" id="bvn" name="bvn" required>
 		 		</div>
 		 		<div class="form-group d-column">
 		 			<label for="mobile">Mobile:</label>
-		 			<input type="text" name="mobile" id="mobile" placeholder="phone number" required>
+		 			<input type="text" name="mobile" id="mobile" required>
 		 		</div>
 		 		<div class="form-group d-column"> 
 		 			<label for="birthdate">Birthdate:</label>
@@ -55,7 +66,7 @@
 		 		</div>
 		 		<div class="form-group d-column">
 		 			<label for="age">Age:</label>
-		 			<input type ="text" name="age" placeholder="your age" id="age" required>
+		 			<input type ="text" name="age" id="age" required>
 		 		</div>
 		 		<div class="form-group d-column">
 		 			<label for="nationality">Nationality:</label>
@@ -92,8 +103,8 @@
 		 		</div>
 		 		 <p class="terms">I have read, understand and accept all the <span class="text-dark">terms, conditions</span> and <span class=text-dark>privacy</span> for Quick credit</p><br>
 		 		 <div>
-		 			<button class="button mx-1" type="submit">Register!</button>
-		 			<button class="button mx-1" type="reset">Reset</button>
+		 			<button class="button mx-1" type="submit">Sign Up</button>
+		 			<button class="btn-reset mx-1" type="reset">Reset</button>
 		 		 </div>
 		 	</form>
  		</div>
