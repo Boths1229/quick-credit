@@ -4,11 +4,9 @@
  	<meta charset = "utf-8">
  	<meta name = "viewport" content ="width=device-width,initial-scale=1.0,user-scalable=yes">
  	<meta name = "author" content = "Chukwuma Emmanuel">
- 	<title>Quick Credit | Loan Application</title>
- 	<link rel="stylesheet" type="text/css" href="quick1.css">
- 	<link rel="stylesheet" type="text/css" href="style.css">
+ 	<title>Quick Credit | Welcome</title>
  	<link rel="stylesheet" type="text/css" href="./assets/css/modules.css">
- 	<script type="text/javascript" src = "quick1.js" defer></script>	
+ 	<script type="text/javascript" src = "./assets/js/quick1.js" defer></script>	
  </head>
  <body>
  	<div class="box">
@@ -19,16 +17,13 @@
 		        <div></div>
 		        <div></div>
 		      </div>
-		      <h1 class="brand-name">Quick Credit</h1>
+		      <h1 class="brand-name"><a href="user.html">Quick Credit</a></h1>
 		      <ul class="dropdown-none">
 		      	<li class="d-inline-flex">
 				<a class="nav-item" href="#contact">Contact us</a>
 				</li>
 				<li class="d-inline-flex">
-					<a class="nav-item" href="FAQs.html">FAQs</a>
-				</li>
-				<li class="d-inline-flex">
-					<span class="nav-item">Your ID:</span>
+					<span class="nav-item">Name: Odi Uli</span>
 				</li>
 		        <li class="d-inline-flex">
 		          <a class="nav-item mr-0" href="index.html">Log out</a>
@@ -45,53 +40,40 @@
 		    <div class="row min-height mx-0">
 		      <aside id="aside-drawer" class="side-drawer-none col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 user-section-aside">
 		        <ul class="aside-content">
-			        <li class="aside-text"><a href="about.html">About Us</a></li>
-							<li class="aside-text"><a href="product.html">Products</a></li>
-							<li class="aside-text"><a href="applyloan.html">Apply for a loan</a></li>
 							<li class="aside-text"><a href="userpay.html">View loan repayment history</a></li>
 		        </ul>
 		      </aside>
 		      <main class="main col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12 p-4">
-		        <div class="default-main-content d-flex flex-column align-center">
-		          <div class="container">
-		            <form>
-				 		<h1>Fill out the application form</h1>
-				 		Name: <br> 
-				 		<input type="text" name="name" placeholder="your fullname" id="name"><br>
-				 		Address: <br>
-				 		<input type="text" name="address" id="haddress" placeholder="your house address"><br>
-				 		Any previous loan with Us? <br>
-				 		<select>
-				 			<option value="yes">Yes</option>
-				 			<option value="No">No</option>
-				 		</select id="previous"><br>
-				 		If yes in the above question,have you completed the payment?<br>
-				 		<input class="radio-input mr-3" type="radio" name="valid"> Yes<br>
-				 		<input class="radio-input mr-3" type="radio" name="valid"> No<br>
-				 		Loan Amount: <br>
-				 		<input type="text" name="laon amount" placeholder="enter the amount you want" id="amount"><br>
-				 		Loan duration: <br>
-				 		<input type="text" name="laon duration" id="duration" placeholder="eg:2months,3months etc"><br>
-				 		Employment status: <br>
-				 		<input class="radio-input mr-3" type="radio" name="status">Employed <br>
-				 		<input class="radio-input mr-3" type="radio" name="status">Self Employed <br>
-				 		<input class="radio-input mr-3" type="radio" name="status">Unemployed <br>
-				 		Name of Organisation: <br>
-				 		<input type="text" name="organisation" id="organization" placeholder="company's name"><br>
-				 		Address of Organisation: <br>
-				 		<input type="text" name="office address" placeholder="your office address" id="offaddress"><br>
-				        Bank details: <br>
-				        <input type="text" name="account name" placeholder="your account name"><br>
-				        <input type="text" name="bank name" placeholder="your bank"><br>
-				        <input type="text" name="account number" placeholder="account number"><br>
-				        <br>
-				        <input class="checkbox-input mr-3" type="checkbox" required>  I have read and accepted all your terms and conditions<br>
-				        <br>
-				        <input class="button mx-1" type="submit" value="APPLY!!">
-				 	</form>
-		          </div>
-		        </div>
-		      </main>
+							<div class="default-main-content d-flex flex-column align-center">
+								<div class="container loan_form">
+									<form>
+							 <h4>Complete the below form to obtain your loan in minutes</h4><br><br>
+							 <div class="loan">
+							 Any previous loan with Us? <br>
+							 <select>
+								 <option value="yes">Yes</option>
+								 <option value="No">No</option>
+							 </select id="previous"><br><br>
+							 If yes in the above question,have you completed the payment?<br>
+							 <input class="radio-input mr-3" type="radio" name="valid"> Yes<br>
+							 <input class="radio-input mr-3" type="radio" name="valid"> No<br><br>
+							 Loan Amount: <br>
+							 <input type="text" name="laon amount"><br><br>
+							 Loan duration: <br>
+							 <input type="text" name="laon duration" id="duration"><br><br>
+									Bank details: <br>
+									<input type="text" name="account name" placeholder="your account name"><br>
+									<input type="text" name="bank name" placeholder="your bank"><br>
+									<input type="text" name="account number" placeholder="account number"><br>
+									<br><br>
+									<input class="checkbox-input mr-3" type="checkbox" required>  I have read and accepted all your terms and conditions<br>
+									<br>
+									<input class="button mx-1" type="submit" value="APPLY!!">
+								</div>
+						 </form>
+								</div>
+							</div>
+						</main>
 		    </div>
 		  </section>
 		  <footer class="row-box container-footer" id="contact">

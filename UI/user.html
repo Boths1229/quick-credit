@@ -5,10 +5,8 @@
  	<meta name = "viewport" content ="width=device-width,initial-scale=1.0,user-scalable=yes">
  	<meta name = "author" content = "Chukwuma Emmanuel">
  	<title>Quick Credit | Welcome</title>
- 	<link rel="stylesheet" type="text/css" href="quick1.css">
- 	<link rel="stylesheet" type="text/css" href="style.css">
  	<link rel="stylesheet" type="text/css" href="./assets/css/modules.css">
- 	<script type="text/javascript" src = "quick1.js" defer></script>	
+ 	<script type="text/javascript" src = "./assets/js/quick1.js" defer></script>	
  </head>
  <body>
  	<div class="box">
@@ -19,16 +17,13 @@
 		        <div></div>
 		        <div></div>
 		      </div>
-		      <h1 class="brand-name">Quick Credit</h1>
+		      <h1 class="brand-name"><a href="user.html">Quick Credit</a></h1>
 		      <ul class="dropdown-none">
 		      	<li class="d-inline-flex">
 				<a class="nav-item" href="#contact">Contact us</a>
 				</li>
 				<li class="d-inline-flex">
-					<a class="nav-item" href="FAQs.html">FAQs</a>
-				</li>
-				<li class="d-inline-flex">
-					<span class="nav-item">Your ID:</span>
+					<span class="nav-item">Name: Odi Uli</span>
 				</li>
 		        <li class="d-inline-flex">
 		          <a class="nav-item mr-0" href="index.html">Log out</a>
@@ -45,50 +40,40 @@
 		    <div class="row min-height mx-0">
 		      <aside id="aside-drawer" class="side-drawer-none col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 user-section-aside">
 		        <ul class="aside-content">
-			        <li class="aside-text"><a href="about.html">About Us</a></li>
-					<li class="aside-text"><a href="product.html">Products</a></li>
-					<li class="aside-text"><a href="applyloan.html">Apply for a loan</a></li>
-					<li class="aside-text"><a href="userpay.html">View loan repayment history</a></li>
+							<li class="aside-text"><a href="userpay.html">View loan repayment history</a></li>
 		        </ul>
 		      </aside>
 		      <main class="main col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12 p-4">
-		        <div class="default-main-content d-flex flex-column align-center">
-		          <div class="container userpage">
-		            <p>We process our loans in minutes!!</p>
-								<p>Our on time response is our selling point</p>
-								<p>No collataral required!!</p>
-								<p>Our ever increasing customers base is a testimony of our efficient process as our satisfied customers are ever willing to deal with us again and again.</p>
-					 <a href="applyloan.html"><span>APPLY!!</span></a><br><br>
-					 <div class="testimonials">
-							<h1>Testimonials</h1>
-							<div class="test-body">
-									<div class="item">
-											<img src="https://images.pexels.com/photos/2033447/pexels-photo-2033447.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
-											<div class="name">Yusuf Ahmed</div>
-											<small class="desig">Driver</small>
-											<div class="share"><i class="fa fa-facebook"></i><i class="fa fa-twitter"></i><i class="fa fa-instagram"></i></div>
-											<p>Got my loan in a matter of an hour,really needed it very fast and for sure Quick Credit kept to their by delivery on time and the interest is very ok. So grateful to Quick Credit</p>
-									</div>
-									<div class="item">
-											<img src="https://images.pexels.com/photos/1820574/pexels-photo-1820574.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
-											<div class="name">Yemi Olaniyi</div>
-											<small class="desig">Real Estate agent</small>
-											<div class="share"><i class="fa fa-facebook"></i><i class="fa fa-twitter"></i><i class="fa fa-instagram"></i></div>
-											<p>When my friend told me about Quick Credit, i had my reservations but on the day i needed their service i was so surprise at the process of accessing their loans. Very fast and easy.</p>
-									</div>
-									<div class="item">
-											<img src="https://images.unsplash.com/photo-1457367756802-2c6127b8ad11?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
-											<div class="name">Kelechi Nwaokoro</div>
-											<small class="desig">Photographer</small>
-											<div class="share"><i class="fa fa-facebook"></i><i class="fa fa-twitter"></i><i class="fa fa-instagram"></i></div>
-											<p>Needed to pay my son's medical bill and get his required drugs and haven't not being paid i needed a quick loan and when my wife's friend told us about Quick Credit,we decided to try them and the rest they say is history. Thank You to Quick Credit! Will recommend you to my friends anyday.</p>
-									</div>
+							<div class="default-main-content d-flex flex-column align-center">
+								<div class="container loan_form">
+									<form>
+							 <h4>Complete the below form to obtain your loan in minutes</h4><br><br>
+							 <div class="loan">
+							 Any previous loan with Us? <br>
+							 <select>
+								 <option value="yes">Yes</option>
+								 <option value="No">No</option>
+							 </select id="previous"><br><br>
+							 If yes in the above question,have you completed the payment?<br>
+							 <input class="radio-input mr-3" type="radio" name="valid"> Yes<br>
+							 <input class="radio-input mr-3" type="radio" name="valid"> No<br><br>
+							 Loan Amount: <br>
+							 <input type="text" name="laon amount"><br><br>
+							 Loan duration: <br>
+							 <input type="text" name="laon duration" id="duration"><br><br>
+									Bank details: <br>
+									<input type="text" name="account name" placeholder="your account name"><br>
+									<input type="text" name="bank name" placeholder="your bank"><br>
+									<input type="text" name="account number" placeholder="account number"><br>
+									<br><br>
+									<input class="checkbox-input mr-3" type="checkbox" required>  I have read and accepted all your terms and conditions<br>
+									<br>
+									<input class="button mx-1" type="submit" value="APPLY!!">
+								</div>
+						 </form>
+								</div>
 							</div>
-							<button>View All Testimonials</button>    
-					</div>
-		          </div>
-		        </div>
-		      </main>
+						</main>
 		    </div>
 		  </section>
 		  <footer class="row-box container-footer" id="contact">
