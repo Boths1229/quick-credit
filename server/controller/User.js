@@ -1,5 +1,5 @@
 import user from '../models/users';
-import { createToken, verifyToken } from '../helper/token';
+import { createToken } from '../helper/token';
 
 class User {
   static signUp(req, res) {
@@ -15,23 +15,22 @@ class User {
   }
 
   static signIn(req, res) {
-    const { email, password, token } = req.body;
+    const { email, password } = req.body;
 
-    try {
-      req.user = verifyToken(token);
-    } catch (e) {
+    const registered = user.find((check) => {
+      return (check.email === req.body.email && check.password === req.body.password);
+    });
+
+    if (!registered) {
       return res.status(404).json({
         message: 'invalid email or password'
       });
     }
 
-    if (req.user) {
-      return res.status(200).json({
-        email,
-        password,
-        message: 'signin successful',
-      });
-    }
+    return res.status(200).json({
+      message: 'signin successful',
+      token: createToken({ email, password })
+    });
   }
 
   static verifyUser(req, res) {
@@ -42,7 +41,7 @@ class User {
         message: 'addresses not verified'
       });
     }
-    // Verify user
+    
     verifiedUser.status = 'verified';
     return res.status(200).json({
       message: 'addresses verified',
