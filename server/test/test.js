@@ -1,7 +1,6 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import server from '../app';
-import createToken from '../helper/token';
 
 chai.use(chaiHttp);
 
