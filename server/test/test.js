@@ -7,11 +7,9 @@ chai.use(chaiHttp);
 const { expect } = chai;
 
 describe('POST sign up successful api/v1/auth/signup', () => {
- const token = 'ajdsdkdk.akskks29030303umds.s';
   it('should return signup successful', (done) => {
     chai.request(server)
       .post('/api/v1/auth/signup')
-      .set('authorization', token)
       .set('Accept', 'application/json')
       .send({
         id: 53,
@@ -24,11 +22,11 @@ describe('POST sign up successful api/v1/auth/signup', () => {
         email: 'sonmhha@example.com',
         password: 'sonma123mmn',
         imageUrl: 'www.imageUrl.com',
-        status: 'unverified', // unverified or verified
+        status: 'unverified', 
         isAdmin: false,
       })
       .end((err, res, token) => {
-        expect(res.body).to.be.an('object');
+        expect(res.body).to.be.an('object', token);
         expect(res.statusCode).to.equal(201);
         expect(res.body.message).to.equal('Signup successful');
         setImmediate(done);
@@ -51,7 +49,7 @@ describe('POST email already in use api/v1/auth/signup', () => {
         email: 'sonmhha@example.com',
         password: 'sonma123mmn',
         imageUrl: 'www.imageUrl.com',
-        status: 'unverified', // unverified or verified
+        status: 'unverified', 
         isAdmin: false,
       })
       .end((err, res) => {
@@ -78,7 +76,7 @@ describe('POST sign up details in incomplete api/v1/auth/signup', () => {
         email: '',
         password: 'sonma123mmn',
         imageUrl: 'www.imageUrl.com',
-        status: 'unverified', // unverified or verified
+        status: 'unverified', 
         isAdmin: false,
       })
       .end((err, res) => {
@@ -110,7 +108,7 @@ describe('POST should return email is invalid api/v1/auth/signup', () => {
         email: 'sonmhha',
         password: 'sonma123mmn',
         imageUrl: 'www.imageUrl.com',
-        status: 'unverified', // unverified or verified
+        status: 'unverified', 
         isAdmin: false,
       })
       .end((err, res) => {
@@ -141,7 +139,7 @@ describe('POST should return password length is less than 6 or invalid api/v1/au
         email: 'sonmhha@example.com',
         password: 'so',
         imageUrl: 'www.imageUrl.com',
-        status: 'unverified', // unverified or verified
+        status: 'unverified', 
         isAdmin: false,
       })
       .end((err, res) => {
@@ -171,7 +169,7 @@ describe('POST should return error when age field is not filled api/v1/auth/sign
         email: 'sonmhha@example.com',
         password: 'sonma123mmn',
         imageUrl: 'www.imageUrl.com',
-        status: 'unverified', // unverified or verified
+        status: 'unverified', 
         isAdmin: false,
       })
       .end((err, res) => {
@@ -202,7 +200,7 @@ describe('POST should return you are not up to age to apply', () => {
         email: 'sonmhha@example.com',
         password: 'sonma123mmn',
         imageUrl: 'www.imageUrl.com',
-        status: 'unverified', // unverified or verified
+        status: 'unverified', 
         isAdmin: false,
       })
       .end((err, res) => {
@@ -218,18 +216,16 @@ describe('POST should return you are not up to age to apply', () => {
 });
 
 describe('POST api/v1/auth/signin', () => {
- const token = 'ajdsdkdk.akskks29030303umds.s';
   it('should return signin successful', (done) => {
     chai.request(server)
       .post('/api/v1/auth/signin')
-      .set('authorization', token)
       .set('Accept', 'application/json')
       .send({
         email: 'boths104@example.com',
         password: 'developer'
       })
       .end((err, res, token) => {
-        expect(res.body).to.be.an('object');
+        expect(res.body).to.be.an('object', token);
         expect(res.statusCode).to.equal(200);
         expect(res.body.message).to.equal('signin successful');
         setImmediate(done);
