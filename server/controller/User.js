@@ -4,32 +4,33 @@ import { createToken } from '../helper/token';
 class User {
   static signUp(req, res) {
     const { email, firstName, lastName } = req.body;
+    const token = createToken({ email, firstName, lastName });
+
     user.push({
       ...req.body
     });
-    
+
     return res.status(201).json({
       message: 'Signup successful',
-      token: createToken({ email, firstName, lastName })
+      token
     });
   }
 
   static signIn(req, res) {
     const { email, password } = req.body;
+    const token = createToken({ email, password });
 
-    const registered = user.find((check) => {
-      return (check.email === req.body.email && check.password === req.body.password);
-    });
+    const registered = user.find(check => (check.email === req.body.email && check.password === req.body.password));
 
     if (!registered) {
       return res.status(404).json({
         message: 'invalid email or password'
       });
     }
-    
+
     return res.status(200).json({
       message: 'signin successful',
-      token: createToken({ email, password })
+      token
     });
   }
 
@@ -41,7 +42,7 @@ class User {
         message: 'addresses not verified'
       });
     }
-    
+
     verifiedUser.status = 'verified';
     return res.status(200).json({
       message: 'addresses verified',

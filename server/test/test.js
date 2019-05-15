@@ -1,6 +1,7 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import server from '../app';
+import createToken from '../helper/token';
 
 chai.use(chaiHttp);
 
@@ -22,11 +23,12 @@ describe('POST sign up successful api/v1/auth/signup', () => {
         email: 'sonmhha@example.com',
         password: 'sonma123mmn',
         imageUrl: 'www.imageUrl.com',
-        status: 'unverified', 
+        status: 'unverified', // unverified or verified
         isAdmin: false,
       })
-      .end((err, res, token) => {
-        expect(res.body).to.be.an('object', token);
+      .end((err, res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.body.token).to.be.a('string');
         expect(res.statusCode).to.equal(201);
         expect(res.body.message).to.equal('Signup successful');
         setImmediate(done);
@@ -49,7 +51,7 @@ describe('POST email already in use api/v1/auth/signup', () => {
         email: 'sonmhha@example.com',
         password: 'sonma123mmn',
         imageUrl: 'www.imageUrl.com',
-        status: 'unverified', 
+        status: 'unverified', // unverified or verified
         isAdmin: false,
       })
       .end((err, res) => {
@@ -76,7 +78,7 @@ describe('POST sign up details in incomplete api/v1/auth/signup', () => {
         email: '',
         password: 'sonma123mmn',
         imageUrl: 'www.imageUrl.com',
-        status: 'unverified', 
+        status: 'unverified', // unverified or verified
         isAdmin: false,
       })
       .end((err, res) => {
@@ -108,7 +110,7 @@ describe('POST should return email is invalid api/v1/auth/signup', () => {
         email: 'sonmhha',
         password: 'sonma123mmn',
         imageUrl: 'www.imageUrl.com',
-        status: 'unverified', 
+        status: 'unverified', // unverified or verified
         isAdmin: false,
       })
       .end((err, res) => {
@@ -139,7 +141,7 @@ describe('POST should return password length is less than 6 or invalid api/v1/au
         email: 'sonmhha@example.com',
         password: 'so',
         imageUrl: 'www.imageUrl.com',
-        status: 'unverified', 
+        status: 'unverified', // unverified or verified
         isAdmin: false,
       })
       .end((err, res) => {
@@ -169,7 +171,7 @@ describe('POST should return error when age field is not filled api/v1/auth/sign
         email: 'sonmhha@example.com',
         password: 'sonma123mmn',
         imageUrl: 'www.imageUrl.com',
-        status: 'unverified', 
+        status: 'unverified', // unverified or verified
         isAdmin: false,
       })
       .end((err, res) => {
@@ -200,7 +202,7 @@ describe('POST should return you are not up to age to apply', () => {
         email: 'sonmhha@example.com',
         password: 'sonma123mmn',
         imageUrl: 'www.imageUrl.com',
-        status: 'unverified', 
+        status: 'unverified', // unverified or verified
         isAdmin: false,
       })
       .end((err, res) => {
@@ -224,8 +226,9 @@ describe('POST api/v1/auth/signin', () => {
         email: 'boths104@example.com',
         password: 'developer'
       })
-      .end((err, res, token) => {
-        expect(res.body).to.be.an('object', token);
+      .end((err, res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.body.token).to.be.a('string');
         expect(res.statusCode).to.equal(200);
         expect(res.body.message).to.equal('signin successful');
         setImmediate(done);
