@@ -1,6 +1,5 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-import jwt from 'jsonwebtoken';
 import server from '../app';
 
 chai.use(chaiHttp);
@@ -8,7 +7,7 @@ chai.use(chaiHttp);
 const { expect } = chai;
 
 describe('POST sign up successful api/v1/auth/signup', () => {
-  const token = 'ajdsdkdk.akskks29030303umds.s';
+ const token = 'ajdsdkdk.akskks29030303umds.s';
   it('should return signup successful', (done) => {
     chai.request(server)
       .post('/api/v1/auth/signup')
@@ -28,7 +27,7 @@ describe('POST sign up successful api/v1/auth/signup', () => {
         status: 'unverified', // unverified or verified
         isAdmin: false,
       })
-      .end((err, res) => {
+      .end((err, res, token) => {
         expect(res.body).to.be.an('object');
         expect(res.statusCode).to.equal(201);
         expect(res.body.message).to.equal('Signup successful');
@@ -219,7 +218,7 @@ describe('POST should return you are not up to age to apply', () => {
 });
 
 describe('POST api/v1/auth/signin', () => {
-  const token = 'ajdsdkdk.akskks29030303umds.s';
+ const token = 'ajdsdkdk.akskks29030303umds.s';
   it('should return signin successful', (done) => {
     chai.request(server)
       .post('/api/v1/auth/signin')
@@ -229,7 +228,7 @@ describe('POST api/v1/auth/signin', () => {
         email: 'boths104@example.com',
         password: 'developer'
       })
-      .end((err, res) => {
+      .end((err, res, token) => {
         expect(res.body).to.be.an('object');
         expect(res.statusCode).to.equal(200);
         expect(res.body.message).to.equal('signin successful');

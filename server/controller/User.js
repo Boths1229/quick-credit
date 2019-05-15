@@ -7,7 +7,7 @@ class User {
     user.push({
       ...req.body
     });
-
+    
     return res.status(201).json({
       message: 'Signup successful',
       token: createToken({ email, firstName, lastName })
@@ -26,7 +26,7 @@ class User {
         message: 'invalid email or password'
       });
     }
-
+    
     return res.status(200).json({
       message: 'signin successful',
       token: createToken({ email, password })
