@@ -1,15 +1,49 @@
+import debug from 'debug';
 import user from '../models/users';
 import { createToken } from '../helper/token';
+import Model from '../models/db';
 
 class User {
-  static signUp(req, res) {
-    const { email, firstName, lastName } = req.body;
+  static model() {
+    return new Model('users');
+  }
+
+  // static logger(message){
+  //   return debug('dev'){message};
+  // }
+
+  static async getAllUsers(req, res) {
+    const { rows } = await User.model().select('id, email, firstName, lastName, age', 'id=2');
+    console.log(JSON.stringify(rows, null, '\t'));
+    try {
+      if (rows.length === 0) {
+        return res.status(400).json({
+          message: 'No user found'
+        });
+      }
+
+      return res.status(200).json({
+        message: 'All users received successfully',
+        data: rows,
+        status: 200
+      });
+    } catch (e) {
+      return res.status(500).json({
+        message: 'server error'
+      });
+    }
+  }
+
+  static async signUp(req, res) {
+    const {
+ email, firstName, lastName, homeAddress, organization, organizationAddress, age, status } = req.body;
     const token = createToken({ email, firstName, lastName });
 
-    user.push({
-      ...req.body
-    });
-
+    const { rows } = await User.model().insert(
+      'email, firstName, lastName, homeAddress, organization, organizationAddress, age, status',
+      `'${email}', '${firstName}', '${lastName}', '${homeAddress}', '${organization}', '${organizationAddress}', '${age}', '${status}'`
+    );
+    console.log('connected');
     return res.status(201).json({
       message: 'Signup successful',
       token
@@ -20,7 +54,9 @@ class User {
     const { email, password } = req.body;
     const token = createToken({ email, password });
 
-    const registered = user.find(check => (check.email === req.body.email && check.password === req.body.password));
+    const registered = User.model().select(
+      'id, email', `email='${email}'`
+    );
 
     if (!registered) {
       return res.status(404).json({

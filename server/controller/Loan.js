@@ -1,5 +1,8 @@
 import loan from '../models/loans';
 import loanRepaymentRecord from '../models/loanRepaymentRecord';
+import Model from '../models/db';
+
+const loan_model = new Model('users');
 
 class Loan {
   static applyLoan(req, res) {
@@ -28,7 +31,7 @@ class Loan {
 
   static getRepaymentRecord(req, res) {
     const loanRecord = loanRepaymentRecord.find(user => user.loanId === parseInt((req.params.loanid), 10));
-  
+
     if (!loanRecord) {
       return res.status(404).json({
         message: `loan with id:${req.params.loanid} not found`,
@@ -76,13 +79,13 @@ class Loan {
 
   static getSpecificLoan(req, res) {
     const specific = loan.find(user => user.id === parseInt((req.params.id), 10));
-    
+
     if (!specific) {
       return res.status(404).json({
         message: 'wrong loan Id'
       });
     }
-    
+
     return res.status(200).json({
       message: 'A specific loan application fetched',
       data: specific
@@ -90,12 +93,11 @@ class Loan {
   }
 
   static approveReject(req, res) {
-    
     const getLoanId = req.params.loanid;
     const getStatus = req.body.status;
-    
+
     const app_rej = loan.find(user => (user.id === parseInt((getLoanId), 10)));
-    
+
     app_rej.status = getStatus;
     return res.status(200).json({
       message: 'loan application approved',
@@ -113,7 +115,6 @@ class Loan {
   }
 
   static postLOanRepayments(req, res) {
-    
     const getLoanId = req.params.loanid;
     const paymentHistory = {
       id: loanRepaymentRecord.length + 1,

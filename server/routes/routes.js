@@ -11,6 +11,7 @@ export default (app) => {
   app.post('/api/v1/auth/signup', validateRegisterationCredentials, validateEmailExistence, User.signUp);
   app.post('/api/v1/auth/signin', validateSigninCredentials, validateUserExistence, User.signIn);
   app.patch('/api/v1/users/:useremail/verify', User.verifyUser);
+  app.get('/api/v1/users', User.getAllUsers);
 
   // Loans
   app.post('/api/v1/loans', validateApplyLoanCredentials, Loan.applyLoan);
