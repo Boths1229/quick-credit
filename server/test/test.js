@@ -1,6 +1,5 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-import jwt from 'jsonwebtoken';
 import server from '../app';
 
 chai.use(chaiHttp);
@@ -8,11 +7,9 @@ chai.use(chaiHttp);
 const { expect } = chai;
 
 describe('POST sign up successful api/v1/auth/signup', () => {
-  const token = 'ajdsdkdk.akskks29030303umds.s';
   it('should return signup successful', (done) => {
     chai.request(server)
       .post('/api/v1/auth/signup')
-      .set('authorization', token)
       .set('Accept', 'application/json')
       .send({
         id: 53,
@@ -30,6 +27,7 @@ describe('POST sign up successful api/v1/auth/signup', () => {
       })
       .end((err, res) => {
         expect(res.body).to.be.an('object');
+        expect(res.body.token).to.be.a('string');
         expect(res.statusCode).to.equal(201);
         expect(res.body.message).to.equal('Signup successful');
         setImmediate(done);
@@ -219,24 +217,17 @@ describe('POST should return you are not up to age to apply', () => {
 });
 
 describe('POST api/v1/auth/signin', () => {
-  const token = jwt.sign({
-    email: 'boths104@example.com',
-    firstName: 'sonmajkkl',
-    lastName: 'Enyiokwakll',
-  },
-  'secret');
   it('should return signin successful', (done) => {
     chai.request(server)
       .post('/api/v1/auth/signin')
-      .set('authorization', token)
       .set('Accept', 'application/json')
       .send({
         email: 'boths104@example.com',
-        password: 'developer',
-        token,
+        password: 'developer'
       })
       .end((err, res) => {
         expect(res.body).to.be.an('object');
+        expect(res.body.token).to.be.a('string');
         expect(res.statusCode).to.equal(200);
         expect(res.body.message).to.equal('signin successful');
         setImmediate(done);
@@ -244,7 +235,7 @@ describe('POST api/v1/auth/signin', () => {
   });
 });
 
-describe('POST signin invalid input values api/v1/auth/signin', () => {
+describe('POST invalid input values api/v1/auth/signin', () => {
   it('should return error when invalid details', (done) => {
     chai.request(server)
       .post('/api/v1/auth/signin')
@@ -438,6 +429,21 @@ describe('POST should return loan application details incomplete /api/v1/loans',
   });
 });
 
+describe('User GET loan repayment history /api/v1/loans/:loan-id/repayments', () => {
+  it('should return your repayment history', (done) => {
+    chai.request(server)
+      .get('/api/v1/loans/3/repayments')
+      .set('Accept', 'application/json')
+      .end((err, res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.statusCode).to.equal(200);
+        expect(res.body.message).to.equal('your loan repayment history');
+        setImmediate(done);
+      });
+  });
+});
+
+
 describe('GET all loan application /api/v1/loans', () => {
   it('should return all loan applications', (done) => {
     chai.request(server)
@@ -548,20 +554,6 @@ describe('POST /loans repayment record /api/v1/loans/:loan-id/repayments', () =>
         expect(res.body.data).to.be.an('object');
         expect(res.statusCode).to.equal(201);
         expect(res.body.message).to.equal('payment posting successful');
-        setImmediate(done);
-      });
-  });
-});
-
-describe('User GET loan repayment history /api/v1/loans/:loan-id/repayments', () => {
-  it('should return your repayment history', (done) => {
-    chai.request(server)
-      .get('/api/v1/loans/3/repayments')
-      .set('Accept', 'application/json')
-      .end((err, res) => {
-        expect(res.body).to.be.an('object');
-        expect(res.statusCode).to.equal(200);
-        expect(res.body.message).to.equal('your loan repayment history');
         setImmediate(done);
       });
   });
