@@ -1,4 +1,3 @@
-import Users from '../models/users';
 import Model from '../models/db';
 
 const model = new Model('users');
