@@ -2,7 +2,8 @@ import loan from '../models/loans';
 import loanRepaymentRecord from '../models/loanRepaymentRecord';
 import Model from '../models/db';
 
-const loan_model = new Model('users');
+
+const loan_model = new Model('loans');
 
 class Loan {
   static applyLoan(req, res) {
@@ -23,7 +24,7 @@ class Loan {
       lastname: req.body.lastname,
       email: req.body.email,
     };
-    loan.push(getLoan);
+    loan_model.insert(getLoan);
     return res.status(200).json({
       message: 'loan application successful'
     });
