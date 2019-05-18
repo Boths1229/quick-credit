@@ -23,7 +23,7 @@
 				<a class="nav-item" href="#contact">Contact us</a>
 				</li>
 				<li class="d-inline-flex">
-					<span class="nav-item">Name: Odi Uli</span>
+					<span class="nav-item"><i>Name: Odi Uli</i></span>
 				</li>
 		        <li class="d-inline-flex">
 		          <a class="nav-item mr-0" href="index.html">Log out</a>
@@ -40,6 +40,7 @@
 		    <div class="row min-height mx-0">
 		      <aside id="aside-drawer" class="side-drawer-none col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 user-section-aside">
 		        <ul class="aside-content">
+							<li class="aside-text"><a href="applyloan.html">Apply for a loan</a></li>
 							<li class="aside-text"><a href="userpay.html">View loan repayment history</a></li>
 		        </ul>
 		      </aside>
@@ -55,8 +56,26 @@
 								 <option value="No">No</option>
 							 </select id="previous"><br><br>
 							 If yes in the above question,have you completed the payment?<br>
-							 <input class="radio-input mr-3" type="radio" name="valid"> Yes<br>
-							 <input class="radio-input mr-3" type="radio" name="valid"> No<br><br>
+							 <table class="loan-options">
+								 <tr>
+									 <td>
+										 <input class="radio-input" type="radio" name="valid">
+										</td>
+										<td>
+											<span>Yes</span>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<input class="radio-input" type="radio" name="valid">
+										</td>
+										<td>
+											<span>No</span>
+										</td>
+									</tr>
+							 </table>
+							 <!-- <input class="radio-input mr-3" type="radio" name="valid"> Yes<br>
+							 <input class="radio-input mr-3" type="radio" name="valid"><span class="ml-2"></span>No<br><br> -->
 							 Loan Amount: <br>
 							 <input type="text" name="laon amount"><br><br>
 							 Loan duration: <br>

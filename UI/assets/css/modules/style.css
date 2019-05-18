@@ -157,3 +157,18 @@ header a {
 	background: #ffffff;
 }
 
+.loan-options {
+	width: 11%;
+    margin:  5px auto 40px;
+	border: 0;
+	background: #ffffff;
+}
+
+.loan-options td, .loan-options tr {
+	border: 0;
+	background: #ffffff;
+}
+
+.loan-options td {
+	padding: 0
+}
