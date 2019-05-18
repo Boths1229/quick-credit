@@ -84,7 +84,12 @@
 }
 
 .default-main-content p {
-    padding: 10px 0;
+    padding: 10px;
+}
+
+.product p {
+    padding: 18px;
+    margin-bottom: 30px;
 }
 
 

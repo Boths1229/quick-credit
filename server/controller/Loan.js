@@ -1,5 +1,9 @@
 import loan from '../models/loans';
 import loanRepaymentRecord from '../models/loanRepaymentRecord';
+import Model from '../models/db';
+
+
+const loan_model = new Model('loans');
 
 class Loan {
   static applyLoan(req, res) {
@@ -20,9 +24,24 @@ class Loan {
       lastname: req.body.lastname,
       email: req.body.email,
     };
-    loan.push(getLoan);
+    loan_model.insert(getLoan);
     return res.status(200).json({
       message: 'loan application successful'
+    });
+  }
+
+  static getRepaymentRecord(req, res) {
+    const loanRecord = loanRepaymentRecord.find(user => user.loanId === parseInt((req.params.loanid), 10));
+
+    if (!loanRecord) {
+      return res.status(404).json({
+        message: `loan with id:${req.params.loanid} not found`,
+      });
+    }
+    return res.status(200).json({
+      message: 'your loan repayment history',
+      status: 200,
+      data: loanRecord
     });
   }
 
@@ -61,13 +80,13 @@ class Loan {
 
   static getSpecificLoan(req, res) {
     const specific = loan.find(user => user.id === parseInt((req.params.id), 10));
-    // specific loan not found
+
     if (!specific) {
       return res.status(404).json({
         message: 'wrong loan Id'
       });
     }
-    // specific loan found
+
     return res.status(200).json({
       message: 'A specific loan application fetched',
       data: specific
@@ -75,12 +94,11 @@ class Loan {
   }
 
   static approveReject(req, res) {
-    // request params for loanid
     const getLoanId = req.params.loanid;
     const getStatus = req.body.status;
-    // search for loan with loan-id
+
     const app_rej = loan.find(user => (user.id === parseInt((getLoanId), 10)));
-    // Update loan status
+
     app_rej.status = getStatus;
     return res.status(200).json({
       message: 'loan application approved',
@@ -98,7 +116,6 @@ class Loan {
   }
 
   static postLOanRepayments(req, res) {
-    // request params for loanid
     const getLoanId = req.params.loanid;
     const paymentHistory = {
       id: loanRepaymentRecord.length + 1,
@@ -122,21 +139,6 @@ class Loan {
         paidAmount: paymentHistory.paidAmount,
         balance: paymentHistory.balance,
       },
-    });
-  }
-
-  static getRepaymentRecord(req, res) {
-    const loanRecord = loanRepaymentRecord.find(user => user.loanId === parseInt((req.params.loanid), 10));
-    //  loan history not found
-    if (!loanRecord) {
-      return res.status(404).json({
-        message: `loan with id:${req.params.loanid} not found`,
-      });
-    }
-    return res.status(200).json({
-      message: 'your loan repayment history',
-      status: 200,
-      data: loanRecord
     });
   }
 }
