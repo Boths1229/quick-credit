@@ -8,11 +8,11 @@ class Model {
     this.pool = new Pool();
 
     this.pool.on('error', (err, client) => {
-      console.log('errooor');
+      console.log('error');
     });
   }
 
-  async select(columns, clause) {
+  async select(columns, clause, values) {
     let query;
     if (clause) {
       query = `SELECT ${columns} FROM ${this.table} WHERE ${clause}`;
@@ -20,19 +20,32 @@ class Model {
       query = `SELECT ${columns} FROM ${this.table}`;
     }
     console.log(query);
-    const data = await this.pool.query(query);
-    return data;
+    const { rows } = await this.pool.query(query, values);
+    console.log(rows[0]);
+    return rows[0];
   }
 
-  async insert(columns, values) {
-    const query = `INSERT INTO ${this.table} (${columns}) VALUES (${values})`;
+  async insert(columns, values, clause) {
+    let query;
+    if (clause) {
+      query = `INSERT INTO ${this.table} (${columns}) VALUES (${values}) WHERE ${clause}`;
+    } else {
+      query = `INSERT INTO ${this.table} (${columns}) VALUES (${values})`;
+    }
+    // const query = `INSERT INTO ${this.table} (${columns}) VALUES (${values})`;
     console.log(query);
     const data = await this.pool.query(query);
     return data.rows;
   }
-  
- async update(columns, values) {
-    const query = `UPDATE ${this.table} SET ${columns}=${values}`;
+
+  async update(columns, values, clause) {
+    let query;
+    if (clause) {
+      query = `UPDATE ${this.table} SET ${columns}=${values} WHERE ${clause}`;
+    } else {
+      query = `UPDATE ${this.table} SET ${columns}=${values}`;
+    }
+    // const query = `UPDATE ${this.table} SET ${columns}=${values}`;
     console.log(query);
     const data = await this.pool.query(query);
     return data.rows;
