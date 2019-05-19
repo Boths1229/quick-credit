@@ -1,30 +1,33 @@
+import uuid from 'uuid';
 import loan from '../models/loans';
 import loanRepaymentRecord from '../models/loanRepaymentRecord';
 import Model from '../models/db';
 
 
-const loan_model = new Model('loans');
-
 class Loan {
+  static model() {
+    return new Model('loans');
+  }
+
   static applyLoan(req, res) {
     const calcAmount = parseFloat(req.body.amount);
     const calcInterest = ((5 / 100) * calcAmount);
     const calcPaymentInstallment = parseFloat((calcAmount + calcInterest) / req.body.tenor);
     const getLoan = {
-      id: loan.length + 1,
-      user: req.body.email,
+      // user: req.body.email,
+      loanId: uuid(),
       createdOn: new Date(),
       tenor: req.body.tenor,
       amount: calcAmount,
       paymentInstallment: calcPaymentInstallment,
-      status: 'pending', // should default to pendingm
+      status: 'pending', // should default to pending
       balance: calcAmount,
       interest: calcInterest,
       firstname: req.body.firstname,
       lastname: req.body.lastname,
       email: req.body.email,
     };
-    loan_model.insert(getLoan);
+    Loan.model().insert(`${getLoan}`);
     return res.status(200).json({
       message: 'loan application successful'
     });

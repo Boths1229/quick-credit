@@ -6,43 +6,6 @@ chai.use(chaiHttp);
 
 const { expect } = chai;
 
-
-describe('Mark a user verified api/v1/users/:user-email/verify', () => {
-  it('should return verify successful', (done) => {
-    chai.request(server)
-      .patch('/api/v1/users/kene@example.com/verify')
-      .set('Accept', 'application/json')
-      .send({
-        status: 'verified'
-      })
-      .end((err, res) => {
-        expect(res.body).to.be.an('object');
-        expect(res.statusCode).to.equal(200);
-        expect(res.body.message).to.equal('addresses verified');
-        setImmediate(done);
-      });
-  });
-});
-
-describe('Mark a user as unverified api/v1/users/:user-email/verify', () => {
-  it('should return verify unsuccessful', (done) => {
-    chai.request(server)
-      .patch('/api/v1/users/both104@example/verify')
-      .set('Accept', 'application/json')
-      .send({
-        homeAddress: '34 epe str',
-        organizationAddress: '01 broad str',
-        status: 'unverified'
-      })
-      .end((err, res) => {
-        expect(res.body).to.be.an('object');
-        expect(res.statusCode).to.equal(404);
-        expect(res.body.message).to.equal('addresses not verified');
-        setImmediate(done);
-      });
-  });
-});
-
 describe('POST loan application /api/v1/loans', () => {
   it('should return loan application successful', (done) => {
     chai.request(server)
@@ -70,7 +33,7 @@ describe('POST loan application /api/v1/loans', () => {
         expect(res.body).to.be.an('object');
         expect(res.statusCode).to.equal(200);
         expect(res.body.message).to.equal('loan application successful');
-        setImmediate(done);
+        done();
       });
   });
 });
@@ -106,7 +69,7 @@ describe('POST should return loan application details incomplete /api/v1/loans',
         expect(res.statusCode).to.equal(400);
         expect(firstName[0]).to.equal('the firstName is required');
         expect(account_number[0]).to.equal('the bank details.account number is required');
-        setImmediate(done);
+        done();
       });
   });
 });
@@ -120,7 +83,7 @@ describe('User GET loan repayment history /api/v1/loans/:loan-id/repayments', ()
         expect(res.body).to.be.an('object');
         expect(res.statusCode).to.equal(200);
         expect(res.body.message).to.equal('your loan repayment history');
-        setImmediate(done);
+        done();
       });
   });
 });
@@ -136,7 +99,7 @@ describe('GET all loan application /api/v1/loans', () => {
         expect(res.body.data).to.be.an('array');
         expect(res.statusCode).to.equal(200);
         expect(res.body.message).to.equal('All loan applications');
-        setImmediate(done);
+        done();
       });
   });
 });
@@ -151,7 +114,7 @@ describe('GET all repaid loan application /api/v1/loans?status=approved&repaid=t
         expect(res.body.data).to.be.an('array');
         expect(res.statusCode).to.equal(200);
         expect(res.body.message).to.equal('All repaid loans');
-        setImmediate(done);
+        done();
       });
   });
 });
@@ -166,7 +129,7 @@ describe('GET all current loan application /api/v1/loans?status=approved&repaid=
         expect(res.body.data).to.be.an('array');
         expect(res.statusCode).to.equal(200);
         expect(res.body.message).to.equal('All current loans');
-        setImmediate(done);
+        done();
       });
   });
 });
@@ -181,7 +144,7 @@ describe('GET a specific loan application /api/v1/loans/:loan-id', () => {
         expect(res.body.data).to.be.an('object');
         expect(res.statusCode).to.equal(200);
         expect(res.body.message).to.equal('A specific loan application fetched');
-        setImmediate(done);
+        done();
       });
   });
 });
@@ -195,7 +158,7 @@ describe('GET a specific loan application with a wrong ID /api/v1/loans/:loan-id
         expect(res.body).to.be.an('object');
         expect(res.statusCode).to.equal(404);
         expect(res.body.message).to.equal('wrong loan Id');
-        setImmediate(done);
+        done();
       });
   });
 });
@@ -212,7 +175,7 @@ describe('PATCH Approve/Reject loan application /api/v1/loans/:loan-id', () => {
         expect(res.body).to.be.an('object');
         expect(res.statusCode).to.equal(200);
         expect(res.body.message).to.equal('loan application approved');
-        setImmediate(done);
+        done();
       });
   });
 });
@@ -236,7 +199,7 @@ describe('POST /loans repayment record /api/v1/loans/:loan-id/repayments', () =>
         expect(res.body.data).to.be.an('object');
         expect(res.statusCode).to.equal(201);
         expect(res.body.message).to.equal('payment posting successful');
-        setImmediate(done);
+        done();
       });
   });
 });
