@@ -19,8 +19,8 @@ before_install:
   - sudo service postgresql restart 11  
 before_script:
   - psql --version
-  - psql -c quick; -U postgres
-  - psql -c CREATE ROLE travis SUPERUSER LOGIN CREATEDB; -U postgres
+  - psql -c 'CREATE DATABASE {quick};' -U postgres
+  - psql -c 'CREATE ROLE travis SUPERUSER LOGIN CREATEDB;' -U postgres
   - cp config/database.yml.travis config/database.yml
 script: bundle exec rake spec
 services:
