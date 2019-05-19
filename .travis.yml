@@ -28,9 +28,6 @@ services:
 addons:
   postgresql: "11.2"
   apt:
-    packages:
-      - postgresql-11.2
-      - postgresql-client-11.2
 env:
   global: 
     - PGPORT=5433      
