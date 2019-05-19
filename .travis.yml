@@ -11,3 +11,17 @@ cache:
   - npm install
 after_success:
     - npm run coveralls
+services:
+    - postgresql
+before_script:
+    - psql -c 'create database travis_ci_test;' -U postgres
+addons:
+  postgresql: "11.3"
+  apt:
+    packages:
+      - postgresql-11
+      - postgresql-client-11
+env:
+  global: 
+    - PGPORT=5432      
+      

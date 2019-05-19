@@ -1,6 +1,5 @@
 import debug from 'debug';
 import uuid from 'uuid';
-import user from '../models/users';
 import { createToken } from '../helper/token';
 import Model from '../models/db';
 import pass from '../helper/password';
@@ -12,7 +11,7 @@ class User {
 
 
   static async getAllUsers(req, res) {
-    const { rows } = await User.model().select('id, email, firstName, lastName, age', 'id=2');
+    const { rows } = await User.model().select('id, firstName, lastName, email, homeAddress, organization, organizationAddress, status');
     console.log(JSON.stringify(rows, null, '\t'));
     try {
       if (rows.length === 0) {
@@ -35,11 +34,13 @@ class User {
 
   static async signUp(req, res) {
     const {
-      email, firstName, lastName, homeAddress, organization, organizationAddress, age,
+      email, firstName, lastName, homeAddress, organization, organizationAddress, age
     } = req.body;
 
     let { password } = req.body;
-    const token = createToken({ email, firstName, lastName });
+    const token = createToken({
+      email, firstName, lastName
+    });
     password = pass.hashPassword(password);
     const { rows } = await User.model().insert(
       'email, firstName, lastName, homeAddress, organization, organizationAddress, age, password',
@@ -60,11 +61,11 @@ class User {
 
   static async signIn(req, res) {
     try {
-      const { email, password } = req.body;
+      const { email, password, isAdmin } = req.body;
       const registered = await User.model().select('*', 'email=$1', [email]);
 
       if (registered && pass.decryptPassword(password, registered.password)) {
-        const token = createToken({ email, password });
+        const token = createToken({ email, password, isAdmin });
         return res.status(200).json({
           status: 200,
           data: {
@@ -83,29 +84,31 @@ class User {
     }
   }
 
-  static verifyUser(req, res) {
-    const requestEmail = req.params.useremail;
-    const verifiedUser = user.find(userfound => (userfound.email === requestEmail));
-    if (!verifiedUser) {
+  static async verifyUser(req, res) {
+    try {
+      const { email } = req.params;
+      const rows = await User.model().update('status=$1', 'email=$2', ['verified', email]);
+      console.log(`${req.params.email}`, rows);
+      if (rows[0]) {
+        return res.status(200).json({
+          status: 200,
+          data: {
+            email: rows[0].email,
+            firstName: rows[0].firstname,
+            lastName: rows[0].lastname,
+            password: rows[0].password,
+            homeaddress: rows[0].homeaddress,
+            organizationaddress: rows[0].organizationaddress,
+            status: rows[0].status,
+          },
+        });
+      }
       return res.status(404).json({
-        message: 'addresses not verified'
+        message: 'email not found'
       });
+    } catch (err) {
+      console.log(err.message);
     }
-
-    verifiedUser.status = 'verified';
-    return res.status(200).json({
-      message: 'addresses verified',
-      status: 200,
-      data: {
-        email: verifiedUser.email,
-        firstName: verifiedUser.firstname,
-        lastName: verifiedUser.lastname,
-        password: verifiedUser.password,
-        homeAddress: verifiedUser.homeAddress,
-        organizationAddress: verifiedUser.organizationAddress,
-        status: verifiedUser.status,
-      },
-    });
   }
 }
 

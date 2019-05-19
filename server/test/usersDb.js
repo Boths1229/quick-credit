@@ -13,14 +13,14 @@ describe('POST sign up successful api/v1/auth/signup', () => {
       .set('Accept', 'application/json')
       .send({
         id: 53,
-        firstName: 'amaka',
-        lastName: 'chuks',
-        homeAddress: 'canada',
-        organization: 'vals ltd',
-        organizationAddress: 'toronto',
-        age: 29,
-        email: 'amaka@yahoo.com',
-        password: 'amaka000',
+        firstName: 'ejike',
+        lastName: 'igboko',
+        homeAddress: 'ugwueke',
+        organization: 'ejik ltd',
+        organizationAddress: 'ndielu',
+        age: 35,
+        email: 'ejike@yahoo.com',
+        password: 'ejike000',
         imageUrl: 'www.imageUrl.com',
         status: 'unverified', // unverified or verified
         isAdmin: false,
@@ -29,10 +29,10 @@ describe('POST sign up successful api/v1/auth/signup', () => {
         expect(res.body).to.be.an('object');
         expect(res.body.data.token).to.be.a('string');
         expect(res.body.status).to.equal(201);
-        expect(res.body.data.firstName).to.equal('amaka');
-        expect(res.body.data.lastName).to.equal('chuks');
-        expect(res.body.data.email).to.equal('amaka@yahoo.com');
-        setImmediate(done);
+        expect(res.body.data.firstName).to.equal('ejike');
+        expect(res.body.data.lastName).to.equal('igboko');
+        expect(res.body.data.email).to.equal('ejike@yahoo.com');
+        done();
       });
   });
 });
@@ -59,7 +59,7 @@ describe('POST email already in use api/v1/auth/signup', () => {
         expect(res.body).to.be.an('object');
         expect(res.statusCode).to.equal(409);
         expect(res.body.message).to.equal('this email is already in use');
-        setImmediate(done);
+        done();
       });
   });
 });
@@ -90,7 +90,7 @@ describe('POST sign up details in incomplete api/v1/auth/signup', () => {
         expect(res.statusCode).to.equal(400);
         expect(firstName[0]).to.equal('the firstName is required');
         expect(email[0]).to.equal('the email is required');
-        setImmediate(done);
+        done();
       });
   });
 });
@@ -121,7 +121,7 @@ describe('POST should return email is invalid api/v1/auth/signup', () => {
         expect(res.body).to.be.an('object');
         expect(res.statusCode).to.equal(400);
         expect(email[0]).to.equal('the email format is invalid');
-        setImmediate(done);
+        done();
       });
   });
 });
@@ -152,7 +152,7 @@ describe('POST should return password length is less than 6 or invalid api/v1/au
         expect(res.body).to.be.an('object');
         expect(res.statusCode).to.equal(400);
         expect(password[0]).to.equal('Min password limit is 6');
-        setImmediate(done);
+        done();
       });
   });
 });
@@ -182,7 +182,7 @@ describe('POST should return error when age field is not filled api/v1/auth/sign
         expect(res.body).to.be.an('object');
         expect(res.statusCode).to.equal(400);
         expect(age[0]).to.equal('Min age limit is 18');
-        setImmediate(done);
+        done();
       });
   });
 });
@@ -213,7 +213,7 @@ describe('POST should return you are not up to age to apply', () => {
         expect(res.body).to.be.an('object');
         expect(res.statusCode).to.equal(400);
         expect(age[0]).to.equal('Min age limit is 18');
-        setImmediate(done);
+        done();
       });
   });
 });
@@ -236,7 +236,7 @@ describe('POST api/v1/auth/signin', () => {
         expect(res.body.data.firstName).to.equal('Adeogo');
         expect(res.body.data.lastName).to.equal('Adejana');
         expect(res.body.data.email).to.equal('hardecx@andela.com');
-        setImmediate(done);
+        done();
       });
   });
 });
@@ -254,7 +254,7 @@ describe('POST invalid input values api/v1/auth/signin', () => {
         expect(res.body).to.be.an('object');
         expect(res.statusCode).to.equal(401);
         expect(res.body.message).to.equal('invalid email or password');
-        setImmediate(done);
+        done();
       });
   });
 });
@@ -272,7 +272,7 @@ describe('POST should return email field not filled api/v1/auth/signin', () => {
         expect(res.body).to.be.an('object');
         expect(res.statusCode).to.equal(400);
         expect(res.body.message).to.equal('Invalid Credentials');
-        setImmediate(done);
+        done();
       });
   });
 });
@@ -290,7 +290,7 @@ describe('POST should return email format incorrect api/v1/auth/signin', () => {
         expect(res.body).to.be.an('object');
         expect(res.statusCode).to.equal(400);
         expect(res.body.message).to.equal('Invalid Credentials');
-        setImmediate(done);
+        done();
       });
   });
 });
@@ -308,7 +308,7 @@ describe('POST should return password field not filled api/v1/auth/signin', () =
         expect(res.body).to.be.an('object');
         expect(res.statusCode).to.equal(400);
         expect(res.body.message).to.equal('Invalid Credentials');
-        setImmediate(done);
+        done();
       });
   });
 });
@@ -326,7 +326,46 @@ describe('POST should return password incorrect api/v1/auth/signin', () => {
         expect(res.body).to.be.an('object');
         expect(res.statusCode).to.equal(400);
         expect(res.body.message).to.equal('Invalid Credentials');
-        setImmediate(done);
+        done();
+      });
+  });
+});
+
+describe('Mark a user verified api/v1/users/:email/verify', () => {
+  it('should return verify successful', (done) => {
+    chai.request(server)
+      .patch('/api/v1/users/ngo2001@yahoo.com/verify')
+      .set('Accept', 'application/json')
+    //   .send({
+    //     status: 'verified'
+    //   })
+      .end((err, res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.status).to.equal(200);
+        expect(res.body.data.email).to.equal('ngo2001@yahoo.com');
+        expect(res.body.data.firstName).to.equal('ngozi');
+        expect(res.body.data.lastName).to.equal('okorie');
+        expect(res.body.data.homeaddress).to.equal('15 okoko re');
+        expect(res.body.data.organizationaddress).to.equal('34 ikorudu');
+        expect(res.body.data.status).to.equal('verified');
+        done();
+      });
+  });
+});
+
+describe('Mark a user as unverified api/v1/users/:email/verify', () => {
+  it('should return verify unsuccessful', (done) => {
+    chai.request(server)
+      .patch('/api/v1/users/bo4@example/verify')
+      .set('Accept', 'application/json')
+    //   .send({
+    //     status: 'verified'
+    //   })
+      .end((err, res) => {
+        expect(res.body).to.be.an('object');
+        expect(res.status).to.equal(404);
+        expect(res.body.message).to.equal('email not found');
+        done();
       });
   });
 });

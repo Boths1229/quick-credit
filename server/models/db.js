@@ -38,17 +38,14 @@ class Model {
     return data.rows;
   }
 
-  async update(columns, values, clause) {
-    let query;
-    if (clause) {
-      query = `UPDATE ${this.table} SET ${columns}=${values} WHERE ${clause}`;
-    } else {
-      query = `UPDATE ${this.table} SET ${columns}=${values}`;
+  async update(columns, clause, values) {
+    const query = `UPDATE ${this.table} SET ${columns} WHERE ${clause} returning *`;
+    try {
+      const data = await this.pool.query(query, values);
+      return data.rows;
+    } catch (err) {
+      throw err;
     }
-    // const query = `UPDATE ${this.table} SET ${columns}=${values}`;
-    console.log(query);
-    const data = await this.pool.query(query);
-    return data.rows;
   }
 }
 
