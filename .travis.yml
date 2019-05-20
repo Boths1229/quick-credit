@@ -1,15 +1,21 @@
 language: node_js
 node_js:
     - "10.15.3"
-services:
-  - postgresql
-cache:
-  directories:
-    - "node_modules"
-before_script:
-  - psql -c "CREATE DATABASE quick;" -U postgres
-  - psql -c "CREATE USER chuks WITH PASSWORD 'makky3491';" -U postgres
+install:
+    - npm install
 script:
-  - "npm run int:test"
+    - npm run int:test
+env: 
+  - NODE_ENV=test
+cache: 
+  - npm install
+after_success:
+    - npm run coveralls
+services:
+    - postgresql
+before_script:
+    - psql -c 'create database travis_ci_test;' -U postgres
+addons:
+  postgresql: "11.3"
   
       
