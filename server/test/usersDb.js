@@ -31,7 +31,7 @@ describe('User test', () => {
           organization: 'ejik ltd',
           organizationAddress: 'ndielu',
           age: 35,
-          email: 'ejike1123@yahoo.com',
+          email: 'ejike11234@yahoo.com',
           password: 'ejike000',
           imageUrl: 'www.imageUrl.com',
           status: 'unverified', // unverified or verified
@@ -43,7 +43,7 @@ describe('User test', () => {
           expect(res.body.status).to.equal(201);
           expect(res.body.data.firstName).to.equal('ejike');
           expect(res.body.data.lastName).to.equal('igboko');
-          expect(res.body.data.email).to.equal('ejike1123@yahoo.com');
+          expect(res.body.data.email).to.equal('ejike11234@yahoo.com');
           done();
         });
     });
@@ -61,7 +61,7 @@ describe('User test', () => {
           organization: 'sonmahjb integrated',
           organizationAddress: '2t tope str',
           age: 21,
-          email: 'sonmhha@example.com',
+          email: 'ejike1123@yahoo.com',
           password: 'sonma123mmn',
           imageUrl: 'www.imageUrl.com',
           status: 'unverified', // unverified or verified
@@ -346,7 +346,7 @@ describe('User test', () => {
   describe('Mark a user verified api/v1/users/:email/verify', () => {
     it('should return verify successful', (done) => {
       chai.request(server)
-        .patch('/api/v1/users/ngo2001@yahoo.com/verify')
+        .patch('/api/v1/users/ejike112@yahoo.com/verify')
         .set('Accept', 'application/json')
       //   .send({
         //     status: 'verified'
