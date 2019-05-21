@@ -23,7 +23,7 @@ CREATE TABLE users(
 INSERT INTO users (
     id, firstname, lastname, homeaddress, organization, organizationaddress, age, email, password, status, isadmin
     ) VALUES (
-        '2e0785a9-3611-491f-951c-62f2fe4c320a',
+         21,
         'ejike',
         'igboko',
         'ejik ltd',
