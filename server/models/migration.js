@@ -18,7 +18,22 @@ CREATE TABLE users(
 	email VARCHAR NOT NULL,
   password VARCHAR NOT NULL,
   status VARCHAR(11) NOT NULL DEFAULT 'unverified',
-  isAdmin BOOLEAN NOT NULL
-);`);
+  isAdmin BOOLEAN NOT NULL DEFAULT false
+);
+INSERT INTO users (
+    id, email, firstname, lastname, homeaddress, organization, organizationaddress, password, status, isadmin
+    ) VALUES (
+        '2e0785a9-3611-491f-951c-62f2fe4c320a',
+        'ejike112@yahoo.com',
+        'ejike',
+        'igboko',
+        'ejik ltd'
+        'ndielu',
+        'ugwueke',
+        '$2b$10$Nb05xLfWP5a08cN959MIzumezo8CT14G6q8a1UPDviUD2VvgkOo96',
+        'unverified',
+        false
+)
+`);
 
 export default migrate;
