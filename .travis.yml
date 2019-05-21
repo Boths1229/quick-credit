@@ -5,8 +5,6 @@ install:
     - npm install
 script:
     - npm run int:test
-env: 
-  - NODE_ENV=test
 cache: 
   - npm install
 after_success:
@@ -14,13 +12,9 @@ after_success:
 services:
     - postgresql
 before_script:
-    - psql -c 'create database quick;' -U postgres
+    - psql -c 'create database quick_credit_test;' -U postgres
     - psql -c 'create USER chuksEmma WITH PASSWORD null;' -U postgres  
 env:
   global:
-  - PGPORT=5432
-  - PGUSER=postgres
-  - PGHOST=localhost
-  - PGPASSWORD=
-  - PGDATABASE=quick
+  - NODE_ENV=test
       
