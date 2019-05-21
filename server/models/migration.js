@@ -26,7 +26,7 @@ INSERT INTO users (
         '2e0785a9-3611-491f-951c-62f2fe4c320a',
         'ejike',
         'igboko',
-        'ejik ltd'
+        'ejik ltd',
         'ndielu',
         'ugwueke',
         35,
