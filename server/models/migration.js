@@ -6,7 +6,7 @@ pool.on('error', (err) => {
   console.log(err);
 });
 
-const migrate = pool.query(`DROP TABLE users IF EXISTS;
+const migrate = pool.query(`DROP TABLE IF EXISTS users CASCADE;
 CREATE TABLE users(
 	Id SERIAL NOT NULL PRIMARY KEY,
 	firstName VARCHAR NOT NULL,
