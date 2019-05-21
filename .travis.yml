@@ -16,7 +16,7 @@ services:
 before_script:
     - psql -c 'create database quick;' -U postgres    
 addons:
-  postgresql: "9.6"  # I'm just using this, if you're using another version, might need to fix the pg_hba.conf path below
+  postgresql: "10"  # I'm just using this, if you're using another version, might need to fix the pg_hba.conf path below
 before_install:
   # stop old version
   - sudo /etc/init.d/postgresql stop
@@ -32,5 +32,11 @@ before_install:
   - sudo /etc/init.d/postgresql restart
   # I haven't investigated or tried to fix, but pg10 uses another port
   # for some reason, so tell applications to use correct port
-  - export PGPORT=5433
+env:
+  global
+  - PGPORT=5433
+  - PGUSER=postgres
+  - PGHOST=localhost
+  - PGPASSWORD=
+  - PGDATABASE=quick
       
