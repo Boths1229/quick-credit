@@ -1,12 +1,14 @@
 language: node_js
 node_js:
-    - "10.15.3"
-install:
-    - npm install
+    - "stable"
 script:
     - npm run int:test
 cache: 
-  - npm install
+  directories:
+    - "node_modules"
+addons:
+  apt:
+    update: true    
 after_success:
     - npm run coveralls
 services:
