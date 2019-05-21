@@ -13,6 +13,8 @@ after_success:
     - npm run coveralls
 services:
     - postgresql
+before_script:
+    - psql -c 'create database quick;' -U postgres    
 addons:
   postgresql: "9.6"  # I'm just using this, if you're using another version, might need to fix the pg_hba.conf path below
 before_install:
