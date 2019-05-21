@@ -31,7 +31,7 @@ describe('User test', () => {
           organization: 'ejik ltd',
           organizationAddress: 'ndielu',
           age: 35,
-          email: 'ejike11234@yahoo.com',
+          email: 'ejike112345@yahoo.com',
           password: 'ejike000',
           imageUrl: 'www.imageUrl.com',
           status: 'unverified', // unverified or verified
@@ -43,7 +43,7 @@ describe('User test', () => {
           expect(res.body.status).to.equal(201);
           expect(res.body.data.firstName).to.equal('ejike');
           expect(res.body.data.lastName).to.equal('igboko');
-          expect(res.body.data.email).to.equal('ejike11234@yahoo.com');
+          expect(res.body.data.email).to.equal('ejike112345@yahoo.com');
           done();
         });
     });
@@ -61,7 +61,7 @@ describe('User test', () => {
           organization: 'sonmahjb integrated',
           organizationAddress: '2t tope str',
           age: 21,
-          email: 'ejike1123@yahoo.com',
+          email: 'ejike112@yahoo.com',
           password: 'sonma123mmn',
           imageUrl: 'www.imageUrl.com',
           status: 'unverified', // unverified or verified
@@ -356,9 +356,9 @@ describe('User test', () => {
           expect(res.status).to.equal(200);
           expect(res.body.data.email).to.equal('ejike112@yahoo.com');
           expect(res.body.data.firstName).to.equal('ejike');
-          expect(res.body.data.lastName).to.equal('igoko');
-          expect(res.body.data.homeaddress).to.equal('ugwueke');
-          expect(res.body.data.organizationaddress).to.equal('ndielu');
+          expect(res.body.data.lastName).to.equal('igboko');
+          expect(res.body.data.homeaddress).to.equal('ejik ltd');
+          expect(res.body.data.organizationaddress).to.equal('ugwueke');
           expect(res.body.data.status).to.equal('verified');
           done();
         });
