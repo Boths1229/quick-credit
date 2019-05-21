@@ -194,3 +194,8 @@
     text-decoration: none;
     cursor: pointer;
 }
+
+.already {
+    text-align: center;
+    margin: 10px;
+}

@@ -25,3 +25,18 @@
     border-radius: 30px;
     outline: none;
 }
+
+.confirm {
+	background: #35424a;
+    border: 1px;
+    height: 28px;
+    width: 20%;
+    font-size: 18px;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 1px 2px 2px #35424c;
+    border-radius: 30px;
+    outline: none;
+    margin-top: 30px;
+}
