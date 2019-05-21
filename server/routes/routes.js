@@ -5,6 +5,7 @@ import {
 } from '../middlewares/validateRequestCredentials';
 import validateEmailExistence from '../middlewares/validateEmailExistence';
 import validateVerifyEmail from '../middlewares/validateVerifyEmail';
+import verifyLoanEmailExistence from '../middlewares/verifyLoanEmailExistence';
 import { verifyToken } from '../helper/token';
 import isAdmin from '../middlewares/isAdmin';
 
@@ -16,10 +17,10 @@ export default (app) => {
   app.get('/api/v1/users', User.getAllUsers);
 
   // Loans
-  app.post('/api/v1/loans', validateApplyLoanCredentials, Loan.applyLoan);
+  app.post('/api/v1/loans', validateApplyLoanCredentials, verifyLoanEmailExistence, Loan.applyLoan);
   app.get('/api/v1/loans', Loan.getAllLoans);
-  app.get('/api/v1/repaidLoans', Loan.getRepaidLoans);
-  app.get('/api/v1/currentLoans', Loan.getCurrentLoans);
+  app.get('/api/v1/loans?status=approved&repaid=true', Loan.getRepaidAndCurrentLoans);
+  app.get('/api/v1/loans?status=approved&repaid=false', Loan.getRepaidAndCurrentLoans);
   app.get('/api/v1/loans/:id', Loan.getSpecificLoan);
   app.patch('/api/v1/loans/:loanid', Loan.approveReject);
   app.post('/api/v1/loans/:loanid/repayments', Loan.postLOanRepayments);

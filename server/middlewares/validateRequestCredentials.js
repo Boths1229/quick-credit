@@ -40,14 +40,8 @@ export const validateSigninCredentials = (req, res, next) => {
 
 export const validateApplyLoanCredentials = (req, res, next) => {
   const rules = {
-    firstName: 'required',
-    lastName: 'required',
-    valid: 'required',
     amount: 'required',
-    paymentInstallment: 'required',
-    bank_details: {
-      account_number: 'required|min:10'
-    }
+    email: 'required'
   };
   return validateRequestCredentials(req, res, next, rules);
 };

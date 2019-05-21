@@ -9,114 +9,137 @@ class Loan {
     return new Model('loans');
   }
 
-  static applyLoan(req, res) {
+  static async applyLoan(req, res) {
+    const { email, amount, bankName, accountNumber, tenor } = req.body;
     const calcAmount = parseFloat(req.body.amount);
     const calcInterest = ((5 / 100) * calcAmount);
     const calcPaymentInstallment = parseFloat((calcAmount + calcInterest) / req.body.tenor);
-    const getLoan = {
-      // user: req.body.email,
-      loanId: uuid(),
-      createdOn: new Date(),
-      tenor: req.body.tenor,
-      amount: calcAmount,
-      paymentInstallment: calcPaymentInstallment,
-      status: 'pending', // should default to pending
-      balance: calcAmount,
-      interest: calcInterest,
-      firstname: req.body.firstname,
-      lastname: req.body.lastname,
-      email: req.body.email,
-    };
-    Loan.model().insert(`${getLoan}`);
-    return res.status(200).json({
-      message: 'loan application successful'
-    });
-  }
-
-  static getRepaymentRecord(req, res) {
-    const loanRecord = loanRepaymentRecord.find(user => user.loanId === parseInt((req.params.loanid), 10));
-
-    if (!loanRecord) {
-      return res.status(404).json({
-        message: `loan with id:${req.params.loanid} not found`,
-      });
-    }
-    return res.status(200).json({
-      message: 'your loan repayment history',
-      status: 200,
-      data: loanRecord
-    });
-  }
-
-  static getAllLoans(req, res) {
-    return res.status(200).json({
-      message: 'All loan applications',
-      data: loan
-    });
-  }
-
-  static getRepaidLoans(req, res) {
-    const repaidLoan = loan.filter(user => (user.repaid === true && user.status === 'approved'));
-    if (!repaidLoan) {
-      return res.status(404).json({
-        message: 'request not found'
-      });
-    }
-    return res.status(200).json({
-      message: 'All repaid loans',
-      data: repaidLoan
-    });
-  }
-
-  static getCurrentLoans(req, res) {
-    const currentLoan = loan.filter(user => (user.repaid === false && user.status === 'approved'));
-    if (!currentLoan) {
-      return res.status(404).json({
-        message: 'request not found'
-      });
-    }
-    return res.status(200).json({
-      message: 'All current loans',
-      data: currentLoan
-    });
-  }
-
-  static getSpecificLoan(req, res) {
-    const specific = loan.find(user => user.id === parseInt((req.params.id), 10));
-
-    if (!specific) {
-      return res.status(404).json({
-        message: 'wrong loan Id'
-      });
-    }
-
-    return res.status(200).json({
-      message: 'A specific loan application fetched',
-      data: specific
-    });
-  }
-
-  static approveReject(req, res) {
-    const getLoanId = req.params.loanid;
-    const getStatus = req.body.status;
-
-    const app_rej = loan.find(user => (user.id === parseInt((getLoanId), 10)));
-
-    app_rej.status = getStatus;
-    return res.status(200).json({
-      message: 'loan application approved',
-      status: 200,
+    const { rows } = await Loan.model().insert(
+      'email, firstName, lastName, tenor, amount, paymentInstallment, interest, bankName, accountNumber',
+      `'${req.user.email}', '${req.user.firstname}', '${req.user.lastname}', '${tenor}', '${amount}', '${calcPaymentInstallment}', '${calcInterest}', '${bankName}', '${accountNumber}'`
+    );
+console.log(firstName);
+    return res.status(201).json({
+      status: 201,
       data: {
-        loanId: app_rej.id,
-        loanAmount: app_rej.amount,
-        tenor: app_rej.tenor,
-        status: app_rej.status,
-        monthlyInstallment: app_rej.paymentInstallment,
-        interest: app_rej.interest,
-        user: app_rej.user,
-      },
+        id: uuid(), // id of newly created user
+        firstName: req.user.firstname,
+        lastName: req.user.lastname,
+        email: req.user.email,
+        tenor: req.body.tenor,
+        amount: req.body.amount,
+        bankName: req.body.bankName,
+        accountNumber: req.body.accountNumber,
+        paymentInstallment: calcPaymentInstallment,
+        interest: calcInterest,
+        createdon: new Date()
+      }
     });
   }
+
+  static async getAllLoans(req, res) {
+    const rows = await Loan.model().select('id, loanid, firstname, lastname, email, tenor, amount, paymentinstallment, status, repaid, createdon');
+    try {
+      if (rows.length === 0) {
+        return res.status(400).json({
+          message: 'No user found'
+        });
+      }
+
+      return res.status(200).json({
+        status: 200,
+        data: rows
+      });
+    } catch (e) {
+      return res.status(500).json({
+        message: 'server error'
+      });
+    }
+  }
+
+  static async getSpecificLoan(req, res) {
+    const { id } = req.params;
+    const rows = await Loan.model().select('id, loanid, firstname, lastname, email, tenor, amount, paymentinstallment, status, repaid, createdon', `id=${id}`);
+    try {
+      if (rows.length === 0) {
+        return res.status(400).json({
+          message: 'No user found'
+        });
+      }
+
+      return res.status(200).json({
+        status: 200,
+        data: rows
+      });
+    } catch (e) {
+      return res.status(500).json({
+        message: 'server error'
+      });
+    }
+  }
+
+  static async approveReject(req, res) {
+    try {
+      const { loanid } = req.params;
+      const rows = await Loan.model().update('status=$1', 'loanid=$2', ['approved', loanid]);
+      // console.log(`${req.params.email}`, rows);
+      if (rows[0]) {
+        return res.status(200).json({
+          status: 200,
+          data: {
+            loanId: rows[0].loanid,
+            amount: rows[0].amount,
+            tenor: rows[0].tenor,
+            status: rows[0].status,
+            paymentInstallment: rows[0].paymentinstallment,
+            interest: rows[0].interest,
+            createdOn: rows[0].createdon,
+          },
+        });
+      }
+      return res.status(404).json({
+        message: 'email not found'
+      });
+    } catch (e) {
+      return res.status(500).json({
+        error: 'server error'
+      });
+    }
+  }
+
+  static async getRepaidAndCurrentLoans(req, res) {
+    const { repaid } = req.query;
+    const rows = await Loan.model().select('*', 'status=approved and repaid=$1', [repaid]);
+    try {
+      if (rows.length === 0) {
+        return res.status(404).json({
+          message: 'No user found'
+        });
+      }
+
+      return res.status(200).json({
+        status: 200,
+        data: rows
+      });
+    } catch (e) {
+      return res.status(500).json({
+        error: 'server error'
+      });
+    }
+  }
+
+  // static getCurrentLoans(req, res) {
+  //   const currentLoan = loan.filter(user => (user.repaid === false && user.status === 'approved'));
+  //   if (!currentLoan) {
+  //     return res.status(404).json({
+  //       message: 'request not found'
+  //     });
+  //   }
+  //   return res.status(200).json({
+  //     message: 'All current loans',
+  //     data: currentLoan
+  //   });
+  // }
 
   static postLOanRepayments(req, res) {
     const getLoanId = req.params.loanid;
@@ -142,6 +165,21 @@ class Loan {
         paidAmount: paymentHistory.paidAmount,
         balance: paymentHistory.balance,
       },
+    });
+  }
+
+  static getRepaymentRecord(req, res) {
+    const loanRecord = loanRepaymentRecord.find(user => user.loanId === parseInt((req.params.loanid), 10));
+
+    if (!loanRecord) {
+      return res.status(404).json({
+        message: `loan with id:${req.params.loanid} not found`,
+      });
+    }
+    return res.status(200).json({
+      message: 'your loan repayment history',
+      status: 200,
+      data: loanRecord
     });
   }
 }

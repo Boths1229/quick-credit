@@ -11,8 +11,8 @@ class User {
 
 
   static async getAllUsers(req, res) {
-    const { rows } = await User.model().select('id, firstName, lastName, email, homeAddress, organization, organizationAddress, status');
-    console.log(JSON.stringify(rows, null, '\t'));
+    const rows = await User.model().select('id, firstName, lastName, email, homeAddress, organization, organizationAddress, status');
+    
     try {
       if (rows.length === 0) {
         return res.status(400).json({
@@ -21,13 +21,13 @@ class User {
       }
 
       return res.status(200).json({
-        message: 'All users received successfully',
+        status: 200,
         data: rows,
-        status: 200
+        
       });
     } catch (e) {
       return res.status(500).json({
-        message: 'server error'
+        error: 'server error'
       });
     }
   }
