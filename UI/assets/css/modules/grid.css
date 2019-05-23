@@ -59,6 +59,11 @@
     margin-right: auto;
     margin-left: auto;
 }
+
+.container li p {
+    font-size: 20px;
+    margin-top: 10px;
+}
 html, body {
 	height: 100%;
 	margin: 0;

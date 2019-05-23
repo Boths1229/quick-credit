@@ -1,12 +1,7 @@
 import jwt from 'jsonwebtoken';
 
-export const createToken = (data) => {
-  const token = jwt.sign(data, 'secret', { expiresIn: '1h' });
-
-  return token;
-};
-
-export const verifyToken = (req, res, next) => {
+// eslint-disable-next-line import/prefer-default-export
+export const isAdmin = (req, res, next) => {
   if (process.env.NODE_ENV.trim() === 'test') {
     return next();
   }
@@ -23,6 +18,11 @@ export const verifyToken = (req, res, next) => {
       });
     }
     req.user = user;
+    if (req.user.isAdmin === false) {
+      return res.status(403).json({
+        message: 'your not allowed for this'
+      });
+    }
     next();
   });
 };

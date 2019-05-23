@@ -21,15 +21,15 @@
 		</nav>
  	</header>
  	<div class="container">
- 		<div class="card col-md-6 p-3 mx-auto my-5">
+ 		<!-- <div class="card col-md-6 p-3 mx-auto my-5"> -->
  			<form action="./signin.html" method="get" class="signup">
 		 		<h2>Please fill out this form</h2>
 		 		<div class="form-group d-column">
-		 			<label for="firstname">First Name:</label>
+		 			<label for="firstname">Firstname:</label>
 		 			<input type="text" id="firstname" name="firstname" required>
 		 		</div>
 		 		<div class="form-group d-column">
-		 			<label for="lastname">Last Name:</label>
+		 			<label for="lastname">Lastname:</label>
 		 			<input type ="text" id="lastname" name="lastname" required>
 				 </div>
 				 <div class="form-group d-column">
@@ -52,10 +52,10 @@
 		 			<label for="password">Password:</label>
 		 			<input type ="password" id="password" min="6" name="password">
 		 		</div>
-		 		<div class="form-group d-column">
+		 		<!-- <div class="form-group d-column">
 		 			<label for="bvn">BVN:</label>
 		 			<input type="number" id="bvn" name="bvn" required>
-		 		</div>
+		 		</div> -->
 		 		<div class="form-group d-column">
 		 			<label for="mobile">Mobile:</label>
 		 			<input type="text" name="mobile" id="mobile" required>
@@ -64,17 +64,10 @@
 		 			<label for="birthdate">Birthdate:</label>
 		 			<input type ="date" name="birthdate" id="birthdate" required>
 		 		</div>
-		 		<div class="form-group d-column">
+		 		<!-- <div class="form-group d-column">
 		 			<label for="age">Age:</label>
 		 			<input type ="text" name="age" id="age" required>
-		 		</div>
-		 		<div class="form-group d-column">
-		 			<label for="nationality">Nationality:</label>
-		 			<select>
-			            <option value="nigeria" name="Nigeria">Nigeria</option>
-			            <option value="other" name="other">other</option>
-			         </select>
-		 		</div>
+		 		</div> -->
 		 		<div class="form-group">
 		 			<label for="nationality">Gender:</label><br>
 		 			<div class="form-group mt-2">
@@ -90,7 +83,7 @@
 		 				<span class="vertical-top">Other</span>
 		 			</div>
 		 		</div>
-		 		<div class="form-group">
+		 		<!-- <div class="form-group">
 		 			<label for="nationality">
 		 				<input class="checkbox-input mr-3" type="checkbox" required>
 		 				<span class="vertical-top terms">I accept all terms and conditions</span>
@@ -100,14 +93,15 @@
 		 				<input class="checkbox-input mr-3" type="checkbox" required>
 		 				<span class="terms">I accept your privacy policy.</span>
 		 			</label>
-		 		</div>
-		 		 <p class="terms">I have read, understand and accept all the <span class="text-dark">terms, conditions</span> and <span class=text-dark>privacy</span> for Quick credit</p><br>
-		 		 <div>
+		 		</div> -->
+		 		 <p class="terms">I have read, understood and accept all the <span class="text-dark">terms, conditions</span> and <span class=text-dark>privacy</span> for Quick credit</p><br>
+		 		 <div class="d-flex justify-between">
 		 			<button class="button mx-1" type="submit">Sign Up</button>
 		 			<button class="btn-reset mx-1" type="reset">Reset</button>
-		 		 </div>
+				  </div>
+				  <p class="already">Already registered? sign in <a href="signin.html">here</a></p>
 		 	</form>
- 		</div>
+ 		<!-- </div> -->
  	</div>
  </body>
 </html>

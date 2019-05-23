@@ -12,12 +12,13 @@
  	<div class="box">
  		<header class="container-fluid row-box position-sticky top0 container-header">
 		    <nav class="navbar container d-flex">
-		      <div id="icon" onclick="handleAsideToggle(this)" class="toggler-icon fa-menu md-toggle-none">
+					<div class="d-flex">
+		      <div id="icon" onclick="handleAsideToggle(this)" class="toggler-icon fa-menu">
 		        <div></div>
 		        <div></div>
 		        <div></div>
 		      </div>
-		      <h1 class="brand-name"><a href="user.html">Quick Credit</a></h1>
+		      <h1 class="brand-name ml-5"><a href="user.html">Quick Credit</a></h1></div>
 		      <ul class="dropdown-none">
 		      	<li class="d-inline-flex">
 				<a class="nav-item" href="#contact">Contact us</a>
@@ -44,7 +45,7 @@
 							<li class="aside-text"><a href="userpay.html">View loan repayment history</a></li>
 		        </ul>
 		      </aside>
-		      <main class="main col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12 p-4">
+		      <main class="main col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-4">
 							<div class="default-main-content d-flex flex-column align-center">
 								<div class="container loan_form">
 									<form>
@@ -59,35 +60,36 @@
 							 <table class="loan-options">
 								 <tr>
 									 <td>
-										 <input class="radio-input" type="radio" name="valid">
+										 <input class="radio-input" id="input-yes" type="radio" name="valid">
 										</td>
 										<td>
-											<span>Yes</span>
+											<label for="input-yes">Yes</label>
 										</td>
 									</tr>
 									<tr>
 										<td>
-											<input class="radio-input" type="radio" name="valid">
+											<input class="radio-input" id="input-no" type="radio" name="valid">
 										</td>
 										<td>
-											<span>No</span>
+											<label for="input-no">No</label>
 										</td>
 									</tr>
 							 </table>
 							 <!-- <input class="radio-input mr-3" type="radio" name="valid"> Yes<br>
 							 <input class="radio-input mr-3" type="radio" name="valid"><span class="ml-2"></span>No<br><br> -->
 							 Loan Amount: <br>
-							 <input type="text" name="laon amount"><br><br>
+							 <input type="text" name="laon amount"><br>
 							 Loan duration: <br>
-							 <input type="text" name="laon duration" id="duration"><br><br>
-									Bank details: <br>
-									<input type="text" name="account name" placeholder="your account name"><br>
-									<input type="text" name="bank name" placeholder="your bank"><br>
-									<input type="text" name="account number" placeholder="account number"><br>
-									<br><br>
+							 <input type="text" name="laon duration" id="duration"><br>
+									Bank details:
+									<div class="bank-details"> 
+										<input type="text" name="account name" placeholder="your account name"><br>
+										<input type="text" name="bank name" placeholder="your bank"><br>
+										<input type="text" name="account number" placeholder="account number"><br>
+									</div>
 									<input class="checkbox-input mr-3" type="checkbox" required>  I have read and accepted all your terms and conditions<br>
 									<br>
-									<input class="button mx-1" type="submit" value="APPLY!!">
+									<input class="confirm mx-1" type="submit" value="APPLY!!"><br><br>
 								</div>
 						 </form>
 								</div>

@@ -1,46 +1,126 @@
 const users = [
   {
-    id: 1,
-    firstName: 'chukwuma',
-    lastName: 'Emmanuel',
-    homeAddress: '123 ere str',
-    organization: 'boths integrated',
-    organizationAddress: '23 tope str',
-    age: 22,
-    email: 'boths104@example.com',
-    password: 'developer',
+    id: 53,
+    firstName: 'ejike',
+    lastName: 'igboko',
+    homeAddress: 'ugwueke',
+    organization: 'ejik ltd',
+    organizationAddress: 'ndielu',
+    age: 35,
+    email: 'ejike1123@yahoo.com',
+    password: 'ejike000',
     imageUrl: 'www.imageUrl.com',
-    status: 'verified', // unverified or verified
-    isAdmin: true,
-  },
-  {
-    id: 2,
-    firstName: 'kene',
-    lastName: 'Bryan',
-    homeAddress: '12 ere str',
-    organization: 'Men integrated',
-    organizationAddress: '2 tope str',
-    age: 20,
-    email: 'kene@example.com',
-    password: 'kene123',
-    imageUrl: 'www.imageUrl.com',
-    status: 'verified', // unverified or verified
+    status: 'unverified', // unverified or verified
     isAdmin: false,
   },
   {
-    id: 3,
-    firstName: 'sonma',
-    lastName: 'Enyiokwa',
-    homeAddress: '37 diamond str',
-    organization: 'sonma integrated',
-    organizationAddress: '2 tope str',
+    id: 53,
+    firstName: 'sonmajkkl',
+    lastName: 'Enyiokwakll',
+    homeAddress: '3755 diamond str',
+    organization: 'sonmahjb integrated',
+    organizationAddress: '2t tope str',
     age: 21,
-    email: 'sonma@example.com',
-    password: 'sonma123',
+    email: 'ejike112@yahoo.com',
+    password: 'sonma123mmn',
     imageUrl: 'www.imageUrl.com',
-    status: 'verified', // unverified or verified
+    status: 'unverified', // unverified or verified
     isAdmin: false,
   },
+  {
+    firstName: '',
+    lastName: 'Enyiokwakll',
+    homeAddress: '3755 diamond str',
+    organization: 'sonmahjb integrated',
+    organizationAddress: '2t tope str',
+    age: 21,
+    email: '',
+    password: 'sonma123mmn',
+    imageUrl: 'www.imageUrl.com',
+    status: 'unverified', // unverified or verified
+    isAdmin: false,
+  },
+  {
+    id: 53,
+    firstName: 'sonmajkkl',
+    lastName: 'Enyiokwakll',
+    homeAddress: '3755 diamond str',
+    organization: 'sonmahjb integrated',
+    organizationAddress: '2t tope str',
+    age: 21,
+    email: 'sonmhha',
+    password: 'sonma123mmn',
+    imageUrl: 'www.imageUrl.com',
+    status: 'unverified', // unverified or verified
+    isAdmin: false,
+  },
+  {
+    id: 53,
+    firstName: 'sonmajkkl',
+    lastName: 'Enyiokwakll',
+    homeAddress: '3755 diamond str',
+    organization: 'sonmahjb integrated',
+    organizationAddress: '2t tope str',
+    age: 21,
+    email: 'sonmhha@example.com',
+    password: 'so',
+    imageUrl: 'www.imageUrl.com',
+    status: 'unverified', // unverified or verified
+    isAdmin: false
+  },
+  {
+    id: 53,
+    firstName: 'sonmajkkl',
+    lastName: 'Enyiokwakll',
+    homeAddress: '3755 diamond str',
+    organization: 'sonmahjb integrated',
+    organizationAddress: '2t tope str',
+    email: 'sonmhha@example.com',
+    password: 'sonma123mmn',
+    imageUrl: 'www.imageUrl.com',
+    status: 'unverified', // unverified or verified
+    isAdmin: false
+  },
+  {
+    id: 53,
+    firstName: 'sonmajkkl',
+    lastName: 'Enyiokwakll',
+    homeAddress: '3755 diamond str',
+    organization: 'sonmahjb integrated',
+    organizationAddress: '2t tope str',
+    age: 15,
+    email: 'sonmhha@example.com',
+    password: 'sonma123mmn',
+    imageUrl: 'www.imageUrl.com',
+    status: 'unverified', // unverified or verified
+    isAdmin: false,
+  },
+  {
+    firstName: 'ejike',
+    lastName: 'igboko',
+    email: 'ejike112@yahoo.com',
+    password: 'ejike000'
+  },
+  {
+    email: 'both100@example.com',
+    password: 'develops'
+  },
+  {
+    email: '',
+    password: 'developer'
+  },
+  {
+    email: 'boths104',
+    password: 'developer'
+  },
+  {
+    email: 'boths104@example.com',
+    password: ''
+  },
+  {
+    email: 'boths104@example.com',
+    password: 'dev'
+  }
 ];
 
 export default users;
