@@ -137,15 +137,29 @@ header a {
     z-index: 30;
 }
 
-.signin {
+/* .signin {
 	margin-top: 100px;
 	padding: 10px;
 	margin: 10px;
 	font-family: sans-serif;
-}
+} */
 
 .signup {
 	font-family: sans-serif;
+	padding: 25px 30px;
+	box-shadow: 0 6px 8px 0 rgba(235, 235, 235, 0.9);
+	border-radius: 3px;
+	background: #fff;
+	max-width: 400px;
+	margin: 50px auto;
+
+}
+
+.signup input, .signin input{
+	border-radius: 5px;
+    outline: none;
+    border: #ddd 1px solid;
+    padding: 5px;
 }
 
 .loan_form {
@@ -153,8 +167,36 @@ header a {
 }
 
 .loan {
-	border: 1px solid #ffffff;
-	background: #ffffff;
+	border: 1px solid #fff;
+	background: #fff;
+	max-width: 550px;
+	border-radius: 5px;
+	box-shadow: 0 6px 8px 0 rgba(235, 235, 235, 0.9);
+	margin: 0 auto;
+	padding: 30px 10px 15px 10px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.loan input,
+.loan select {
+	outline: none;
+    background: #fcfcfc;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+}
+
+.loan input[type="submit"] {
+	color: #000;
+	font-weight: 600;
+}
+
+.bank-details {
+	margin-bottom: 25px;
+}
+
+.bank-details input:not(last-child) {
+	margin-bottom: 5px;
 }
 
 .loan-options {

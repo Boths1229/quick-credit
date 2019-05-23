@@ -1,4 +1,3 @@
-import debug from 'debug';
 import uuid from 'uuid';
 import { createToken } from '../helper/token';
 import Model from '../models/db';
@@ -11,9 +10,8 @@ class User {
 
 
   static async getAllUsers(req, res) {
-    const rows = await User.model().select('id, firstName, lastName, email, homeAddress, organization, organizationAddress, status');
-    
     try {
+      const rows = await User.model().select('id, firstName, lastName, email, homeAddress, organization, organizationAddress, status');
       if (rows.length === 0) {
         return res.status(400).json({
           message: 'No user found'
@@ -23,7 +21,7 @@ class User {
       return res.status(200).json({
         status: 200,
         data: rows,
-        
+
       });
     } catch (e) {
       return res.status(500).json({
@@ -33,54 +31,63 @@ class User {
   }
 
   static async signUp(req, res) {
-    const {
-      email, firstName, lastName, homeAddress, organization, organizationAddress, age
-    } = req.body;
+    try {
+      const {
+        email, firstName, lastName, homeAddress, organization, organizationAddress, age
+      } = req.body;
 
-    let { password } = req.body;
-    const token = createToken({
-      email, firstName, lastName
-    });
-    password = pass.hashPassword(password);
-    const { rows } = await User.model().insert(
-      'email, firstName, lastName, homeAddress, organization, organizationAddress, age, password',
-      `'${email}', '${firstName}', '${lastName}', '${homeAddress}', '${organization}', '${organizationAddress}', '${age}', '${password}'`
-    );
+      let { password } = req.body;
+      const token = createToken({
+        email, firstName, lastName
+      });
+      password = pass.hashPassword(password);
+      const { rows } = await User.model().insert(
+        'email, firstName, lastName, homeAddress, organization, organizationAddress, age, password',
+        `'${email}', '${firstName}', '${lastName}', '${homeAddress}', '${organization}', '${organizationAddress}', '${age}', '${password}'`
+      );
 
-    return res.status(201).json({
-      status: 201,
-      data: {
-        token,
-        id: uuid(), // id of newly created user
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email: req.body.email
-      }
-    });
+      return res.status(201).json({
+        status: 201,
+        data: {
+          token,
+          id: uuid(),
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
+          email: req.body.email
+        }
+      });
+    } catch (e) {
+      return res.status(500).json({
+        error: 'server error'
+      });
+    }
   }
 
   static async signIn(req, res) {
     try {
-      const { email, password, isAdmin } = req.body;
+      const { email, password } = req.body;
       const registered = await User.model().select('*', 'email=$1', [email]);
 
       if (registered && pass.decryptPassword(password, registered.password)) {
+        const isAdmin = registered.isadmin;
         const token = createToken({ email, password, isAdmin });
         return res.status(200).json({
           status: 200,
           data: {
             token,
-            id: uuid(), // user id
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            email: req.body.email
+            id: uuid(),
+            firstName: registered.firstname,
+            lastName: registered.lastname,
+            email: registered.email
           }
         });
       } return res.status(401).json({
         message: 'invalid email or password'
       });
-    } catch (err) {
-      console.log(err.message);
+    } catch (e) {
+      return res.status(500).json({
+        error: 'server error'
+      });
     }
   }
 
@@ -88,26 +95,34 @@ class User {
     try {
       const { email } = req.params;
       const rows = await User.model().update('status=$1', 'email=$2', ['verified', email]);
-      console.log(`${req.params.email}`, rows);
-      if (rows[0]) {
+      if (!rows) {
+        return res.status(404).json({
+          message: 'email not found'
+        });
+      }
+      // if (rows.status === 'verified') {
+      //   return res.status(409).json({
+      //     message: 'User already verified'
+      //   });
+      // }
+      if (rows) {
         return res.status(200).json({
           status: 200,
           data: {
-            email: rows[0].email,
-            firstName: rows[0].firstname,
-            lastName: rows[0].lastname,
-            password: rows[0].password,
-            homeaddress: rows[0].homeaddress,
-            organizationaddress: rows[0].organizationaddress,
-            status: rows[0].status,
+            email: rows.email,
+            firstName: rows.firstname,
+            lastName: rows.lastname,
+            password: rows.password,
+            homeaddress: rows.homeaddress,
+            organizationaddress: rows.organizationaddress,
+            status: rows.status,
           },
         });
       }
-      return res.status(404).json({
-        message: 'email not found'
+    } catch (e) {
+      return res.status(500).json({
+        error: 'server error'
       });
-    } catch (err) {
-      console.log(err.message);
     }
   }
 }
