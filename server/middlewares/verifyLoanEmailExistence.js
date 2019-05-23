@@ -12,10 +12,12 @@ const verifyLoanEmailExistence = async (req, res, next) => {
         message: 'email not found'
       });
     }
-    req.user = user
+    req.user = user;
     next();
-  } catch (err) {
-    console.log(err.message);
+  } catch (e) {
+    return res.status(500).json({
+      message: 'server error'
+    });
   }
 };
 

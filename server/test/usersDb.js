@@ -2,6 +2,7 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 import { exec } from 'child_process';
 import server from '../app';
+import users from '../models/users';
 
 
 chai.use(chaiHttp);
@@ -9,11 +10,8 @@ chai.use(chaiHttp);
 const { expect } = chai;
 describe('User test', () => {
   before((done) => {
-    const dump = 'psql -h localhost -d quick -U postgres -f test/testdb.sql';
+    const dump = 'psql -h localhost -d testdb -U postgres -f server/test/testdb.sql';
     exec(dump, (err) => {
-      if (err) {
-        console.log('Dump error');
-      }
       done();
     });
   });
@@ -23,27 +21,14 @@ describe('User test', () => {
       chai.request(server)
         .post('/api/v1/auth/signup')
         .set('Accept', 'application/json')
-        .send({
-          id: 53,
-          firstName: 'ejike',
-          lastName: 'igboko',
-          homeAddress: 'ugwueke',
-          organization: 'ejik ltd',
-          organizationAddress: 'ndielu',
-          age: 35,
-          email: 'ejike112345@yahoo.com',
-          password: 'ejike000',
-          imageUrl: 'www.imageUrl.com',
-          status: 'unverified', // unverified or verified
-          isAdmin: false,
-        })
+        .send(users[0])
         .end((err, res) => {
           expect(res.body).to.be.an('object');
           expect(res.body.data.token).to.be.a('string');
           expect(res.body.status).to.equal(201);
           expect(res.body.data.firstName).to.equal('ejike');
           expect(res.body.data.lastName).to.equal('igboko');
-          expect(res.body.data.email).to.equal('ejike112345@yahoo.com');
+          expect(res.body.data.email).to.equal('ejike1123@yahoo.com');
           done();
         });
     });
@@ -53,20 +38,7 @@ describe('User test', () => {
       chai.request(server)
         .post('/api/v1/auth/signup')
         .set('Accept', 'application/json')
-        .send({
-          id: 53,
-          firstName: 'sonmajkkl',
-          lastName: 'Enyiokwakll',
-          homeAddress: '3755 diamond str',
-          organization: 'sonmahjb integrated',
-          organizationAddress: '2t tope str',
-          age: 21,
-          email: 'ejike112@yahoo.com',
-          password: 'sonma123mmn',
-          imageUrl: 'www.imageUrl.com',
-          status: 'unverified', // unverified or verified
-          isAdmin: false,
-        })
+        .send(users[1])
         .end((err, res) => {
           expect(res.body).to.be.an('object');
           expect(res.statusCode).to.equal(409);
@@ -80,20 +52,7 @@ describe('User test', () => {
       chai.request(server)
         .post('/api/v1/auth/signup')
         .set('Accept', 'application/json')
-        .send({
-          id: 53,
-          firstName: '',
-          lastName: 'Enyiokwakll',
-          homeAddress: '3755 diamond str',
-          organization: 'sonmahjb integrated',
-          organizationAddress: '2t tope str',
-          age: 21,
-          email: '',
-          password: 'sonma123mmn',
-          imageUrl: 'www.imageUrl.com',
-          status: 'unverified', // unverified or verified
-          isAdmin: false,
-        })
+        .send(users[2])
         .end((err, res) => {
           const {
             firstName, email
@@ -112,20 +71,7 @@ describe('User test', () => {
       chai.request(server)
         .post('/api/v1/auth/signup')
         .set('Accept', 'application/json')
-        .send({
-          id: 53,
-          firstName: 'sonmajkkl',
-          lastName: 'Enyiokwakll',
-          homeAddress: '3755 diamond str',
-          organization: 'sonmahjb integrated',
-          organizationAddress: '2t tope str',
-          age: 21,
-          email: 'sonmhha',
-          password: 'sonma123mmn',
-          imageUrl: 'www.imageUrl.com',
-          status: 'unverified', // unverified or verified
-          isAdmin: false,
-        })
+        .send(users[3])
         .end((err, res) => {
           const {
             email
@@ -143,20 +89,7 @@ describe('User test', () => {
       chai.request(server)
         .post('/api/v1/auth/signup')
         .set('Accept', 'application/json')
-        .send({
-          id: 53,
-          firstName: 'sonmajkkl',
-          lastName: 'Enyiokwakll',
-          homeAddress: '3755 diamond str',
-          organization: 'sonmahjb integrated',
-          organizationAddress: '2t tope str',
-          age: 21,
-          email: 'sonmhha@example.com',
-          password: 'so',
-          imageUrl: 'www.imageUrl.com',
-          status: 'unverified', // unverified or verified
-          isAdmin: false,
-        })
+        .send(users[4])
         .end((err, res) => {
           const {
             password
@@ -174,19 +107,7 @@ describe('User test', () => {
       chai.request(server)
         .post('/api/v1/auth/signup')
         .set('Accept', 'application/json')
-        .send({
-          id: 53,
-          firstName: 'sonmajkkl',
-          lastName: 'Enyiokwakll',
-          homeAddress: '3755 diamond str',
-          organization: 'sonmahjb integrated',
-          organizationAddress: '2t tope str',
-          email: 'sonmhha@example.com',
-          password: 'sonma123mmn',
-          imageUrl: 'www.imageUrl.com',
-          status: 'unverified', // unverified or verified
-          isAdmin: false,
-        })
+        .send(users[5])
         .end((err, res) => {
           const {
             age
@@ -204,20 +125,7 @@ describe('User test', () => {
       chai.request(server)
         .post('/api/v1/auth/signup')
         .set('Accept', 'application/json')
-        .send({
-          id: 53,
-          firstName: 'sonmajkkl',
-          lastName: 'Enyiokwakll',
-          homeAddress: '3755 diamond str',
-          organization: 'sonmahjb integrated',
-          organizationAddress: '2t tope str',
-          age: 15,
-          email: 'sonmhha@example.com',
-          password: 'sonma123mmn',
-          imageUrl: 'www.imageUrl.com',
-          status: 'unverified', // unverified or verified
-          isAdmin: false,
-        })
+        .send(users[6])
         .end((err, res) => {
           const {
             age
@@ -235,12 +143,7 @@ describe('User test', () => {
       chai.request(server)
         .post('/api/v1/auth/signin')
         .set('Accept', 'application/json')
-        .send({
-          firstName: 'ejike',
-          lastName: 'igboko',
-          email: 'ejike112@yahoo.com',
-          password: 'ejike000'
-        })
+        .send(users[7])
         .end((err, res) => {
           expect(res.body).to.be.an('object');
           expect(res.body.data.token).to.be.a('string');
@@ -258,10 +161,7 @@ describe('User test', () => {
       chai.request(server)
         .post('/api/v1/auth/signin')
         .set('Accept', 'application/json')
-        .send({
-          email: 'both100@example.com',
-          password: 'develops'
-        })
+        .send(users[8])
         .end((err, res) => {
           expect(res.body).to.be.an('object');
           expect(res.statusCode).to.equal(401);
@@ -276,10 +176,7 @@ describe('User test', () => {
       chai.request(server)
         .post('/api/v1/auth/signin')
         .set('Accept', 'application/json')
-        .send({
-          email: '',
-          password: 'developer'
-        })
+        .send(users[9])
         .end((err, res) => {
           expect(res.body).to.be.an('object');
           expect(res.statusCode).to.equal(400);
@@ -294,10 +191,7 @@ describe('User test', () => {
       chai.request(server)
         .post('/api/v1/auth/signin')
         .set('Accept', 'application/json')
-        .send({
-          email: 'boths104',
-          password: 'developer'
-        })
+        .send(users[10])
         .end((err, res) => {
           expect(res.body).to.be.an('object');
           expect(res.statusCode).to.equal(400);
@@ -312,10 +206,7 @@ describe('User test', () => {
       chai.request(server)
         .post('/api/v1/auth/signin')
         .set('Accept', 'application/json')
-        .send({
-          email: 'boths104@example.com',
-          password: ''
-        })
+        .send(users[11])
         .end((err, res) => {
           expect(res.body).to.be.an('object');
           expect(res.statusCode).to.equal(400);
@@ -330,10 +221,7 @@ describe('User test', () => {
       chai.request(server)
         .post('/api/v1/auth/signin')
         .set('Accept', 'application/json')
-        .send({
-          email: 'boths104@example.com',
-          password: 'dev'
-        })
+        .send(users[12])
         .end((err, res) => {
           expect(res.body).to.be.an('object');
           expect(res.statusCode).to.equal(400);
@@ -346,19 +234,16 @@ describe('User test', () => {
   describe('Mark a user verified api/v1/users/:email/verify', () => {
     it('should return verify successful', (done) => {
       chai.request(server)
-        .patch('/api/v1/users/ejike112@yahoo.com/verify')
+        .patch('/api/v1/users/boths1040@yahoo.com/verify')
         .set('Accept', 'application/json')
-      //   .send({
-        //     status: 'verified'
-        //   })
         .end((err, res) => {
           expect(res.body).to.be.an('object');
           expect(res.status).to.equal(200);
-          expect(res.body.data.email).to.equal('ejike112@yahoo.com');
-          expect(res.body.data.firstName).to.equal('ejike');
-          expect(res.body.data.lastName).to.equal('igboko');
-          expect(res.body.data.homeaddress).to.equal('ejik ltd');
-          expect(res.body.data.organizationaddress).to.equal('ugwueke');
+          expect(res.body.data.email).to.equal('boths1040@yahoo.com');
+          expect(res.body.data.firstName).to.equal('Ade');
+          expect(res.body.data.lastName).to.equal('Adeja');
+          expect(res.body.data.homeaddress).to.equal('oniru');
+          expect(res.body.data.organizationaddress).to.equal('123 broad street');
           expect(res.body.data.status).to.equal('verified');
           done();
         });
@@ -370,9 +255,6 @@ describe('User test', () => {
       chai.request(server)
         .patch('/api/v1/users/bo4@example/verify')
         .set('Accept', 'application/json')
-        //   .send({
-      //     status: 'verified'
-      //   })
         .end((err, res) => {
           expect(res.body).to.be.an('object');
           expect(res.status).to.equal(404);

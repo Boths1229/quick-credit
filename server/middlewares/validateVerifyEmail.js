@@ -4,7 +4,7 @@ const model = new Model('users');
 
 const validateVerifyEmail = async (req, res, next) => {
   try {
-    const email = req.params.email;
+    const { email } = req.params;
     const user = await model.select('*', 'email=$1', [email]);
 
     if (!user) {
@@ -13,8 +13,10 @@ const validateVerifyEmail = async (req, res, next) => {
       });
     }
     next();
-  } catch (err) {
-    console.log(err.message);
+  } catch (e) {
+    return res.status(500).json({
+      message: 'server error'
+    });
   }
 };
 

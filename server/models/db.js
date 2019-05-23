@@ -5,7 +5,13 @@ class Model {
   constructor(table) {
     this.table = table;
 
-    this.pool = new Pool();
+    this.pool = new Pool({
+      user: 'postgres',
+      host: 'localhost',
+      port: 5432,
+      database: 'quick',
+      password: 'makky3491'
+    });
 
     this.pool.on('error', (err, client) => {
       console.log('error');
@@ -13,36 +19,36 @@ class Model {
   }
 
   async select(columns, clause, values) {
-    let query;
-    if (clause) {
-      query = `SELECT ${columns} FROM ${this.table} WHERE ${clause}`;
-    } else {
-      query = `SELECT ${columns} FROM ${this.table}`;
+    try {
+      let query;
+      if (clause) {
+        query = `SELECT ${columns} FROM ${this.table} WHERE ${clause}`;
+      } else {
+        query = `SELECT ${columns} FROM ${this.table}`;
+      }
+      const { rows } = await this.pool.query(query, values);
+      return rows[0];
+    } catch (err) {
+      throw err;
     }
-    console.log(query);
-    const { rows } = await this.pool.query(query, values);
-    console.log(rows[0]);
-    return rows[0];
   }
 
-  async insert(columns, values, clause) {
-    let query;
-    if (clause) {
-      query = `INSERT INTO ${this.table} (${columns}) VALUES (${values}) WHERE ${clause}`;
-    } else {
-      query = `INSERT INTO ${this.table} (${columns}) VALUES (${values})`;
+  async insert(columns, selector, values) {
+    const query = `INSERT INTO ${this.table} (${columns}) VALUES (${selector}) returning *`;
+    try {
+      console.log(query);
+      const { rows } = await this.pool.query(query, values);
+      return rows[0];
+    } catch (err) {
+      throw err;
     }
-    // const query = `INSERT INTO ${this.table} (${columns}) VALUES (${values})`;
-    console.log(query);
-    const data = await this.pool.query(query);
-    return data.rows;
   }
 
   async update(columns, clause, values) {
     const query = `UPDATE ${this.table} SET ${columns} WHERE ${clause} returning *`;
     try {
-      const data = await this.pool.query(query, values);
-      return data.rows;
+      const { rows } = await this.pool.query(query, values);
+      return rows[0];
     } catch (err) {
       throw err;
     }

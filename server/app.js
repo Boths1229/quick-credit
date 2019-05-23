@@ -13,10 +13,8 @@ const app = express();
 
 const { port, env } = config;
 
-// Log requests to the console
 app.use(logger('dev'));
 
-// Parse incoming request data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -24,14 +22,13 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 const Debug = debug('http');
 Routes(app);
-// set up a default catch-all route
-app.get('*', (req, res) => {
+
+app.get('/api/v1', (req, res) => {
   res.json({ message: 'welcome to default routes' });
 });
 
-if (env !== 'test') {
-  app.listen(port, () => {
-    Debug(`Server starting on port: ${port}`);
-  });
-}
+app.listen(port, () => {
+  Debug(`Server starting on port: ${port}`);
+});
+
 export default app;

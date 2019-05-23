@@ -1,6 +1,3 @@
-import uuid from 'uuid';
-import loan from '../models/loans';
-import loanRepaymentRecord from '../models/loanRepaymentRecord';
 import Model from '../models/db';
 
 
@@ -9,67 +6,87 @@ class LoanRepayment {
     return new Model('loanRepayment');
   }
 
-  // static async getRepaidAndCurrentLoans(req, res) {
-  //   const { repaid } = req.query;
-  //   const rows = await LoanRepayment.model().select('*', 'status=approved and repaid=$1', [repaid]);
-  //   try {
-  //     if (rows.length === 0) {
-  //       return res.status(404).json({
-  //         message: 'No user found'
-  //       });
-  //     }
-
-  //     return res.status(200).json({
-  //       status: 200,
-  //       data: rows
-  //     });
-  //   } catch (e) {
-  //     return res.status(500).json({
-  //       error: 'server error'
-  //     });
-  //   }
-  // }
-
-  static postLOanRepayments(req, res) {
-    const getLoanId = req.params.loanid;
-    const paymentHistory = {
-      id: loanRepaymentRecord.length + 1,
-      createdOn: new Date(),
-      loanId: Number(getLoanId),
-      amount: req.body.amount,
-      monthlyInstallment: req.body.monthlyInstallment,
-      paidAmount: req.body.paidAmount,
-      balance: parseFloat(req.body.balance),
-    };
-    loanRepaymentRecord.push(paymentHistory);
-    return res.status(201).json({
-      message: 'payment posting successful',
-      status: 201,
-      data: {
-        id: paymentHistory.id,
-        loanId: paymentHistory.loanId,
-        createdOn: paymentHistory.createdOn,
-        amount: paymentHistory.amount,
-        monthlyInstallment: paymentHistory.monthlyInstallment,
-        paidAmount: paymentHistory.paidAmount,
-        balance: paymentHistory.balance,
-      },
-    });
+  static loans() {
+    return new Model('loans');
   }
 
-  static getRepaymentRecord(req, res) {
-    const loanRecord = loanRepaymentRecord.find(user => user.loanId === parseInt((req.params.loanid), 10));
+  static async postLoanRepayments(req, res) {
+    try {
+      const { paidAmount } = req.body;
+      const monthlyInstallment = req.loan.paymentinstallment;
+      if (req.loan.status !== 'approved') {
+        return res.status(409).json({
+          message: `this loanid ${req.body.loanid} is not yet approved`
+        });
+      }
+      if (parseFloat(paidAmount) !== parseFloat(monthlyInstallment)) {
+        return res.status(409).json({
+          message: `you are expected to pay ${monthlyInstallment}`
+        });
+      }
 
-    if (!loanRecord) {
-      return res.status(404).json({
-        message: `loan with id:${req.params.loanid} not found`,
+      const rows = await LoanRepayment.model().insert('loanid, amount', '$1, $2', [req.loan.loanid, paidAmount]);
+      const newRepayment = rows;
+
+      req.loan.balance -= paidAmount;
+
+      const loan = await LoanRepayment.updateLoanAfterRepayment(req.loan.loanid, req.loan.balance);
+
+      return res.status(200).json({
+        status: 200,
+        data: {
+          id: newRepayment.id,
+          loanId: req.loan.loanid,
+          createdon: newRepayment.createdon,
+          amount: loan.amount,
+          monthlyInstallment: loan.paymentinstallment,
+          paidAmount: newRepayment.amount,
+          balance: loan.balance,
+          status: loan.status,
+          repaid: loan.repaid
+        }
+      });
+    } catch (e) {
+      return res.status(500).json({
+        message: 'server error'
       });
     }
-    return res.status(200).json({
-      message: 'your loan repayment history',
-      status: 200,
-      data: loanRecord
-    });
+  }
+
+  static async updateLoanAfterRepayment(loanid, balance) {
+    try {
+      const updatedLoan = {};
+      if (balance < 1) {
+        const rows = await LoanRepayment.loans().update('balance=$1, repaid=$2', 'id=$3', [balance, true, loanid]);
+
+        return rows;
+      }
+      // eslint-disable-next-line no-undef
+      const rows = await LoanRepayment.loans().update('balance=$1', 'id=$2', [balance, loanid]);
+      return rows;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  static async getRepaymentRecord(req, res) {
+    try {
+      const rows = await LoanRepayment.loans().select('loanid, createdon, paymentinstallment, amount, balance', `id=${req.loan.loanid}`);
+      if (rows.length === 0) {
+        return res.status(400).json({
+          message: 'loan repayment not found'
+        });
+      }
+
+      return res.status(200).json({
+        status: 200,
+        data: rows
+      });
+    } catch (e) {
+      return res.status(500).json({
+        message: 'server error'
+      });
+    }
   }
 }
 
