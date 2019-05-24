@@ -24,7 +24,7 @@ const Debug = debug('http');
 // Routes(app);
 app.use('/api/v1', Routes);
 
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
   res.json({ message: 'welcome to default routes' });
 });
 
