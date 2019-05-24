@@ -61,6 +61,7 @@ INSERT INTO loans (
   repaid, balance, interest, createdon )
    VALUES (
        1,
+       1,
       'ejike',
       'igboko',
       'ejike112@yahoo.com',
@@ -70,6 +71,8 @@ INSERT INTO loans (
       123456789,
       15750,
       'approved',
+      false,
+      63000,
       3000,
       '2019-05-23 17:00:59 611456'
 );
