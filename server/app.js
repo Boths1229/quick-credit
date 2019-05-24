@@ -21,9 +21,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 const Debug = debug('http');
-Routes(app);
+// Routes(app);
+app.use('/api/v1', Routes);
 
-app.get('/api/v1', (req, res) => {
+app.get('/', (req, res) => {
   res.json({ message: 'welcome to default routes' });
 });
 

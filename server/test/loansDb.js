@@ -24,9 +24,9 @@ describe('possible loan routes', () => {
         .end((err, res) => {
           expect(res.body).to.be.an('object');
           expect(res.status).to.equal(201);
-          expect(res.body.data.firstName).to.equal('amaka');
-          expect(res.body.data.lastName).to.equal('chuks');
-          expect(res.body.data.email).to.equal('amaka@yahoo.com');
+          expect(res.body.data.firstName).to.equal('ejike');
+          expect(res.body.data.lastName).to.equal('igboko');
+          expect(res.body.data.email).to.equal('ejike112@yahoo.com');
           expect(res.body.data.tenor).to.equal('6');
           expect(res.body.data.amount).to.equal(50000);
           expect(res.body.data.interest).to.equal(2500);
@@ -63,7 +63,7 @@ describe('possible loan routes', () => {
           expect(res.body.data.createdon).to.equal("2019-05-23T17:43:16.105Z");
           expect(res.body.data.paymentinstallment).to.equal(15750);
           expect(res.body.data.amount).to.equal(60000);
-          expect(res.body.data.balance).to.equal(47250);
+          expect(res.body.data.balance).to.equal(15750);
           done();
         });
     });
@@ -78,14 +78,14 @@ describe('possible loan routes', () => {
         .end((err, res) => {
           expect(res.body).to.be.an('object');
           expect(res.status).to.equal(200);
-          expect(res.body.data.firstname).to.equal('Ade');
-          expect(res.body.data.lastname).to.equal('Adeja');
-          expect(res.body.data.email).to.equal('boths1040@yahoo.com');
+          expect(res.body.data.firstname).to.equal('ejike');
+          expect(res.body.data.lastname).to.equal('igboko');
+          expect(res.body.data.email).to.equal('ejike112@yahoo.com');
           expect(res.body.data.tenor).to.equal('4');
           expect(res.body.data.amount).to.equal(60000);
           expect(res.body.data.status).to.equal('approved');
           expect(res.body.data.paymentinstallment).to.equal(15750);
-          expect(res.body.data.repaid).to.equal(false);
+          expect(res.body.data.repaid).to.equal(true);
           expect(res.body.data.createdon).to.equal("2019-05-23T16:00:59.611Z");
           done();
         });
@@ -100,14 +100,14 @@ describe('possible loan routes', () => {
         .end((err, res) => {
           expect(res.body).to.be.an('object');
           expect(res.status).to.equal(200);
-          expect(res.body.data.firstname).to.equal('Ade');
-          expect(res.body.data.lastname).to.equal('Adeja');
-          expect(res.body.data.email).to.equal('boths1040@yahoo.com');
+          expect(res.body.data.firstname).to.equal('ejike');
+          expect(res.body.data.lastname).to.equal('igboko');
+          expect(res.body.data.email).to.equal('ejike112@yahoo.com');
           expect(res.body.data.tenor).to.equal('4');
           expect(res.body.data.amount).to.equal(60000);
           expect(res.body.data.status).to.equal('approved');
           expect(res.body.data.paymentinstallment).to.equal(15750);
-          expect(res.body.data.repaid).to.equal(false);
+          expect(res.body.data.repaid).to.equal(true);
           expect(res.body.data.createdon).to.equal("2019-05-23T16:00:59.611Z");
           done();
         });
@@ -122,14 +122,14 @@ describe('possible loan routes', () => {
         .end((err, res) => {
           expect(res.body).to.be.an('object');
           expect(res.status).to.equal(200);
-          expect(res.body.data.firstname).to.equal('Ade');
-          expect(res.body.data.lastname).to.equal('Adeja');
-          expect(res.body.data.email).to.equal('boths1040@yahoo.com');
+          expect(res.body.data.firstname).to.equal('ejike');
+          expect(res.body.data.lastname).to.equal('igboko');
+          expect(res.body.data.email).to.equal('ejike112@yahoo.com');
           expect(res.body.data.tenor).to.equal('4');
           expect(res.body.data.amount).to.equal(60000);
           expect(res.body.data.status).to.equal('approved');
           expect(res.body.data.paymentinstallment).to.equal(15750);
-          expect(res.body.data.repaid).to.equal(false);
+          expect(res.body.data.repaid).to.equal(true);
           expect(res.body.data.createdon).to.equal("2019-05-23T16:00:59.611Z");
           done();
         });

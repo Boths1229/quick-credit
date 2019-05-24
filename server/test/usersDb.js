@@ -28,7 +28,7 @@ describe('User test', () => {
           expect(res.body.status).to.equal(201);
           expect(res.body.data.firstName).to.equal('ejike');
           expect(res.body.data.lastName).to.equal('igboko');
-          expect(res.body.data.email).to.equal('ejike1123@yahoo.com');
+          expect(res.body.data.email).to.equal('ejike11234@yahoo.com');
           done();
         });
     });
