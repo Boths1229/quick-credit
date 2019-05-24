@@ -58,7 +58,7 @@ CREATE TABLE loans(
 );
 INSERT INTO loans (
   id, loanid, firstname, lastname, email, tenor, amount, bankname, accountnumber, paymentinstallment, status, 
-  repaid, balance, interest, createdon )
+  repaid, balance, interest )
    VALUES (
        1,
        1,
@@ -83,7 +83,7 @@ CREATE TABLE loanRepayment(
   amount FLOAT(2) NOT NULL
 ); 
 INSERT INTO loanRepayment (
-  id, loanid, createdon, amount )
+  id, loanid, amount )
    VALUES (
        1,
        15750
