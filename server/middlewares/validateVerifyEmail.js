@@ -12,6 +12,11 @@ const validateVerifyEmail = async (req, res, next) => {
         message: 'email not found'
       });
     }
+    if (user.status === 'verified') {
+      return res.status(409).json({
+        message: 'User already verified'
+      });
+    }
     next();
   } catch (e) {
     return res.status(500).json({

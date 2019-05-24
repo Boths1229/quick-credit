@@ -48,6 +48,7 @@ class User {
 
       return res.status(201).json({
         status: 201,
+        message: 'signup successful',
         data: {
           token,
           id: uuid(),
@@ -73,6 +74,7 @@ class User {
         const token = createToken({ email, password, isAdmin });
         return res.status(200).json({
           status: 200,
+          message: 'signin successful',
           data: {
             token,
             id: uuid(),
@@ -100,14 +102,10 @@ class User {
           message: 'email not found'
         });
       }
-      // if (rows.status === 'verified') {
-      //   return res.status(409).json({
-      //     message: 'User already verified'
-      //   });
-      // }
       if (rows) {
         return res.status(200).json({
           status: 200,
+          message: 'user verified',
           data: {
             email: rows.email,
             firstName: rows.firstname,

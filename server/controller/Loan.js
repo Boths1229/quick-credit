@@ -17,15 +17,16 @@ class Loan {
       const calcPaymentInstallment = parseFloat((calcAmount + calcInterest) / req.body.tenor);
       const balance = calcAmount + calcInterest;
       const newLoan = await Loan.model().insert(
-        'email, firstName, lastName, tenor, amount, paymentInstallment, interest, bankName, accountNumber, balance',
+        'email, firstname, lastname, tenor, amount, paymentinstallment, interest, bankname, accountnumber, balance',
         '$1, $2, $3, $4, $5, $6, $7, $8, $9, $10',
         [req.user.email, req.user.firstname, req.user.lastname, tenor, amount, calcPaymentInstallment, calcInterest, bankName, accountNumber, balance]
       );
       console.log(req.user.firstname);
       return res.status(201).json({
         status: 201,
+        message: 'loan application successful',
         data: {
-          id: uuid(), // id of newly created user
+          id: uuid(),
           firstName: newLoan.firstname,
           lastName: newLoan.lastname,
           email: newLoan.email,

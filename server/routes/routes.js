@@ -1,3 +1,4 @@
+import express from 'express';
 import User from '../controller/User';
 import Loan from '../controller/Loan';
 import LoanRepayment from '../controller/loanRepayment';
@@ -18,21 +19,21 @@ const {
   applyLoan, getAllLoans, getRepaidAndCurrentLoans, getSpecificLoan, approveReject
 } = Loan;
 const { postLoanRepayments, getRepaymentRecord } = LoanRepayment;
+const router = express.Router();
 
-export default (app) => {
-  // Users
-  app.post('/api/v1/auth/signup', validateRegisterationCredentials, validateEmailExistence, signUp);
-  app.post('/api/v1/auth/signin', validateSigninCredentials, signIn);
-  app.patch('/api/v1/users/:email/verify', isAdmin, validateVerifyEmail, verifyUser);
-  app.get('/api/v1/users', isAdmin, getAllUsers);
+router.post('/auth/signup', validateRegisterationCredentials, validateEmailExistence, signUp);
+router.post('/auth/signin', validateSigninCredentials, signIn);
+router.patch('/users/:email/verify', isAdmin, validateVerifyEmail, verifyUser);
+router.get('/users', isAdmin, getAllUsers);
 
-  // Loans
-  app.post('/api/v1/loans', validateApplyLoanCredentials, verifyToken, verifyLoanEmailExistence, applyLoan);
-  app.get('/api/v1/loans', isAdmin, getAllLoans);
-  app.get('/api/v1/loans?status=approved&repaid=true', isAdmin, getRepaidAndCurrentLoans);
-  app.get('/api/v1/loans?status=approved&repaid=false', isAdmin, getRepaidAndCurrentLoans);
-  app.get('/api/v1/loans/:id', isAdmin, getSpecificLoan);
-  app.patch('/api/v1/loans/:loanid', isAdmin, approveReject);
-  app.post('/api/v1/loans/:loanid/repayments', isAdmin, postPayment, postLoanRepayments);
-  app.get('/api/v1/loans/:loanid/repayments', verifyToken, postPayment, getRepaymentRecord);
-};
+// Loans
+router.post('/loans', validateApplyLoanCredentials, verifyToken, verifyLoanEmailExistence, applyLoan);
+router.get('/loans', isAdmin, getAllLoans);
+router.get('/loans?status=approved&repaid=true', isAdmin, getRepaidAndCurrentLoans);
+router.get('/loans?status=approved&repaid=false', isAdmin, getRepaidAndCurrentLoans);
+router.get('/loans/:id', isAdmin, getSpecificLoan);
+router.patch('/loans/:loanid', isAdmin, approveReject);
+router.post('/loans/:loanid/repayments', isAdmin, postPayment, postLoanRepayments);
+router.get('/loans/:loanid/repayments', verifyToken, postPayment, getRepaymentRecord);
+
+export default router;
