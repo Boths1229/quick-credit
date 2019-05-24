@@ -4,6 +4,7 @@ import logger from 'morgan';
 import bodyParser from 'body-parser';
 import debug from 'debug';
 import swaggerUi from 'swagger-ui-express';
+import cors from 'cors';
 import config from './config/config';
 import Routes from './routes/routes';
 import swaggerDocument from '../swagger';
@@ -19,6 +20,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+app.use(cors());
 
 const Debug = debug('http');
 // Routes(app);
