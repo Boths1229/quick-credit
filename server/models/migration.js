@@ -73,8 +73,7 @@ INSERT INTO loans (
       'approved',
       false,
       63000,
-      3000,
-      '2019-05-23 17:00:59 611456'
+      3000
 );
 DROP TABLE IF EXISTS loanRepayment CASCADE;
 CREATE TABLE loanRepayment(
@@ -87,7 +86,6 @@ INSERT INTO loanRepayment (
   id, loanid, createdon, amount )
    VALUES (
        1,
-       '2019-05-23 17:04:09 53901',
        15750
 );
 `);
