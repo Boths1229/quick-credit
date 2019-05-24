@@ -86,6 +86,7 @@ INSERT INTO loanRepayment (
   id, loanid, amount )
    VALUES (
        1,
+       1,
        15750
 );
 `);
