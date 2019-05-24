@@ -42,7 +42,7 @@ class Loan {
       });
     } catch (e) {
       return res.status(500).json({
-        message: 'server error'
+        message: e.message,
       });
     }
   }
