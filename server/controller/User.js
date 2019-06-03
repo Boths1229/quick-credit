@@ -24,7 +24,8 @@ class User {
       });
     } catch (e) {
       return res.status(500).json({
-        error: 'server error'
+        error: 'server error',
+        e
       });
     }
   }
