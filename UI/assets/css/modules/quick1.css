@@ -150,7 +150,7 @@
     }
 
     .aside-text:nth-child(even) {
-        background-color: #fff
+        /* background-color: #fff */
     }
 }
 

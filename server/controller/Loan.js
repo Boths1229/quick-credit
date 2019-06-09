@@ -1,4 +1,3 @@
-import uuid from 'uuid';
 import Model from '../models/db';
 
 
@@ -26,7 +25,7 @@ class Loan {
         status: 201,
         message: 'loan application successful',
         data: {
-          id: uuid(),
+          id: newLoan.id,
           firstName: newLoan.firstname,
           lastName: newLoan.lastname,
           email: newLoan.email,
@@ -42,7 +41,7 @@ class Loan {
       });
     } catch (e) {
       return res.status(500).json({
-        message: 'server error'
+        message: e.message,
       });
     }
   }

@@ -59,7 +59,8 @@ class User {
       });
     } catch (e) {
       return res.status(500).json({
-        error: 'server error'
+        error: e.message,
+        e
       });
     }
   }
@@ -77,7 +78,7 @@ class User {
           message: 'signin successful',
           data: {
             token,
-            id: uuid(),
+            id: registered.id,
             firstName: registered.firstname,
             lastName: registered.lastname,
             email: registered.email
@@ -88,7 +89,8 @@ class User {
       });
     } catch (e) {
       return res.status(500).json({
-        error: 'server error'
+        error: 'server error',
+        e
       });
     }
   }
