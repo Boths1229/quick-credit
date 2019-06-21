@@ -12,7 +12,7 @@ pool.on('error', (err) => {
 const migrate = pool.query(`DROP TABLE IF EXISTS users CASCADE;
 CREATE TABLE users(
 	Id SERIAL NOT NULL PRIMARY KEY,
-	firstName VARCHAR NOT NULL,
+	firstName VARCHAR NOT NULL,k
 	lastName VARCHAR NOT NULL,
   homeAddress VARCHAR NOT NULL,
   organization VARCHAR NOT NULL,
