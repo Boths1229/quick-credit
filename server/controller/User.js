@@ -1,4 +1,3 @@
-import uuid from 'uuid';
 import { createToken } from '../helper/token';
 import Model from '../models/db';
 import pass from '../helper/password';
@@ -41,7 +40,7 @@ class User {
         email, firstName, lastName
       });
       password = pass.hashPassword(password);
-      const { rows } = await User.model().insert(
+      const rows = await User.model().insert(
         'email, firstName, lastName, homeAddress, organization, organizationAddress, age, password',
         `'${email}', '${firstName}', '${lastName}', '${homeAddress}', '${organization}', '${organizationAddress}', '${age}', '${password}'`
       );
@@ -51,10 +50,10 @@ class User {
         message: 'signup successful',
         data: {
           token,
-          id: uuid(),
-          firstName: req.body.firstName,
-          lastName: req.body.lastName,
-          email: req.body.email
+          id: rows.id,
+          firstName: rows.firstname,
+          lastName: rows.lastname,
+          email: rows.email
         }
       });
     } catch (e) {
