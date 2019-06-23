@@ -1,9 +1,9 @@
 const loans = [
   {
     loanId: 1,
-    firstName: 'amaka',
-    lastName: 'chuks',
-    email: 'amaka@yahoo.com',
+    firstName: 'ejike',
+    lastName: 'igboko',
+    email: 'ejike112@yahoo.com',
     tenor: '6',
     amount: 50000.00,
     paymentInstallment: 8750,

@@ -12,7 +12,7 @@ pool.on('error', (err) => {
 const migrate = pool.query(`DROP TABLE IF EXISTS users CASCADE;
 CREATE TABLE users(
 	Id SERIAL NOT NULL PRIMARY KEY,
-	firstName VARCHAR NOT NULL,
+	firstName VARCHAR NOT NULL,k
 	lastName VARCHAR NOT NULL,
   homeAddress VARCHAR NOT NULL,
   organization VARCHAR NOT NULL,
@@ -58,8 +58,9 @@ CREATE TABLE loans(
 );
 INSERT INTO loans (
   id, loanid, firstname, lastname, email, tenor, amount, bankname, accountnumber, paymentinstallment, status, 
-  repaid, balance, interest, createdon )
+  repaid, balance, interest )
    VALUES (
+       1,
        1,
       'ejike',
       'igboko',
@@ -70,8 +71,9 @@ INSERT INTO loans (
       123456789,
       15750,
       'approved',
-      3000,
-      '2019-05-23 17:00:59 611456'
+      false,
+      63000,
+      3000
 );
 DROP TABLE IF EXISTS loanRepayment CASCADE;
 CREATE TABLE loanRepayment(
@@ -81,10 +83,10 @@ CREATE TABLE loanRepayment(
   amount FLOAT(2) NOT NULL
 ); 
 INSERT INTO loanRepayment (
-  id, loanid, createdon, amount )
+  id, loanid, amount )
    VALUES (
        1,
-       '2019-05-23 17:04:09 53901',
+       1,
        15750
 );
 `);

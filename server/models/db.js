@@ -1,16 +1,14 @@
+import dotenv from 'dotenv';
 import { Pool } from 'pg';
 import debug from 'debug';
 
+dotenv.config();
 class Model {
   constructor(table) {
     this.table = table;
 
     this.pool = new Pool({
-      user: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      database: 'quick',
-      password: 'makky3491'
+      connectionString: process.env.DB_URL
     });
 
     this.pool.on('error', (err, client) => {

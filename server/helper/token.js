@@ -7,9 +7,6 @@ export const createToken = (data) => {
 };
 
 export const verifyToken = (req, res, next) => {
-  if (process.env.NODE_ENV.trim() === 'test') {
-    return next();
-  }
   const token = req.headers.authorization || req.params.token || req.headers['x-access-token'] || req.body.token;
   if (!token) {
     return res.status(403).json({

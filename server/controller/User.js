@@ -1,4 +1,3 @@
-import uuid from 'uuid';
 import { createToken } from '../helper/token';
 import Model from '../models/db';
 import pass from '../helper/password';
@@ -25,7 +24,8 @@ class User {
       });
     } catch (e) {
       return res.status(500).json({
-        error: 'server error'
+        error: 'server error',
+        e
       });
     }
   }
@@ -41,24 +41,26 @@ class User {
         email, firstName, lastName
       });
       password = pass.hashPassword(password);
-      const { rows } = await User.model().insert(
+      const rows = await User.model().insert(
         'email, firstName, lastName, homeAddress, organization, organizationAddress, age, password',
         `'${email}', '${firstName}', '${lastName}', '${homeAddress}', '${organization}', '${organizationAddress}', '${age}', '${password}'`
       );
 
       return res.status(201).json({
         status: 201,
+        message: 'signup successful',
         data: {
           token,
-          id: uuid(),
-          firstName: req.body.firstName,
-          lastName: req.body.lastName,
-          email: req.body.email
+          id: rows.id,
+          firstName: rows.firstname,
+          lastName: rows.lastname,
+          email: rows.email
         }
       });
     } catch (e) {
       return res.status(500).json({
-        error: 'server error'
+        error: e.message,
+        e
       });
     }
   }
@@ -73,9 +75,10 @@ class User {
         const token = createToken({ email, password, isAdmin });
         return res.status(200).json({
           status: 200,
+          message: 'signin successful',
           data: {
             token,
-            id: uuid(),
+            id: registered.id,
             firstName: registered.firstname,
             lastName: registered.lastname,
             email: registered.email
@@ -86,7 +89,8 @@ class User {
       });
     } catch (e) {
       return res.status(500).json({
-        error: 'server error'
+        error: 'server error',
+        e
       });
     }
   }
@@ -100,14 +104,10 @@ class User {
           message: 'email not found'
         });
       }
-      // if (rows.status === 'verified') {
-      //   return res.status(409).json({
-      //     message: 'User already verified'
-      //   });
-      // }
       if (rows) {
         return res.status(200).json({
           status: 200,
+          message: 'user verified',
           data: {
             email: rows.email,
             firstName: rows.firstname,

@@ -31,6 +31,11 @@ class LoanRepayment {
       req.loan.balance -= paidAmount;
 
       const loan = await LoanRepayment.updateLoanAfterRepayment(req.loan.loanid, req.loan.balance);
+      if (req.loan.balance < 1) {
+        return res.status(409).json({
+          message: 'Loan fully repaid'
+        });
+      }
 
       return res.status(200).json({
         status: 200,
@@ -56,6 +61,11 @@ class LoanRepayment {
   static async updateLoanAfterRepayment(loanid, balance) {
     try {
       const updatedLoan = {};
+      // if (balance === 0) {
+      //   return res.status(409).json({
+      //     message: 'Loan fully repaid'
+      //   })
+      // }
       if (balance < 1) {
         const rows = await LoanRepayment.loans().update('balance=$1, repaid=$2', 'id=$3', [balance, true, loanid]);
 

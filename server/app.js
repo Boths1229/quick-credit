@@ -4,6 +4,7 @@ import logger from 'morgan';
 import bodyParser from 'body-parser';
 import debug from 'debug';
 import swaggerUi from 'swagger-ui-express';
+import cors from 'cors';
 import config from './config/config';
 import Routes from './routes/routes';
 import swaggerDocument from '../swagger';
@@ -20,10 +21,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-const Debug = debug('http');
-Routes(app);
+app.use(cors());
 
-app.get('/api/v1', (req, res) => {
+const Debug = debug('http');
+// Routes(app);
+app.use('/api/v1', Routes);
+
+app.get('/', (req, res) => {
   res.json({ message: 'welcome to default routes' });
 });
 

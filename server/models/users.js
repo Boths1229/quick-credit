@@ -7,7 +7,7 @@ const users = [
     organization: 'ejik ltd',
     organizationAddress: 'ndielu',
     age: 35,
-    email: 'ejike1123@yahoo.com',
+    email: 'ejike11234@yahoo.com',
     password: 'ejike000',
     imageUrl: 'www.imageUrl.com',
     status: 'unverified', // unverified or verified
